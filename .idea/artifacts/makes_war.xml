@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="makes:war">
+    <output-path>$PROJECT_DIR$/Makes/makes/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>makes</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="makes-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="makes:war exploded" />
+    </root>
+  </artifact>
+</component>

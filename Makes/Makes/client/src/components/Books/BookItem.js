@@ -10,12 +10,8 @@ const BookItem = (props) => {
     const ClickedHandler = () => {
     props.onBookItemClicked(props);
 
-    console.log(props.coverPhoto);
-
       };
       
-      // var tst= require(props.coverPhoto).default;
-
     return(
 
     <Card className='book-item'>

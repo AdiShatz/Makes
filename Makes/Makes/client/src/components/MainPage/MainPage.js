@@ -10,7 +10,25 @@ import LogoutButton from "./LogoutButton";
 const MainPage = (props) => {
 
     const userName="אורח"; {/*should be changed to user login input*/}
-        
+    
+    // const handleLoginClick(){
+    //     if(isLoggedIn===false){
+    //       setName(inputText);
+    //       setLoginButtonText("התנתקות");
+    //       setIsLoggedIn(true);
+    //        setInputVisibility("hidden");
+    //        setCreateBtnVisibility("visible");
+      
+    //     }
+    //     else{
+    //       setName("");
+    //       setLoginButtonText("התחברות");
+    //       setIsLoggedIn(false);
+    //        setInputVisibility("visible");
+    //        setCreateBtnVisibility("hidden");
+      
+    //     }
+    //   }
     
     return (
         <div>

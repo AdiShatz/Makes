@@ -4,8 +4,8 @@ import './BackButton.css';
 
 const BackButton = (props) => {
 
-  const onClickHandler = (event) =>{
-    props.onBackButtonClicked();
+  const onClickHandler = () =>{
+    props.onBackButtonClicked(props);
   }
 
   return <button onClick={onClickHandler}>חזור</button>

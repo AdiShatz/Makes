@@ -4,34 +4,59 @@ import ComboBoxQuestion from "./ComboBoxQuestion";
 
 import './Questionnaire.css';
 
+let answersDictonary= new Object();
+
 const Questionnaire = (props) => {
 
-    // const filteredInputQuestions = props.questions.filter((item) => {
-    //              return item.type === "input";
-    //            });
+    const setDefaultValues=()=>{
+        props.questions.map(question => {
+            if(question.type==="combo"){
+                answersDictonary[question.id]=question.options[0];
+            }
+            else{
+                answersDictonary[question.id]=""; 
+            }
+        });
 
-    // const filteredComboBoxQuestions = props.questions.filter((item) => {
-    // return item.type === "combo";
-    // });
+        console.log(answersDictonary); // ---------------------> TO DELETE
 
+    }
+
+    const handleUserAnswersUpdated=(key, value)=>{
+        answersDictonary[key]=value;
+      
+        console.log(answersDictonary); // ---------------------> TO DELETE
+    }
     
 
+
     return (
-     <div className="questionnaire">
+        <div className="questionnaire">
+            {setDefaultValues()}
            <table>
             {props.questions.map((question) => (
-                <tr>
 
-            {question.type==="combo" && <ComboBoxQuestion label={question.label} options={question.options}/>}
+            <tr>
 
-            {question.type==="text" && <InputQuestion label={question.label}/>}
+            {question.type==="combo" && <ComboBoxQuestion 
+            label={question.label}
+            options={question.options}
+            id={question.id} 
+            updateDictionary={handleUserAnswersUpdated}
+               /> }
 
-            
+
+            {question.type==="text" && <InputQuestion
+             label={question.label}
+              id={question.id}
+              updateDictionary={handleUserAnswersUpdated}/>}
+
             </tr>
+
           ))}
            </table>
 
-           </div>
+        </div>
     );
 
 }

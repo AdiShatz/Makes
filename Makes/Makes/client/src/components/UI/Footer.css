@@ -1,0 +1,18 @@
+.footer {
+    background-color: #d4e2d4;
+    position: relative;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.footer p {
+    color: #bab6c0;
+}
+
+
+.footer button{
+    text-align: left;
+}

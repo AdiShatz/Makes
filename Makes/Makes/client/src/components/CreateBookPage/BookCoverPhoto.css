@@ -1,0 +1,6 @@
+.book-cover-photo{
+    height: 10rem;
+    width:30%;
+    object-fit: cover;
+    margin: 2rem;
+  }

@@ -1,0 +1,22 @@
+.header {
+    background-color: #d4e2d4;
+    margin: auto -16px;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+    color: #fcf8e8;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+    text-align: center;
+    text-shadow: 1px 1px 20px #000000;
+}
+
+.header label{
+    text-align: right;
+}
+
+.header button{
+    text-align: left;
+}

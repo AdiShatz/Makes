@@ -1,0 +1,10 @@
+.books-list {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
+    gap:3rem;
+    justify-content: center;
+
+    background-color: rgb(231, 234, 248);
+    width: 100%;
+  }
+  

@@ -1,0 +1,10 @@
+.questionnaire {
+text-align: right;
+align-items: center;
+background-color: chartreuse;
+}
+
+.questionnaire table{
+    background-color: cornsilk;
+    float: right;
+} 

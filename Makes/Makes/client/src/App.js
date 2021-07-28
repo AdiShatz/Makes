@@ -6,22 +6,22 @@ const DUMMY_BOOKS = [
     {
       id: 'b1',
       name: 'כיפה אדומה',
-      coverPhoto: "../../images/photo1.png"
+      coverPhoto: "KipaAduma.jfif"
     },
     { 
         id: 'b2',
       name: 'סינדרלה',
-      coverPhoto: "../../images/photo2.jpg"
+      coverPhoto: "Sinderela.jpg"
     },
     { 
         id: 'b3',
       name: 'פיטר פן',
-      coverPhoto: "../../images/photo1.png"
+      coverPhoto: "Piterpen.jpg"
     },
     { 
         id: 'b4',
       name: 'שילגיה',
-      coverPhoto: "../../images/photo2.jpg"
+      coverPhoto: "Shilgiya.jpeg"
     }
   ];
 

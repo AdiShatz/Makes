@@ -31,7 +31,7 @@ const Questionnaire = (props) => {
 
 
     return (
-        <div className="questionnaire">
+        <Fragment className="questionnaire">
             {setDefaultValues()}
            <table>
             {props.questions.map((question) => (
@@ -56,7 +56,7 @@ const Questionnaire = (props) => {
           ))}
            </table>
 
-        </div>
+        </Fragment>
     );
 
 }

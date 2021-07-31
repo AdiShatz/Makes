@@ -37,7 +37,7 @@ const CreateBookPage = (props) => {
     const [questions, setQustions] = useState(DUMMY_QUESTIONS);
 
     return (
-        <div>
+        <Fragment>
             <Header >
                 <label>יצירת ספר</label>
                 
@@ -46,7 +46,7 @@ const CreateBookPage = (props) => {
             <Footer>
                 <BackButton onBackButtonClicked={props.onBackButtonClicked}/>
             </Footer>
-        </div>
+        </Fragment>
     );
 }
 export default CreateBookPage;

@@ -11,13 +11,14 @@ const BookItem = (props) => {
     props.onBookItemClicked(props);
 
       };
+
       
     return(
 
     <Card className='book-item'>
 
         <img 
-        src={require("../../images/photo2.jpg").default}  
+        src={require("../../images/"+ props.coverPhoto).default}  
         alt= "Photo Unavailable"
         className='book-item__img' 
         onClick={ClickedHandler}/>

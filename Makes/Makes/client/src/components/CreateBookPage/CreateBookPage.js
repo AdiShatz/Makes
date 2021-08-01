@@ -44,8 +44,7 @@ const CreateBookPage = (props) => {
             </Header>
             <CreateBookPageContent questions={questions} onCreateBook={props.onCreateBook}/>
             <Footer>
-                {/* <BackButton onBackButtonClicked={props.onBackButtonClicked}/> */}
-                <Button onBackButtonClicked={props.onBackButtonClicked}>חזור</Button>
+                <Button onClick={props.onBackButtonClicked}>חזור</Button>
             </Footer>
         </React.Fragment>
     );

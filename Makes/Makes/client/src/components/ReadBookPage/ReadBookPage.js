@@ -77,7 +77,7 @@ const ReadBookPage = (props) => {
             </Header>
             <ReadBookPageContent pages={DUMMY_BOOK}/>
             <Footer>
-                <Button onBackButtonClicked={props.onBackButtonClicked}>חזור</Button>
+                <Button onClick={props.onBackButtonClicked}>חזור</Button>
                 
             </Footer>
         </React.Fragment>

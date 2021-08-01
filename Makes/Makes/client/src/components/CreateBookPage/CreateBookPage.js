@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Header from "../UI/Header";
 import CreateBookPageContent from "./CreateBookPageContent";
 import Footer from "../UI/Footer";
-import BackButton from "../UI/BackButton";
+import Button from "../UI/Button"
 
 const DUMMY_QUESTIONS = [
     {
@@ -42,9 +42,10 @@ const CreateBookPage = (props) => {
                 <label>יצירת ספר</label>
                 
             </Header>
-            <CreateBookPageContent questions={questions}/>
+            <CreateBookPageContent questions={questions} onCreateBook={props.onCreateBook}/>
             <Footer>
-                <BackButton onBackButtonClicked={props.onBackButtonClicked}/>
+                {/* <BackButton onBackButtonClicked={props.onBackButtonClicked}/> */}
+                <Button onBackButtonClicked={props.onBackButtonClicked}>חזור</Button>
             </Footer>
         </React.Fragment>
     );

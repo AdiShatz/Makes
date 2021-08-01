@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import Header from "../UI/Header";
-import CreateBookPageContent from "./ReadBookPageContent";
+import ReadBookPageContent from "./ReadBookPageContent";
 import Footer from "../UI/Footer";
-import BackButton from "../UI/BackButton";
 
 const DUMMY_BOOKS = [
     {
@@ -40,9 +39,10 @@ const ReadBookPage = (props) => {
                 <label>קריאת ספר</label>
                 
             </Header>
-            <ReadBookPageContent questions={questions}/>
+            <ReadBookPageContent/>
             <Footer>
-                <BackButton onBackButtonClicked={props.onBackButtonClicked}/>
+                {/* <BackButton onBackButtonClicked={props.onBackButtonClicked}/> */}
+                nir
             </Footer>
         </React.Fragment>
     );

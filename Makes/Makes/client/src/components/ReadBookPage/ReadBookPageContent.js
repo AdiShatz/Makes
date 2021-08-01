@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import BookCoverPhoto from "./BookCoverPhoto"
-
 
 import './ReadBookPageContent.css';
 

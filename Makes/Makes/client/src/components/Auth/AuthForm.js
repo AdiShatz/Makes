@@ -8,6 +8,8 @@ const AuthForm = (props) => {
     const passwordInputRef = useRef();
 
   const [isLogin, setIsLogin] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -17,6 +19,7 @@ const AuthForm = (props) => {
       const enteredUserName = userNameInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
 
+      setIsLoading(true);
     if(isLogin){
         // do user data verification
         console.log("User data verification");
@@ -38,12 +41,17 @@ const AuthForm = (props) => {
         //     }
         // }
         // ).then(res=>{
+        //      setIsLoading(false);
         //     if(res.ok){
         //         //Do Something if needed...
         //     }
         //     else{
         //         return res.json().then((data)=>{
         //             //Show Error Modal
+        //              let errorMessage= 'Authentication failed!';
+        //              if(data && data.error && data.error.message){ (DEPENDWS ON BACKEND STRUCTURE)
+        //              errorMessage = data.error.message; 
+        //              }
         //             console.log("ERROR Accured!");
         //         });
         //     }
@@ -66,7 +74,8 @@ const AuthForm = (props) => {
           <input type='password' id='password' required ref={passwordInputRef}/>
         </div>
         <div className={classes.actions}>
-          <button>{isLogin ? 'התחבר' : 'צור משתמש'}</button>
+          {!isLoading && <button>{isLogin ? 'התחבר' : 'צור משתמש'}</button>}
+          {isLoading && <p>...אנא המתן</p>}
           <button
             type='button'
             className={classes.toggle}

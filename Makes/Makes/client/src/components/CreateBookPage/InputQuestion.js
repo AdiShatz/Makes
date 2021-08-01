@@ -10,10 +10,10 @@ const InputQuestion = (props) => {
       }
 
     return (
-        <Fragment>
+        <React.Fragment>
             <input type="text" dir = "rtl" onChange={handleChange} />
             <label>{props.label}</label>
-        </Fragment>
+        </React.Fragment>
     );
 
 

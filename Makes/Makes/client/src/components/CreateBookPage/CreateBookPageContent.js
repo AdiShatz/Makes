@@ -9,11 +9,11 @@ import './CreateBookPageContent.css';
 const CreateBookPageContent = (props) => {
 
     return (
-        <Fragment className="create-book-page-content">
+        <React.Fragment className="create-book-page-content">
             <Questionnaire questions={props.questions}/> 
             <CreateBookButton/>
             <BookCoverPhoto/>
-        </Fragment>
+        </React.Fragment>
     );
 
 

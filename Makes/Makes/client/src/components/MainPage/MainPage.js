@@ -4,7 +4,7 @@ import MainPageContent from "./MainPageContent";
 import Footer from "../UI/Footer";
 import GreetingLabel from "./GreetingLabel";
 import Button from "../UI/Button";
-import Login from "../UI/Login";
+import AuthForm from "../Auth/AuthForm";
 
 
 const MainPage = (props) => {
@@ -32,7 +32,7 @@ const MainPage = (props) => {
 
     return (
         <React.Fragment>
-            {loginIsShown && <Login onClose={hideLoginHandler} />}
+            {loginIsShown && <AuthForm onClose={hideLoginHandler} />}
             <Header >
 
                 <Button type="input" onClick={showLoginHandler}>התחבר</Button>

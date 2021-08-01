@@ -49,9 +49,9 @@ const DUMMY_BOOKS = [
         <React.Fragment>
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler}/>}
 
-            {page === 'createBookPage' && <CreateBookPage onBackButtonClicked={backButtonClickedHandler} onCreateBook={CreateBookClickedHandler}/>} 
+            {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={CreateBookClickedHandler}/>} 
 
-            {page === 'readBookPage' && <ReadBookPage onBackButtonClicked={backButtonClickedHandler}/>} 
+            {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
 
         </React.Fragment>

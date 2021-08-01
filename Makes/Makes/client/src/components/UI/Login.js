@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import Modal from '../UI/Modal';
-import classes from './Login.module.css';
+import './Login.module.css';
 
 const Login = (props) => {
 

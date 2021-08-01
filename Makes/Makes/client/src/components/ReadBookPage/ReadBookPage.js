@@ -2,32 +2,69 @@ import React, {useState} from "react";
 import Header from "../UI/Header";
 import ReadBookPageContent from "./ReadBookPageContent";
 import Footer from "../UI/Footer";
+import Button from "../UI/Button";
 
-const DUMMY_BOOKS = [
+
+const DUMMY_BOOK = [
     {
-      id: 'q1',
-      type: 'text',
-      label: 'שם הילד',
-      options: ['גבי','לילך','עדי','ניר'] 
+      id: 'p1',
+      pageNum: '1',
+      text:'כיפה אדומה הלכה לבקר את סבתא',
+      Image: 'KipaAduma.jfif',
+      turningPointExist: false,
+      turningPointData: {
+        text: '',
+        leftOption:'' ,
+        rightOption:''
+     },
+      nextPageId: ['p2',null],
+      prevPageId: null
+      
     },
-    { 
-        id: 'q2',
-        type: 'combo',
-        label: 'בסיפור נבקר את',
-        options: ['סבתא','סבא','דודה','אמא'] 
-    },
-    { 
-        id: 'q3',
-        type: 'combo',
-        label: 'דרך איפה נלך',
-        options: ['יער','חוף הים','פארק','מערה'] 
-    },
-    { 
-        id: 'q4',
-        type: 'combo',
-        label: 'חיה מרושעת',
-        options: ['אריה','נחש','נמר','זאב'] 
-    }
+    
+    {
+        id: 'p2',
+        pageNum: '2',
+        text:'בדרך היא נתקלה בזאב הרשע',
+        Image: 'KipaAduma.jfif',
+        turningPointExist: true,
+        turningPointData: {
+          text: 'מה כיפה אדומה צריכה להגיד לזאב?',
+          leftOption:'אני לא מדברת עם זרים' ,
+          rightOption:'רוצה לבוא לסבתא שלי?'
+       },
+       nextPageId: ['p3','p4'],
+       prevPageId: 'p1'
+      },
+
+      {
+        id: 'p3',
+        pageNum: '3',
+        text:'כיפה אדומה המשיכה בדרך והזאב נעלב והלך לביתו',
+        Image: 'KipaAduma.jfif',
+        turningPointExist: false,
+        turningPointData: {
+            text: '',
+            leftOption:'' ,
+            rightOption:''
+         },
+       nextPageId: [null,null] ,
+       prevPageId: 'p2'
+      },
+      {
+        id: 'p4',
+        pageNum: '3',
+        text:'כיפה וזאב הגיעו לסבתא והזאב אכל את שניהם',
+        Image: 'KipaAduma.jfif',
+        turningPointExist: false,
+        turningPointData: {
+            text: '',
+            leftOption:'' ,
+            rightOption:''
+         },
+       nextPageId: [null,null],
+       prevPageId: 'p2'
+      },
   ];
 
 
@@ -37,12 +74,11 @@ const ReadBookPage = (props) => {
         <React.Fragment>
             <Header >
                 <label>קריאת ספר</label>
-                
             </Header>
-            <ReadBookPageContent/>
+            <ReadBookPageContent pages={DUMMY_BOOK}/>
             <Footer>
-                {/* <BackButton onBackButtonClicked={props.onBackButtonClicked}/> */}
-                nir
+                <Button onBackButtonClicked={props.onBackButtonClicked}>חזור</Button>
+                
             </Footer>
         </React.Fragment>
     );

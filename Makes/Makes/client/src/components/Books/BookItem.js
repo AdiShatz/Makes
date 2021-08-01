@@ -1,8 +1,6 @@
 import React from "react";
 import Card from '../UI/Card';
 
-import ph2 from "../../images/photo2.jpg"
-
 import './BookItem.css'
 
 const BookItem = (props) => {

@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import Header from "../UI/Header";
-import CreateBookPageContent from "./CreateBookPageContent";
+import CreateBookPageContent from "./ReadBookPageContent";
 import Footer from "../UI/Footer";
 import BackButton from "../UI/BackButton";
 
-const DUMMY_QUESTIONS = [
+const DUMMY_BOOKS = [
     {
       id: 'q1',
       type: 'text',
@@ -32,21 +32,19 @@ const DUMMY_QUESTIONS = [
   ];
 
 
-const CreateBookPage = (props) => {        
-
-    const [questions, setQustions] = useState(DUMMY_QUESTIONS);
+const ReadBookPage = (props) => {        
 
     return (
         <React.Fragment>
             <Header >
-                <label>יצירת ספר</label>
+                <label>קריאת ספר</label>
                 
             </Header>
-            <CreateBookPageContent questions={questions}/>
+            <ReadBookPageContent questions={questions}/>
             <Footer>
                 <BackButton onBackButtonClicked={props.onBackButtonClicked}/>
             </Footer>
         </React.Fragment>
     );
 }
-export default CreateBookPage;
+export default ReadBookPage;

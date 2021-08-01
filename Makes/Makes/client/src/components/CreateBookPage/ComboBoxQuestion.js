@@ -16,7 +16,7 @@ const ComboBoxQuestion = (props) => {
 
 
     return (
-        <div>
+        <React.Fragment>
             <th>
             <select onChange={handleChange}>
 
@@ -33,7 +33,7 @@ const ComboBoxQuestion = (props) => {
             <label>{props.label}</label>
             </th>
 
-        </div>
+        </React.Fragment>
     );
 
 

@@ -25,11 +25,6 @@ const MainPage = (props) => {
         console.log("LOGGED OUT"); // TO DELETE
       };
 
-     const myGalleryHandler = () => {
-        console.log("My Gallery"); // TO DELETE
-      };
-  
-
     return (
         <React.Fragment>
             {loginIsShown && <AuthForm onClose={hideLoginHandler} />}
@@ -42,7 +37,7 @@ const MainPage = (props) => {
             <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
             <Footer>
             <Button type="button" onClick={logoutHandler}>התנתק</Button>
-            <Button type="button" onClick={myGalleryHandler}>הגלריה שלי</Button>
+            <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>
             </Footer>
         </React.Fragment>
     );

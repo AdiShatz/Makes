@@ -7,7 +7,7 @@ const GalleryPageContent = (props) => {
 
     return (
         <React.Fragment>
-           <BooksList items={props.items} onBookItemClicked={props.onBookItemClicked} />
+           <BooksList items={props.items} />
            {props.children}
         </React.Fragment>
     );

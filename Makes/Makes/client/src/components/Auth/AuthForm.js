@@ -60,7 +60,7 @@ const AuthForm = (props) => {
         })
         .catch(err => {
         alert(err.message);
-        }).then(props.onClose);
+        }).then(isLogin?props.onClose:switchAuthModeHandler);
         
 
         

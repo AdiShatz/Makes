@@ -3,6 +3,7 @@ import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
+import { AuthContextProvider } from "./store/auth-context";
 
 const DUMMY_BOOKS = [
   {
@@ -45,6 +46,8 @@ const DUMMY_GALLERY_BOOKS = [
     const [page, setPage] = useState("mainPage");
 
     const [books, setBooks] = useState(DUMMY_BOOKS); // TO DELETE?
+    const [dummyBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO DELETE?
+
 
     const bookItemClickedHandler = (book) => {
         setPage("createBookPage");
@@ -64,7 +67,7 @@ const DUMMY_GALLERY_BOOKS = [
     
 
     return (
-        <React.Fragment>
+        <AuthContextProvider>
           
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 
@@ -72,10 +75,10 @@ const DUMMY_GALLERY_BOOKS = [
 
             {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
-            {page === 'galleryPage' && <GalleryPage items={DUMMY_GALLERY_BOOKS} onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+            {page === 'galleryPage' && <GalleryPage items={dummyBooks} onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
 
-        </React.Fragment>
+        </AuthContextProvider>
     )
 }
 

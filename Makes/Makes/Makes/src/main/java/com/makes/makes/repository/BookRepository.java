@@ -1,11 +1,13 @@
 package com.makes.makes.repository;
 
 import com.makes.makes.model.Book;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.data.mogodb.repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 
-public interface BookRepository extends MongoRepository<Book, String> {
+public interface BookRepository
+        extends MongoRepository<Book, String>  {
+
+
+>>>>>>> 6e99bdf1dc4283af31a9f2704f008759e3c3e547
 
 }

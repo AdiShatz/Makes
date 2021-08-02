@@ -26,7 +26,7 @@ const MainPage = (props) => {
     };
 
     const logoutHandler = () => {
-        console.log("LOGGED OUT"); // TO DELETE
+        authCtx.logout();
       };
 
     return (

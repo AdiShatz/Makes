@@ -102,6 +102,7 @@ const DUMMY_GALLERY_BOOKS = [
 
 
         </AuthContextProvider>
+        </React.Fragment>
     )
 }
 

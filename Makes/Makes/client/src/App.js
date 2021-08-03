@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
 import { AuthContextProvider } from "./store/auth-context";
+import useHttp from "./hooks/use-http";
 
 const DUMMY_BOOKS = [
   {
@@ -46,28 +47,25 @@ const DUMMY_GALLERY_BOOKS = [
     const [page, setPage] = useState("mainPage");
     const [books, setBooks] = useState([]); 
     const [dummyBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
-    const [error, setError] = useState(null);
 
+    const transformedBooks = booksObj => {
+      const loadedBooks=[];
 
-    const fetchBooksHandler = () => {
-      setError(null);
+      for(const bookKey in booksObj){
+      loadedBooks.push({id: bookKey, text: booksObj[bookKey].text})
+      }
 
-      fetch('http://localhost:8080/api/books')
-      .then((response) =>{
-        return response.json();
-      })
-      .then((data) => {
-        setBooks(data.results);
-        let errorMessage= 'מצטערים, הייתה שגיאה בטעינת הדף';
-                     if(data && data.error && data.error.message){ 
-                     errorMessage = data.error.message; 
-                     }
-                     throw new Error(errorMessage);
-      }).catch(err => {
-        alert(err.message);
-        });
-    }
-    
+    setBooks(loadedBooks);
+    };
+
+    const {isLoading, error, sendRequest: fetchBooks} = 
+    useHttp({url: 'http://localhost:8080/api/books'},
+    transformedBooks
+    );
+
+    useEffect(()=>{
+      fetchBooks();
+    },[]);
 
     const bookItemClickedHandler = (book) => {
         setPage("createBookPage");
@@ -85,12 +83,9 @@ const DUMMY_GALLERY_BOOKS = [
         setPage("galleryPage");
       };
     
-
     return (
         <React.Fragment>
         <AuthContextProvider>
-
-          <button onClick= {fetchBooksHandler}>יבא נתונים</button> {/*TO DELETE*/}
           
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 

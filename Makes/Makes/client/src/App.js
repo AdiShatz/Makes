@@ -90,7 +90,7 @@ const DUMMY_GALLERY_BOOKS = [
         <React.Fragment>
         <AuthContextProvider>
 
-          <button onClick= {fetchBooksHandler}>יבא נתונים</button>
+          <button onClick= {fetchBooksHandler}>יבא נתונים</button> {/*TO DELETE*/}
           
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 

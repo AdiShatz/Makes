@@ -15,6 +15,7 @@ const BooksList = (props) => {
               name={book.name}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}
+              isGalleryItem= {props.isGalleryItem}
             />
           ))}
           </div>

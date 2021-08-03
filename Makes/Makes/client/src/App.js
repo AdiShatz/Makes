@@ -3,6 +3,7 @@ import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
+import { AuthContextProvider } from "./store/auth-context";
 
 const DUMMY_BOOKS = [
   {
@@ -43,10 +44,6 @@ const DUMMY_GALLERY_BOOKS = [
   const App = () => {
 
     const [page, setPage] = useState("mainPage");
-<<<<<<< Updated upstream
-
-    const [books, setBooks] = useState(DUMMY_BOOKS); // TO DELETE?
-=======
     const [books, setBooks] = useState([]); 
     const [dummyBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
     const [error, setError] = useState(null);
@@ -72,8 +69,6 @@ const DUMMY_GALLERY_BOOKS = [
     }
     
 
->>>>>>> Stashed changes
-
     const bookItemClickedHandler = (book) => {
         setPage("createBookPage");
       };
@@ -92,13 +87,10 @@ const DUMMY_GALLERY_BOOKS = [
     
 
     return (
-<<<<<<< Updated upstream
         <React.Fragment>
-=======
         <AuthContextProvider>
 
           <button onClick= {fetchBooksHandler}>יבא נתונים</button>
->>>>>>> Stashed changes
           
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 
@@ -106,10 +98,10 @@ const DUMMY_GALLERY_BOOKS = [
 
             {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
-            {page === 'galleryPage' && <GalleryPage items={DUMMY_GALLERY_BOOKS} onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+            {page === 'galleryPage' && <GalleryPage items={dummyBooks} onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
 
-        </React.Fragment>
+        </AuthContextProvider>
     )
 }
 

@@ -1,14 +1,16 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import Modal from '../UI/Modal';
-
+import AuthContext from '../../store/auth-context'
 import classes from './AuthForm.module.css';
 
 const AuthForm = (props) => {
-    const userNameInputRef = useRef();
+    const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    
+    const authCtx = useContext(AuthContext);
 
-  const [isLogin, setIsLogin] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
 
   const switchAuthModeHandler = () => {
@@ -16,48 +18,53 @@ const AuthForm = (props) => {
   };
 
   const submitHandler = (event) =>{
-      const enteredUserName = userNameInputRef.current.value;
+      event.preventDefault();
+      const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
-
+        let url;
       setIsLoading(true);
-    if(isLogin){
-        // do user data verification
-        console.log("User data verification");
-    }
-    else{
-        // send the new data to backend side
-        console.log("Send Post request");
+        if(isLogin){
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBRn0rrAr5eEmW-z3unJG-DxGoAm5c1C-k";
+        }
+        else{
+        url="https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBRn0rrAr5eEmW-z3unJG-DxGoAm5c1C-k";
+        }
+        fetch(url,
+        {
+            method: 'POST',
+            body: JSON.stringify({
+                email: enteredEmail,
+                password: enteredPassword,
+                returnsecureToken: true
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            setIsLoading(false);
+            if(res.ok){
+                return res.json();
+            }
+            else{
+                return res.json().then((data)=>{
+                     let errorMessage= 'מצטערים, הייתה שגיאה בהתחברות';
+                     if(data && data.error && data.error.message){ 
+                     errorMessage = data.error.message; 
+                     }
+                     throw new Error(errorMessage);
+                });
+            }
+        })
+        .then((data) => { 
+         authCtx.login(data.idToken, data.email);
+        })
+        .catch(err => {
+        alert(err.message);
+        }).then(isLogin?props.onClose:switchAuthModeHandler);
+        
 
-        // fetch("API_URL includind API_KEY",
-        // {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         userName: enteredUserName,
-        //         password: enteredPassword,
-        //         returnsecureToken: true
-        //     }),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // }
-        // ).then(res=>{
-        //      setIsLoading(false);
-        //     if(res.ok){
-        //         //Do Something if needed...
-        //     }
-        //     else{
-        //         return res.json().then((data)=>{
-        //             //Show Error Modal
-        //              let errorMessage= 'Authentication failed!';
-        //              if(data && data.error && data.error.message){ (DEPENDWS ON BACKEND STRUCTURE)
-        //              errorMessage = data.error.message; 
-        //              }
-        //             console.log("ERROR Accured!");
-        //         });
-        //     }
-        // });
-    }
-  }
+        
+    };
 
   return (
     <Modal onClose={props.onClose}>
@@ -66,8 +73,8 @@ const AuthForm = (props) => {
 
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor='userName'>שם משתמש</label>
-          <input type='userName' id='userName' required ref={userNameInputRef}/>
+          <label htmlFor='email'>אימייל</label>
+          <input type='email' id='email' required ref={emailInputRef}/>
         </div>
         <div className={classes.control}>
           <label htmlFor='password'>סיסמא</label>

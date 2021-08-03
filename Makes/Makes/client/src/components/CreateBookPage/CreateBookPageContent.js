@@ -11,7 +11,6 @@ const CreateBookPageContent = (props) => {
     return (
         <React.Fragment className="create-book-page-content">
             <Questionnaire questions={props.questions}/> 
-            {/* <CreateBookButton/> */}
             <Button onClick={props.onCreateBook}> צור ספר </Button>
             <BookCoverPhoto/>
         </React.Fragment>

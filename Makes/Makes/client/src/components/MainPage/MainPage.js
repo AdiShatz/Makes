@@ -1,43 +1,46 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useContext, useState} from "react";
 import Header from "../UI/Header";
 import MainPageContent from "./MainPageContent";
 import Footer from "../UI/Footer";
-import GreetingLabel from "./GreetingLabel";
 import Button from "../UI/Button";
 import AuthForm from "../Auth/AuthForm";
+import AuthContext from "../../store/auth-context";
 
 
 const MainPage = (props) => {
 
-    const userName="אורח"; {/*should be changed to user login input*/}
-    
-    const [loginIsShown, setLoginIsShown] = useState(false);
+  const authCtx = useContext(AuthContext);
 
-    const showLoginHandler = () => {
-      setLoginIsShown(true);
+  const isLoggedIn = authCtx.isLoggedIn;
+  const username = authCtx.username;
+
+    
+    const [loginFormIsShown, setLoginFormIsShown] = useState(false);
+
+    const showLoginFormHandler = () => {
+      setLoginFormIsShown(true);
     };
   
-    const hideLoginHandler = () => {
-      setLoginIsShown(false);
+    const hideLoginFormHandler = () => {
+      setLoginFormIsShown(false);
     };
 
     const logoutHandler = () => {
-        console.log("LOGGED OUT"); // TO DELETE
+        authCtx.logout();
       };
 
     return (
         <React.Fragment>
-            {loginIsShown && <AuthForm onClose={hideLoginHandler} />}
+            {loginFormIsShown && <AuthForm onClose={hideLoginFormHandler} />}
             <Header >
 
-                <Button type="input" onClick={showLoginHandler}>התחבר</Button>
-
-                <GreetingLabel userName={userName}/>
+                {!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}
+                <label className="greetingLabel"> שלום {username} </label>
             </Header>
             <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
             <Footer>
-            <Button type="button" onClick={logoutHandler}>התנתק</Button>
-            <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>
+            {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
+           {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}
             </Footer>
         </React.Fragment>
     );

@@ -5,10 +5,9 @@
     padding: 0.5rem;
     margin: 1rem 0;
     background-color: #000000;
-    height: 12rem;
+    height: 14rem;
     width:100%;
     object-fit:cover;
-
   }
   
   .book-item__img {

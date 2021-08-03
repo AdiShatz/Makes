@@ -7,7 +7,7 @@ const GalleryPageContent = (props) => {
 
     return (
         <React.Fragment>
-           <BooksList items={props.items} />
+           <BooksList items={props.items} isGalleryItem={'true'} />
            {props.children}
         </React.Fragment>
     );

@@ -86,8 +86,9 @@ const DUMMY_GALLERY_BOOKS = [
     return (
         <React.Fragment>
         <AuthContextProvider>
-          
-            {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
+            {isLoading && <h1>...אנא המתן</h1>}
+
+            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 
             {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={CreateBookClickedHandler}/>} 
 

@@ -43,8 +43,36 @@ const DUMMY_GALLERY_BOOKS = [
   const App = () => {
 
     const [page, setPage] = useState("mainPage");
+<<<<<<< Updated upstream
 
     const [books, setBooks] = useState(DUMMY_BOOKS); // TO DELETE?
+=======
+    const [books, setBooks] = useState([]); 
+    const [dummyBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
+    const [error, setError] = useState(null);
+
+
+    const fetchBooksHandler = () => {
+      setError(null);
+
+      fetch('http://localhost:8080/api/books')
+      .then((response) =>{
+        return response.json();
+      })
+      .then((data) => {
+        setBooks(data.results);
+        let errorMessage= 'מצטערים, הייתה שגיאה בטעינת הדף';
+                     if(data && data.error && data.error.message){ 
+                     errorMessage = data.error.message; 
+                     }
+                     throw new Error(errorMessage);
+      }).catch(err => {
+        alert(err.message);
+        });
+    }
+    
+
+>>>>>>> Stashed changes
 
     const bookItemClickedHandler = (book) => {
         setPage("createBookPage");
@@ -64,7 +92,13 @@ const DUMMY_GALLERY_BOOKS = [
     
 
     return (
+<<<<<<< Updated upstream
         <React.Fragment>
+=======
+        <AuthContextProvider>
+
+          <button onClick= {fetchBooksHandler}>יבא נתונים</button>
+>>>>>>> Stashed changes
           
             {page === 'mainPage' && <MainPage items={books} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
 

@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
 import { AuthContextProvider } from "./store/auth-context";
 import useHttp from "./hooks/use-http";
+
 
 const DUMMY_BOOKS = [
   {
@@ -68,10 +69,14 @@ const DUMMY_GALLERY_BOOKS = [
     },[]);
 
     const bookItemClickedHandler = (book) => {
-        setPage("createBookPage");
-      };
+      setPage("createBookPage");
+    };
 
-      const CreateBookClickedHandler = (book) => {
+    const galleryBookItemClickedHandler = (book) => {
+      setPage("readBookPage");
+    };
+
+      const createBookClickedHandler = (book) => {
         setPage("readBookPage");
       };
     
@@ -82,19 +87,24 @@ const DUMMY_GALLERY_BOOKS = [
       const myGalleryHandler = () => {
         setPage("galleryPage");
       };
+
+      const notLoggedInHandler = () => {
+        alert("אנא התחבר על מנת להשלים את הפעולה");
+      };
+
     
     return (
         <React.Fragment>
         <AuthContextProvider>
             {isLoading && <h1>...אנא המתן</h1>}
 
-            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} onBookItemClicked={bookItemClickedHandler} onGalleryClicked={myGalleryHandler}/>}
+            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} onBookItemClicked={bookItemClickedHandler} onNotLoggedIn={notLoggedInHandler} onGalleryClicked={myGalleryHandler}/>}
 
-            {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={CreateBookClickedHandler}/>} 
+            {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={createBookClickedHandler}/>} 
 
             {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
-            {page === 'galleryPage' && <GalleryPage items={dummyBooks} onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+            {page === 'galleryPage' && <GalleryPage items={dummyBooks} onBackToMainMenuButtonClicked={backButtonClickedHandler} onGalleryBookItemClicked={galleryBookItemClickedHandler}/>} 
 
 
         </AuthContextProvider>

@@ -14,7 +14,9 @@ const GalleryPage = (props) => {
             <Header >
                 <h1>הגלריה שלי</h1>
             </Header>
-            <GalleryPageContent items={props.items}/>
+            <GalleryPageContent 
+            items={props.items}
+            onGalleryBookItemClicked={props.onGalleryBookItemClicked}/>
             <Footer>
             <Button type="button" onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>
             </Footer>

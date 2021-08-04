@@ -26,7 +26,7 @@ const BookItem = (props) => {
         onClick={ClickedHandler}/>
 
         <label className='book-item__name'>{props.name}</label>
-        {props.isGalleryItem==='true' && <button>מחק</button> }       
+        {props.isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
     </Card>
   
   );

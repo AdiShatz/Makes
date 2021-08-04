@@ -9,7 +9,8 @@ const GalleryPageContent = (props) => {
         <React.Fragment>
            <BooksList items={props.items} 
            isGalleryItem={'true'}
-           onGalleryBookItemClicked = {props.onGalleryBookItemClicked} />
+           onGalleryBookItemClicked = {props.onGalleryBookItemClicked} 
+           onGalleryItemDeletion={props.onGalleryItemDeletion}/>
            {props.children}
         </React.Fragment>
     );

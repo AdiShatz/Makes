@@ -14,12 +14,12 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(BookRepository repository){
-		return args -> {
-			Book book = new Book("סינדרלה","סינדי הלכה לבקר את סבא ",3);
-			repository.insert(book);
-		};
-	}
+	// @Bean
+	// CommandLineRunner runner(BookRepository repository){
+	// 	return args -> {
+	// 		Book book = new Book("כיפה אדומה","כיפה הלכה לבקר את סבתא פעם שנייה",3);
+	// 		repository.insert(book);
+	// 	};
+	// }
 }
 

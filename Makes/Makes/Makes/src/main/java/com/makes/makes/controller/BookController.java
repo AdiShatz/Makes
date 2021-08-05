@@ -32,6 +32,7 @@ public class BookController {
 
     @GetMapping("/")
     public List<Book> fetchAllBooks() {
-        return bookService.getAllBooks();
+        List<Book> toReturn = bookService.getAllBooks();
+        return toReturn;
     }
 }

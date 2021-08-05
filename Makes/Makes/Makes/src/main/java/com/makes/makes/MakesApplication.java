@@ -22,25 +22,25 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-	// @Bean
-	// CommandLineRunner runner(BookRepository repository){
-
-	// 	return args -> {
-
-	// 		UUID id1 = UUID.randomUUID();
-	// 		UUID id2 = UUID.randomUUID();
-	// 		UUID id3 = UUID.randomUUID();
-	// 		UUID ids[] = {id1, id2};
-	// 		List<Page> p_list = new ArrayList<Page>();
-	// 		List<Question> q_list = new ArrayList<Question>(); 
-			
-	// 		p_list.add(new Page("אני לא רוצה יותר דיייייייייייייי", "photo1.png", false, null, ids, id3));
-	// 		q_list.add(new Question("input", "?למה זה חרא", null, null));
-			
-	// 		Book book = new Book("דני שובבני", p_list, q_list);
-	
-	// 		repository.insert(book);
-	// 	};
-	// }
+//	 @Bean
+//	 CommandLineRunner runner(BookRepository repository){
+//
+//	 	return args -> {
+//
+//	 		UUID id1 = UUID.randomUUID();
+//	 		UUID id2 = UUID.randomUUID();
+//	 		UUID id3 = UUID.randomUUID();
+//	 		UUID ids[] = {id1, id2};
+//	 		List<Page> p_list = new ArrayList<Page>();
+//	 		List<Question> q_list = new ArrayList<Question>();
+//
+//	 		p_list.add(new Page("אני לא רוצה יותר דיייייייייייייי", "photo1.png", false, null, ids, id3));
+//	 		q_list.add(new Question("input", "?למה זה חרא", null, null));
+//
+//	 		Book book = new Book("דני שובבני", p_list, q_list);
+//
+//	 		repository.insert(book);
+//	 	};
+//	 }
 }
 

@@ -8,14 +8,15 @@ public class Page {
     private String id;
     static private int pageNum;
     private String text;
-    private Image background;
+    // private Image background;
+    private String background;
     private Boolean turningPointExist;
     private TurningPoint turningPoint = null;
     private UUID[] nextPageId;
     private UUID prevPageId;
 
 
-    public Page(String text, Image background,Boolean turningPointExist ,TurningPoint turningPoint,UUID[] nextPageId,UUID prevPageId){
+    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
         this.id = UUID.randomUUID().toString();
         this.nextPageId = new UUID[2];
@@ -42,7 +43,7 @@ public class Page {
 
     }
 
-    public Image getBackground() {
+    public /*Image*/String getBackground() {
         return background;
     }
 

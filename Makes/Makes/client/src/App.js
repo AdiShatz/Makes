@@ -52,20 +52,21 @@ const DUMMY_GALLERY_BOOKS = [
     const fetchBooksHandler = () => {
       setError(null);
 
-      fetch('http://localhost:8080/api/books')
+      fetch('http://localhost:8080/books')
       .then((response) =>{
+        console.log(response.json);
         return response.json();
       })
-      .then((data) => {
-        setBooks(data.results);
-        let errorMessage= 'מצטערים, הייתה שגיאה בטעינת הדף';
-                     if(data && data.error && data.error.message){ 
-                     errorMessage = data.error.message; 
-                     }
-                     throw new Error(errorMessage);
-      }).catch(err => {
-        alert(err.message);
-        });
+      // .then((data) => {
+      //   setBooks(data.results);
+      //   let errorMessage= 'מצטערים, הייתה שגיאה בטעינת הדף';
+      //                if(data && data.error && data.error.message){ 
+      //                errorMessage = data.error.message; 
+      //                }
+      //                throw new Error(errorMessage);
+      // }).catch(err => {
+      //   alert(err.message);
+      //   });
     }
     
 

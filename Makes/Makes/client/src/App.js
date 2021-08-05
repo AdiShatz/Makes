@@ -47,7 +47,7 @@ const DUMMY_GALLERY_BOOKS = [
 
     const [page, setPage] = useState("mainPage");
     const [books, setBooks] = useState([]); 
-    const [dummyBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
+    const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
     const transformedBooks = booksObj => {
       const loadedBooks=[];
@@ -60,7 +60,7 @@ const DUMMY_GALLERY_BOOKS = [
     };
 
     const {isLoading, error, sendRequest: fetchBooks} = 
-    useHttp({url: 'http://localhost:8080/api/books'},
+    useHttp({url: 'http://localhost:8080/books'},
     transformedBooks
     );
 
@@ -103,7 +103,7 @@ const DUMMY_GALLERY_BOOKS = [
         <AuthContextProvider>
             {isLoading && <h1>...אנא המתן</h1>}
 
-            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} 
+            {!isLoading && page === 'mainPage' && <MainPage items={books} 
             onBookItemClicked={bookItemClickedHandler} 
             onNotLoggedIn={notLoggedInHandler}
              onGalleryClicked={myGalleryHandler}/>}
@@ -112,7 +112,7 @@ const DUMMY_GALLERY_BOOKS = [
 
             {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
-            {page === 'galleryPage' && <GalleryPage items={dummyBooks} 
+            {page === 'galleryPage' && <GalleryPage items={dummyGalleryBooks} 
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 
             onGalleryBookItemClicked={galleryBookItemClickedHandler}
             onGalleryItemDeletion={galleryItemDeleteHandler}/>} 

@@ -6,6 +6,7 @@ import Button from "../UI/Button";
 import AuthForm from "../Auth/AuthForm";
 import AuthContext from "../../store/auth-context";
 import './MainPage.css';
+import '../UI/Header.css'
 
 const MainPage = (props) => {
 
@@ -32,10 +33,15 @@ const MainPage = (props) => {
     return (
         <div >
             {loginFormIsShown && <AuthForm onClose={hideLoginFormHandler} />}
-            <Header >
-
-                {!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}
-                <label> שלום {username} </label>
+            <Header className="header">
+            <nav>
+                <ul>
+                 <li>{!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}</li>
+                 <li><label> שלום {username} </label></li>
+                 <li></li>
+                </ul>
+              </nav>
+              <div className="logo"><img src={require("../../images/Makes-logos.jpeg").default}></img></div>
             </Header>
             <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
             <Footer>

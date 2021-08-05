@@ -4,7 +4,9 @@
     gap:3rem;
     justify-content: center;
 
-    background-color: rgb(231, 234, 248);
+    background-image: url("../../images/backgroundimg.jpg");
     width: 100%;
+    height: fit-content;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-  

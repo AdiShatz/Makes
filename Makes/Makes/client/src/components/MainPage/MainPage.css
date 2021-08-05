@@ -4,11 +4,14 @@
     margin-bottom: 0.5rem;
     display: block; 
 }
-.background-main{
-    background-image: url("../../images/backg.jpg");
-    width: 200px;
-    height: 100%;
-    position: relative;
-    background-size: cover;
-    z-index: -1;
+nav {
+    display: inline-block;
+    margin:0;
+    padding: 0;
+    list-style: none;
+    width: calc(100% - 100px);
+    text-align: left;
+}
+.logo{
+    display: inline-block;
 }

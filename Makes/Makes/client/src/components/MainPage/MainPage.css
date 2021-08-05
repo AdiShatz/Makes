@@ -6,12 +6,26 @@
 }
 nav {
     display: inline-block;
-    margin:0;
-    padding: 0;
     list-style: none;
     width: calc(100% - 100px);
     text-align: left;
 }
 .logo{
     display: inline-block;
+    
+}
+.login-button{
+    background: #ea9d7f;
+    font-size: 1.3rem bold;
+}
+.login-button:hover,
+.login:active {
+    background: #da7249;
+    border: 2px solid #faf3f1;
+}
+label{
+    padding-left: 30px;;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    font-weight: bolder;
 }

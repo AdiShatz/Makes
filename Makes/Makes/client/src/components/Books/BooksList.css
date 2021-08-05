@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
     gap:3rem;
     justify-content: center;
-
+    min-height: 700px;
     background-image: url("../../images/backgroundimg.jpg");
     width: 100%;
     height: fit-content;

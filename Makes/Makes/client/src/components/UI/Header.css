@@ -2,42 +2,26 @@
     background-color: #ffd1c2;
     /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); */
     position: fixed;
-    display: inline;
+    display: inline;/**/
     width: 100%;
     text-align: right;
-    vertical-align: middle;
+    min-height: 100px;
 
 }
 
-/* 
-.header label{
-    text-align: right;
-}
-
-.header button{
-    text-align: left;
-} */
 ul{
     margin: 0;
     padding: 0;
     display: inline-block;
 }
 .header img{
-    height: 55px;
-    margin-top: 20px;
-    margin-right: 20px;
+    height: 60px;
+    position: relative;
+    top:20px;
+    right:20px;
 }
-.header > div{
-    display: inline-block;
-}
+
 li{
     text-decoration: none;
     display: inline-block;
 }
-/* li img{
-    margin-right: 40px;
-    margin-left: 100px;
-}
-li label{
-    margin-left: 100px;
-} */

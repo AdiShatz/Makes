@@ -36,12 +36,10 @@ const MainPage = (props) => {
             <Header className="header">
             <nav>
                 <ul>
-                 <li>{!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}</li>
+                 <li>{!isLoggedIn && <Button className="login-button" type="input" onClick={showLoginFormHandler}>התחבר</Button>}</li>
                  <li><label> שלום {username} </label></li>
-                 <li></li>
                 </ul>
-              </nav>
-              <div className="logo"><img src={require("../../images/Makes-logos.jpeg").default}></img></div>
+            </nav>
             </Header>
             <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
             <Footer>

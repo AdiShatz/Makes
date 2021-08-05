@@ -17,8 +17,8 @@ public class MakesApplication {
 	@Bean
 	CommandLineRunner runner(BookRepository repository){
 		return args -> {
-			Book book = new Book("כיפה אדומה","כיפה הלכה לבקר את סבתא פעם שנייה",3);
-			repository.insert(book);
+			//Book book = new Book("כיפה אדומה","כיפה הלכה לבקר את סבתא פעם שנייה",3);
+			//repository.insert(book);
 		};
 	}
 }

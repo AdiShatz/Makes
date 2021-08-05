@@ -35,12 +35,11 @@ public class TurningPoint {
         return question;
     }
 
-    public void addOption(String option)throws Exception{// TODO Adi: build a special Exception class?
-        if(this.options.size() < this.maxOptions) {
+    public void addOption(String option)
+    {
+        if(this.options.size() < this.maxOptions)
+        {
             this.options.add(option);
-        }
-        else {
-            throw new Exception("There are already" + maxOptions + "options in the options list, list is already full");
         }
     }
 }

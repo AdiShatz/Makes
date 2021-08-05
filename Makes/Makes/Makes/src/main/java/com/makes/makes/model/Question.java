@@ -1,11 +1,10 @@
 package com.makes.makes.model;
 
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.List;
 import java.util.UUID;
-// TODO DELETE
+
 @NoArgsConstructor
 public class Question {
 

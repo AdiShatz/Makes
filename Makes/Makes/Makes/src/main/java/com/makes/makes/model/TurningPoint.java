@@ -1,4 +1,4 @@
-package com.makes.makes.systemObjects;
+package com.makes.makes.model;
 
 import java.util.List;
 

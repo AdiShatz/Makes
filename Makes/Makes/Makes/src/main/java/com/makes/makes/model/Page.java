@@ -1,10 +1,7 @@
-package com.makes.makes.systemObjects;
+package com.makes.makes.model;
 
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import java.awt.*;
 import java.util.Map;
 import java.util.UUID;
 

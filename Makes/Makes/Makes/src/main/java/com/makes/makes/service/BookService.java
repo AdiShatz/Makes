@@ -1,5 +1,6 @@
 package com.makes.makes.service;
 import com.makes.makes.model.Book;
+import com.makes.makes.model.Question;
 import com.makes.makes.repository.BookRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class BookService {
 
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
+    }
+
+    public List<Question> getQuestionnaire(String name){
+        Book book = bookRepository.findByName(name);
+        return book.getQuestions();
     }
 }

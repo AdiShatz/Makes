@@ -1,18 +1,13 @@
 package com.makes.makes;
 
+import com.makes.makes.model.BookCover;
+import com.makes.makes.model.Question;
+import com.makes.makes.repository.BookCoverRepository;
+import com.makes.makes.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.makes.makes.model.Book;
-import com.makes.makes.repository.BookRepository;
 import org.springframework.context.annotation.Bean;
-
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import com.makes.makes.model.Question;
-import com.makes.makes.systemObjects.Page;
 
 
 @SpringBootApplication
@@ -23,23 +18,18 @@ public class MakesApplication {
 	}
 
 //	 @Bean
-//	 CommandLineRunner runner(BookRepository repository){
+//	 CommandLineRunner runner(BookCoverRepository repository){
 //
 //	 	return args -> {
+//			BookCover bookCover1 = new BookCover("זה כריכה חדשה של ספר אומג", "Photo");
+//			BookCover bookCover2 = new BookCover("זה כריכה שניה חדשה של ספר אומג", "Photo");
+//			BookCover bookCover3 = new BookCover("זה כריכה שלישית חדשה של ספר אומג", "Photo");
+//			BookCover bookCover4 = new BookCover("זה כריכה רביעית חדשה של ספר אומג", "Photo");
 //
-//	 		UUID id1 = UUID.randomUUID();
-//	 		UUID id2 = UUID.randomUUID();
-//	 		UUID id3 = UUID.randomUUID();
-//	 		UUID ids[] = {id1, id2};
-//	 		List<Page> p_list = new ArrayList<Page>();
-//	 		List<Question> q_list = new ArrayList<Question>();
-//
-//	 		p_list.add(new Page("אני לא רוצה יותר דיייייייייייייי", "photo1.png", false, null, ids, id3));
-//	 		q_list.add(new Question("input", "?למה זה חרא", null, null));
-//
-//	 		Book book = new Book("דני שובבני", p_list, q_list);
-//
-//	 		repository.insert(book);
+//	 		repository.insert(bookCover1);
+//	 		repository.insert(bookCover2);
+//	 		repository.insert(bookCover3);
+//	 		repository.insert(bookCover4);
 //	 	};
 //	 }
 }

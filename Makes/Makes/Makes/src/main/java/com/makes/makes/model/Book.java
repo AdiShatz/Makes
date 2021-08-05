@@ -1,12 +1,9 @@
 package com.makes.makes.model;
 
-import com.makes.makes.systemObjects.Page;
-// import com.sun.javafx.collections.MappingChange;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,17 +18,12 @@ public class Book {
     private List<Page>  pages;
     private List<Question>  questions;
 
-
-
     public Book(String name,List<Page> pages,List<Question> questions){
         this.name = name;
         this.questions = questions;
         this.pages = pages;
 
     }
-
-
-
 
     public String getId() { return id;}
 

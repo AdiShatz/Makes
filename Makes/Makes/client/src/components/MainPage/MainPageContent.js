@@ -7,7 +7,9 @@ const MainPageContent = (props) => {
 
     return (
         <React.Fragment>
-           <BooksList items={props.items} isGalleryItem={'false'} onBookItemClicked={props.onBookItemClicked} />
+           <BooksList items={props.items} 
+           isGalleryItem={'false'} 
+           onBookItemClicked={props.onBookItemClicked} />
            {props.children}
         </React.Fragment>
     );

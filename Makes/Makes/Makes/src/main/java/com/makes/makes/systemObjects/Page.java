@@ -1,11 +1,15 @@
 package com.makes.makes.systemObjects;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import java.awt.*;
 import java.util.Map;
 import java.util.UUID;
 
 public class Page {
-    private String id;
+    private String id = UUID.randomUUID().toString();
     static private int pageNum;
     private String text;
     // private Image background;
@@ -15,10 +19,9 @@ public class Page {
     private UUID[] nextPageId;
     private UUID prevPageId;
 
-
+    @PersistenceConstructor
     public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
-        this.id = UUID.randomUUID().toString();
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];

@@ -7,28 +7,28 @@ import { AuthContextProvider } from "./store/auth-context";
 import useHttp from "./hooks/use-http";
 
 
-const DUMMY_BOOKS = [
-  {
-    id: 'b1',
-    name: 'כיפה אדומה',
-    coverPhoto: "KipaAduma.jfif"
-  },
-  { 
-      id: 'b2',
-    name: 'סינדרלה',
-    coverPhoto: "Sinderela.jpg"
-  },
-  { 
-      id: 'b3',
-    name: 'פיטר פן',
-    coverPhoto: "Piterpen.jpg"
-  },
-  { 
-      id: 'b4',
-    name: 'שילגיה',
-    coverPhoto: "Shilgiya.jpeg"
-  }
-];
+// const DUMMY_BOOKS = [
+//   {
+//     id: 'b1',
+//     name: 'כיפה אדומה',
+//     coverPhoto: "KipaAduma.jfif"
+//   },
+//   { 
+//       id: 'b2',
+//     name: 'סינדרלה',
+//     coverPhoto: "Sinderela.jpg"
+//   },
+//   { 
+//       id: 'b3',
+//     name: 'פיטר פן',
+//     coverPhoto: "Piterpen.jpg"
+//   },
+//   { 
+//       id: 'b4',
+//     name: 'שילגיה',
+//     coverPhoto: "Shilgiya.jpeg"
+//   }
+// ];
 
 const DUMMY_GALLERY_BOOKS = [
   {
@@ -49,12 +49,11 @@ const DUMMY_GALLERY_BOOKS = [
     const [books, setBooks] = useState([]); 
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
-    const transformedBooks = booksObj => {
+    const transformedBooks = booksArr => {
       const loadedBooks=[];
 
-      for(const bookKey in booksObj){
-      loadedBooks.push({id: bookKey, text: booksObj[bookKey].text})
-      }
+      booksArr.forEach(book =>  loadedBooks.push({name: book.name}));
+
 
     setBooks(loadedBooks);
     };

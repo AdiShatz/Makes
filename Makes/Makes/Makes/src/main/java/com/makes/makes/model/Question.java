@@ -1,8 +1,12 @@
 package com.makes.makes.model;
 
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import java.util.List;
 import java.util.UUID;
 // TODO DELETE
+@NoArgsConstructor
 public class Question {
 
     private String id = UUID.randomUUID().toString();
@@ -11,11 +15,11 @@ public class Question {
     private List<String> answerOptions;
     private String labelInText;
 
-    public Question(String answerType, String lable, List<String> answerOptions, String lableInText) {
+    public Question(String answerType, String label, List<String> answerOptions, String labelInText) {
         this.answerType = answerType;
-        this.label = lable;
+        this.label = label;
         this.answerOptions = answerOptions;
-        this.labelInText = lableInText;
+        this.labelInText = labelInText;
     }
 
     public List<String> getAnswerOptions() {

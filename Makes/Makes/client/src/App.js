@@ -92,19 +92,30 @@ const DUMMY_GALLERY_BOOKS = [
         alert("אנא התחבר על מנת להשלים את הפעולה");
       };
 
+      const galleryItemDeleteHandler = () =>
+      {
+          
+      }
+
     
     return (
         <React.Fragment>
         <AuthContextProvider>
             {isLoading && <h1>...אנא המתן</h1>}
 
-            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} onBookItemClicked={bookItemClickedHandler} onNotLoggedIn={notLoggedInHandler} onGalleryClicked={myGalleryHandler}/>}
+            {!isLoading && page === 'mainPage' && <MainPage items={DUMMY_BOOKS} 
+            onBookItemClicked={bookItemClickedHandler} 
+            onNotLoggedIn={notLoggedInHandler}
+             onGalleryClicked={myGalleryHandler}/>}
 
             {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={createBookClickedHandler}/>} 
 
             {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
-            {page === 'galleryPage' && <GalleryPage items={dummyBooks} onBackToMainMenuButtonClicked={backButtonClickedHandler} onGalleryBookItemClicked={galleryBookItemClickedHandler}/>} 
+            {page === 'galleryPage' && <GalleryPage items={dummyBooks} 
+            onBackToMainMenuButtonClicked={backButtonClickedHandler} 
+            onGalleryBookItemClicked={galleryBookItemClickedHandler}
+            onGalleryItemDeletion={galleryItemDeleteHandler}/>} 
 
 
         </AuthContextProvider>

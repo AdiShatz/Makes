@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Questionnaire from "./Questionnaire"
-// import CreateBookButton from "./CreateBookButton"
 import BookCoverPhoto from "./BookCoverPhoto"
 import Button from "../UI/Button"
 

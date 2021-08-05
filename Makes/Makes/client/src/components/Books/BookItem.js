@@ -6,8 +6,12 @@ import './BookItem.css'
 const BookItem = (props) => {
   
     const ClickedHandler = () => {
-    props.onBookItemClicked(props);
-
+      if(props.isGalleryItem === 'false'){
+        props.onBookItemClicked();
+      }
+      else{
+        props.onGalleryBookItemClicked();
+      }
       };
 
       
@@ -22,6 +26,7 @@ const BookItem = (props) => {
         onClick={ClickedHandler}/>
 
         <label className='book-item__name'>{props.name}</label>
+        {props.isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
     </Card>
   
   );

@@ -74,6 +74,7 @@ const ReadBookPage = (props) => {
         <React.Fragment>
             <Header >
                 <label>קריאת ספר</label>
+                { <button >שמור ספר בגלרייה</button>}
             </Header>
             <ReadBookPageContent pages={DUMMY_BOOK}/>
             <Footer>

@@ -21,7 +21,8 @@ const AuthForm = (props) => {
       event.preventDefault();
       const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
-        let url;
+      let url;
+      
       setIsLoading(true);
         if(isLogin){
             url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBRn0rrAr5eEmW-z3unJG-DxGoAm5c1C-k";

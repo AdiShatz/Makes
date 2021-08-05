@@ -35,9 +35,11 @@ const MainPage = (props) => {
             <Header >
 
                 {!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}
-                <label className="greetingLabel"> שלום {username} </label>
+                <label> שלום {username} </label>
             </Header>
-            <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
+            <MainPageContent
+            items={props.items} 
+            onBookItemClicked={isLoggedIn?props.onBookItemClicked:props.onNotLoggedIn}/>
             <Footer>
             {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
            {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}

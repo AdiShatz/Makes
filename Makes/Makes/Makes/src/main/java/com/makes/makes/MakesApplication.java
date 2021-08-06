@@ -17,20 +17,20 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-//	 @Bean
-//	 CommandLineRunner runner(BookCoverRepository repository){
-//
-//	 	return args -> {
-//			BookCover bookCover1 = new BookCover("זה כריכה חדשה של ספר אומג", "Photo");
-//			BookCover bookCover2 = new BookCover("זה כריכה שניה חדשה של ספר אומג", "Photo");
-//			BookCover bookCover3 = new BookCover("זה כריכה שלישית חדשה של ספר אומג", "Photo");
-//			BookCover bookCover4 = new BookCover("זה כריכה רביעית חדשה של ספר אומג", "Photo");
-//
-//	 		repository.insert(bookCover1);
-//	 		repository.insert(bookCover2);
-//	 		repository.insert(bookCover3);
-//	 		repository.insert(bookCover4);
-//	 	};
-//	 }
-}
+// 	 @Bean
+// 	 CommandLineRunner runner(BookCoverRepository repository){
+
+// 	 	return args -> {
+// 			BookCover bookCover1 = new BookCover("כיפה אדומה", "KipaAduma.jfif");
+// 			BookCover bookCover2 = new BookCover("פיטר-פן", "Piterpen.jpg");
+// 			BookCover bookCover3 = new BookCover("שילגיה", "Shilgiya.jpg");
+// 			BookCover bookCover4 = new BookCover("סינדרלה", "Sinderela.jpg");
+
+// 	 		repository.insert(bookCover1);
+// 	 		repository.insert(bookCover2);
+// 	 		repository.insert(bookCover3);
+// 	 		repository.insert(bookCover4);
+// 	 	};
+// 	}
+ }
 

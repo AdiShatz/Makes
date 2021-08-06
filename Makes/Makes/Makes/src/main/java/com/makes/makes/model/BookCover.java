@@ -13,8 +13,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class BookCover {
 
-    @Id
-    private String id;
+    // @Id
+    // private String id;
     private String name;
     private String coverPhoto;
 

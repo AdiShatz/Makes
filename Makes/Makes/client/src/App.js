@@ -100,6 +100,7 @@ const DUMMY_GALLERY_BOOKS = [
     return (
         <React.Fragment>
         <AuthContextProvider>
+          
             {isLoading && <h1>...אנא המתן</h1>}
 
             {!isLoading && page === 'mainPage' && <MainPage items={books} 

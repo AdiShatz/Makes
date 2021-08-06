@@ -6,12 +6,12 @@ import './MainPageContent.css';
 const MainPageContent = (props) => {
 
     return (
-        <React.Fragment>
+        <div class="main-container">
            <BooksList items={props.items} 
            isGalleryItem={'false'} 
            onBookItemClicked={props.onBookItemClicked} />
            {props.children}
-        </React.Fragment>
+        </div>
     );
 }
 export default MainPageContent;

@@ -6,8 +6,8 @@ const Header = (props) => {
 return(
 
 <header className="header">
-    <h1><b>מייקס</b></h1>
     {props.children}
+    <img src={require("../../images/Makes-logos.jpeg").default}></img>
 </header>
 );
 }

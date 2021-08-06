@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import Header from "../UI/Header";
 import CreateBookPageContent from "./CreateBookPageContent";
 import Footer from "../UI/Footer";
-import Button from "../UI/Button"
+import Button from "../UI/Button";
+import './CreateBookPage.css';
 
 const DUMMY_QUESTIONS = [
     {
@@ -39,7 +40,7 @@ const CreateBookPage = (props) => {
     return (
         <React.Fragment>
             <Header >
-                <label>יצירת ספר</label>
+                <label id="create-book-label">יצירת ספר</label>
                 
             </Header>
             <CreateBookPageContent questions={questions} onCreateBook={props.onCreateBook}/>

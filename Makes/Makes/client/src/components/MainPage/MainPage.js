@@ -5,7 +5,8 @@ import Footer from "../UI/Footer";
 import Button from "../UI/Button";
 import AuthForm from "../Auth/AuthForm";
 import AuthContext from "../../store/auth-context";
-
+import './MainPage.css';
+import '../UI/Header.css'
 
 const MainPage = (props) => {
 
@@ -30,21 +31,22 @@ const MainPage = (props) => {
       };
 
     return (
-        <React.Fragment>
+        <div >
             {loginFormIsShown && <AuthForm onClose={hideLoginFormHandler} />}
-            <Header >
-
-                {!isLoggedIn && <Button type="input" onClick={showLoginFormHandler}>התחבר</Button>}
-                <label> שלום {username} </label>
+            <Header className="header">
+            <nav>
+                <ul>
+                 <li>{!isLoggedIn && <Button className="login-button" type="input" onClick={showLoginFormHandler}>התחבר</Button>}</li>
+                 <li><label> שלום {username} </label></li>
+                </ul>
+            </nav>
             </Header>
-            <MainPageContent
-            items={props.items} 
-            onBookItemClicked={isLoggedIn?props.onBookItemClicked:props.onNotLoggedIn}/>
+            <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
             <Footer>
             {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
            {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}
             </Footer>
-        </React.Fragment>
+        </div>
     );
 }
 export default MainPage;

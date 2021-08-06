@@ -10,8 +10,6 @@ const BooksList = (props) => {
         <div className='books-list'>
           {props.items.map((book) => (
             <BookItem
-              key={book.id}
-              id={book.id}
               name={book.name}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}

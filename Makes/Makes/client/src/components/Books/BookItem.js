@@ -18,12 +18,11 @@ const BookItem = (props) => {
     return(
 
     <Card className='book-item'>
-
-        {/* <img 
-        src={require("../../images/"+ props.coverPhoto).default}  
+        <img
+        src={require("../../images/" + props.coverPhoto).default}
         alt= "Photo Unavailable"
-        className='book-item__img' 
-        onClick={ClickedHandler}/> */}
+        className='book-item__img'
+        onClick={ClickedHandler}/>
 
         <label className='book-item__name'>{props.name}</label>
         {props.isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       

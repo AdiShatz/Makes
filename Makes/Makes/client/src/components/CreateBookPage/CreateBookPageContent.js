@@ -11,6 +11,7 @@ const CreateBookPageContent = (props) => {
         <div className="create-book-page-content">
             <Questionnaire questions={props.questions}/> 
             <Button onClick={props.onCreateBook}> צור ספר </Button>
+            <label>{localStorage.getItem('chosenBookName')}</label>
             <BookCoverPhoto/>
         </div>
     );

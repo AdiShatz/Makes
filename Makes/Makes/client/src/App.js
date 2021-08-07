@@ -3,7 +3,7 @@ import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
-import { AuthContextProvider } from "./store/auth-context";
+import AuthContext, {AuthContextProvider} from "./store/auth-context";
 import useHttp from "./hooks/use-http";
 
 const DUMMY_GALLERY_BOOKS = [
@@ -21,8 +21,13 @@ const DUMMY_GALLERY_BOOKS = [
 
   const App = () => {
 
+    const authCtx = useContext(AuthContext);
+
+    const isLoggedIn = authCtx.isLoggedIn;
+
     const [page, setPage] = useState("mainPage");
     const [bookCards, setBookCards] = useState([]);
+    const [chosenBookName, setChosenBookName] = useState("כיפה אדומה");
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
     const transformedBooks = booksArr => {
@@ -41,15 +46,20 @@ const DUMMY_GALLERY_BOOKS = [
       fetchBooks();
     },[]);
 
-    const bookItemClickedHandler = (book) => {
+    const bookItemClickedHandler = () => {
       setPage("createBookPage");
     };
 
-    const galleryBookItemClickedHandler = (book) => {
+    const notLoggedInHandler = (book) => {
+    alert("אנא התחבר על מנת להשלים את הפעולה");
+  };
+
+
+    const galleryBookItemClickedHandler = () => {
       setPage("readBookPage");
     };
 
-      const createBookClickedHandler = (book) => {
+      const createBookClickedHandler = () => {
         setPage("readBookPage");
       };
     
@@ -61,13 +71,8 @@ const DUMMY_GALLERY_BOOKS = [
         setPage("galleryPage");
       };
 
-      const notLoggedInHandler = () => {
-        alert("אנא התחבר על מנת להשלים את הפעולה");
-      };
-
       const galleryItemDeleteHandler = () =>
       {
-          
       }
 
     
@@ -79,12 +84,15 @@ const DUMMY_GALLERY_BOOKS = [
 
             {!isLoading && page === 'mainPage' && <MainPage items={bookCards}
             onBookItemClicked={bookItemClickedHandler} 
-            onNotLoggedIn={notLoggedInHandler}
-             onGalleryClicked={myGalleryHandler}/>}
+             onGalleryClicked={myGalleryHandler}
+             onNotLoggedIn={notLoggedInHandler}/>}
 
-            {page === 'createBookPage' && <CreateBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler} onCreateBook={createBookClickedHandler}/>} 
+            {page === 'createBookPage' && <CreateBookPage
+            onBackToMainMenuButtonClicked={backButtonClickedHandler} 
+            onCreateBook={createBookClickedHandler}/>} 
 
-            {page === 'readBookPage' && <ReadBookPage onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+            {page === 'readBookPage' && <ReadBookPage
+             onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={dummyGalleryBooks} 
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 

@@ -9,7 +9,8 @@ const MainPageContent = (props) => {
         <div class="main-container">
            <BooksList items={props.items} 
            isGalleryItem={'false'} 
-           onBookItemClicked={props.onBookItemClicked} />
+           onBookItemClicked={props.onBookItemClicked} 
+           onNotLoggedIn={props.onNotLoggedIn}/>
            {props.children}
         </div>
     );

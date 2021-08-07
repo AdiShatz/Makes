@@ -41,6 +41,7 @@ const ReadBookPageContent = (props) => {
             <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/>
             {!isLastPage && <button onClick={nextPageHandler}>הבא</button>}
             {!isFirstPage && <button onClick={prevPageHandler}>הקודם</button>}
+            <label>{props.bookName}</label>
 
         </React.Fragment>
     );

@@ -14,6 +14,8 @@ const MainPage = (props) => {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
   const username = authCtx.username;  
+  const isAdminUser = authCtx.username==="nirolol1994@gmail.com" || authCtx.username==="lilach.birnbaum@gmail.com";  
+  
 
   const [bookCards, setBookCards] = useState([]);
   const [loginFormIsShown, setLoginFormIsShown] = useState(false);
@@ -32,6 +34,7 @@ const MainPage = (props) => {
     useEffect(()=>{
       fetchBooks();
     },[]);
+
 
 
     const showLoginFormHandler = () => {
@@ -66,7 +69,7 @@ const MainPage = (props) => {
             <Footer>
             {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
            {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}
-           {/*isAdminUser &&*/ <label>אדמיניסטרציה</label>}
+           {isAdminUser && <label onClick= {props.onAdminPageClicked}>ניהול ספרים</label>}
             </Footer>
         </div>
     );

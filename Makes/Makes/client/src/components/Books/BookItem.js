@@ -5,11 +5,6 @@ import './BookItem.css'
 
 const BookItem = (props) => {
   
-  // useEffect(()=>{
-    //   const storedChosenBookName=localStorage.getItem('ChosenBookName');
-    //   setChosenBookName(storedChosenBookName);
-    // },[setChosenBookName]);
-  
   const authCtx = useContext(AuthContext);
 
     const ClickedHandler = () => {

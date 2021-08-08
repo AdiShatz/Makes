@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import BookPage from "../Books/BookPage";
 import Button from "../UI/Button";
 
 
@@ -7,16 +6,14 @@ import './AdminPageContent.css';
 
 const AdminPageContent = (props) => {
 
-   
-
     return (
-        <React.Fragment>
-         <Button>מחק ספר בתצוגה</Button>
-         <Button>הוסף ספר לתצוגה</Button>
+        <div className="admin-container">
+
+         <Button>מחק טמפלייט מהתצוגה</Button>
+         <Button>הוסף טמפלייט לתצוגה</Button>
          <Button>מחק משתמש קיים</Button>
 
-
-        </React.Fragment>
+        </div>
     );
 }
 

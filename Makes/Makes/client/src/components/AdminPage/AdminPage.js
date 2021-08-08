@@ -13,7 +13,7 @@ const AdminPage = (props) => {
                
             </Header>
 
-            <AdminPageContent pages={DUMMY_BOOK}/>
+            <AdminPageContent/>
 
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>

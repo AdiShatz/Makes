@@ -66,6 +66,7 @@ const MainPage = (props) => {
             <Footer>
             {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
            {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}
+           {/*isAdminUser &&*/ <label>אדמיניסטרציה</label>}
             </Footer>
         </div>
     );

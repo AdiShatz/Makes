@@ -5,9 +5,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.Id;
+
 @NoArgsConstructor
 public class Question {
 
+    @Id
     private String id = UUID.randomUUID().toString();
     private String answerType;
     private String label;

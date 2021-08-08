@@ -4,6 +4,7 @@ import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
 import AuthContext, {AuthContextProvider} from "./store/auth-context";
+import AdminPage from "./components/AdminPage/AdminPage";
 
 const DUMMY_GALLERY_BOOKS = [
   {
@@ -27,6 +28,9 @@ const DUMMY_GALLERY_BOOKS = [
     const [page, setPage] = useState("mainPage");
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
+    // const isAdminUser = () => {
+    //   if(localStorage.getItem.name)==
+    // }
 
     const bookItemClickedHandler = () => {
       setPage("createBookPage");
@@ -51,6 +55,10 @@ const DUMMY_GALLERY_BOOKS = [
 
       const myGalleryHandler = () => {
         setPage("galleryPage");
+      };
+
+      const adminAccessHandler = () => {
+        setPage("adminPage");
       };
 
       const galleryItemDeleteHandler = () =>
@@ -78,6 +86,8 @@ const DUMMY_GALLERY_BOOKS = [
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 
             onGalleryBookItemClicked={galleryBookItemClickedHandler}
             onGalleryItemDeletion={galleryItemDeleteHandler}/>} 
+
+            {page === 'adminPage' && <AdminPage />} 
 
 
         </AuthContextProvider>

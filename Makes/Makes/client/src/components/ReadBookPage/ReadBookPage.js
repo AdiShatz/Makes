@@ -73,7 +73,7 @@ const ReadBookPage = (props) => {
   const [books, setBooks] = useState([]);
 
   
-  // const transformedBooks = booksArr => {
+  // const transformedBook = book => {
   //   const loadedBook=[];
   //   // booksArr.forEach(book =>  loadedBooks.push({name: book.name, coverPhoto: book.coverPhoto}));
   // setBooks(loadedBook);

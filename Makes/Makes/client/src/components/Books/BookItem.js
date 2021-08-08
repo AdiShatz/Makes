@@ -1,23 +1,38 @@
-import React from "react";
+import React, {useContext} from "react";
 import Card from '../UI/Card';
-
+import AuthContext from "../../store/auth-context";
 import './BookItem.css'
 
 const BookItem = (props) => {
   
+  // useEffect(()=>{
+    //   const storedChosenBookName=localStorage.getItem('ChosenBookName');
+    //   setChosenBookName(storedChosenBookName);
+    // },[setChosenBookName]);
+  
+  const authCtx = useContext(AuthContext);
+
     const ClickedHandler = () => {
-      if(props.isGalleryItem === 'false'){
+      
+      if(authCtx.isLoggedIn){
+        localStorage.setItem('chosenBookName', props.name);
+
+       if(props.isGalleryItem === 'false'){
         props.onBookItemClicked();
-      }
-      else{
-        props.onGalleryBookItemClicked();
-      }
-      };
+       }
+        else{
+        props.onGalleryBookItemClicked(props.name);
+        }
+
+    }else{
+      props.onNotLoggedIn();
+    }
+  };
 
       
     return(
 
-    <Card className='book-item'>
+    <Card className='book-item' name={props.name}>
         <img
         src={require("../../images/" + props.coverPhoto).default}
         alt= "Photo Unavailable"

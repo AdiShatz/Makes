@@ -1,22 +1,38 @@
-import React, {Fragment, useContext, useState} from "react";
+import React, {useEffect, useContext, useState} from "react";
 import Header from "../UI/Header";
 import MainPageContent from "./MainPageContent";
 import Footer from "../UI/Footer";
 import Button from "../UI/Button";
 import AuthForm from "../Auth/AuthForm";
 import AuthContext from "../../store/auth-context";
+import useHttp from "../../hooks/use-http";
 import './MainPage.css';
 import '../UI/Header.css'
 
 const MainPage = (props) => {
 
   const authCtx = useContext(AuthContext);
-
   const isLoggedIn = authCtx.isLoggedIn;
-  const username = authCtx.username;
+  const username = authCtx.username;  
 
-    
-    const [loginFormIsShown, setLoginFormIsShown] = useState(false);
+  const [bookCards, setBookCards] = useState([]);
+  const [loginFormIsShown, setLoginFormIsShown] = useState(false);
+  
+    const transformedBooks = booksArr => {
+      const loadedBooks=[];
+      booksArr.forEach(book =>  loadedBooks.push({name: book.name, coverPhoto: book.coverPhoto}));
+    setBookCards(loadedBooks);
+    };
+
+    const {isLoading, error, sendRequest: fetchBooks} = 
+    useHttp({url: 'http://localhost:8080/booksCovers/'},
+    transformedBooks
+    );
+
+    useEffect(()=>{
+      fetchBooks();
+    },[]);
+
 
     const showLoginFormHandler = () => {
       setLoginFormIsShown(true);
@@ -41,10 +57,16 @@ const MainPage = (props) => {
                 </ul>
             </nav>
             </Header>
-            <MainPageContent items={props.items} onBookItemClicked={props.onBookItemClicked}/>
+            {isLoading && <h1>...אנא המתן</h1>}
+            {!isLoading &&  <MainPageContent 
+             items={props.items}
+             onBookItemClicked={props.onBookItemClicked}
+             onNotLoggedIn={props.onNotLoggedIn}
+             items={bookCards}/>}
             <Footer>
             {isLoggedIn &&<Button type="button" onClick={logoutHandler}>התנתק</Button>}
            {isLoggedIn && <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>}
+           {/*isAdminUser &&*/ <label>אדמיניסטרציה</label>}
             </Footer>
         </div>
     );

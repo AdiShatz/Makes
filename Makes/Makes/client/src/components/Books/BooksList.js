@@ -13,6 +13,7 @@ const BooksList = (props) => {
               name={book.name}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}
+              onNotLoggedIn={props.onNotLoggedIn}
               onGalleryBookItemClicked={props.onGalleryBookItemClicked}
               isGalleryItem= {props.isGalleryItem}
               onGalleryItemDeletion={props.onGalleryItemDeletion}

@@ -68,7 +68,25 @@ const DUMMY_BOOK = [
   ];
 
 
-const ReadBookPage = (props) => {        
+const ReadBookPage = (props) => {      
+
+  const [books, setBooks] = useState([]);
+
+  
+  // const transformedBooks = booksArr => {
+  //   const loadedBook=[];
+  //   // booksArr.forEach(book =>  loadedBooks.push({name: book.name, coverPhoto: book.coverPhoto}));
+  // setBooks(loadedBook);
+  // };
+
+  // const {isLoading, error, sendRequest: fetchBook} = 
+  // useHttp({url: 'http://localhost:8080/books/'},
+  // transformedBook
+  // );
+
+  // useEffect(()=>{
+  //   fetchBook();
+  // },[]);
 
     return (
         <React.Fragment>

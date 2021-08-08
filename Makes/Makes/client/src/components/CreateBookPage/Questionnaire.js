@@ -22,7 +22,7 @@ const Questionnaire = (props) => {
     const handleUserAnswersUpdated=(key, value)=>{
         answersDictonary[key]=value;
       
-        console.log(answersDictonary); // ---------------------> TO DELETE
+        console.log(answersDictonary); 
     }
     
 
@@ -43,7 +43,7 @@ const Questionnaire = (props) => {
                /> }
 
 
-            {question.type==="text" && <InputQuestion
+            {question.type==="input" && <InputQuestion
              label={question.label}
               id={question.id}
               updateDictionary={handleUserAnswersUpdated}/>}

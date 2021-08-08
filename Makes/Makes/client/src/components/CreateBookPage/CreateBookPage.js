@@ -12,16 +12,12 @@ const CreateBookPage = (props) => {
     const [questions, setQuestions] = useState([]);
     
       const transformedQuestions = questionsArr => {
+
         const loadedQuestions=[];
         questionsArr.forEach(question =>  loadedQuestions.push({id: question.id, type: question.answerType, label: question.label, options: question.answerOptions}));
-       
-        console.log("loaded:");
-        console.log(loadedQuestions);
-
+    
         setQuestions(loadedQuestions);
-        
-        console.log("questions:");
-        console.log(questions);
+
       };
   
       const {isLoading, error, sendRequest: fetchQuestions} = 

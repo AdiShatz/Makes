@@ -57,7 +57,7 @@ const DUMMY_GALLERY_BOOKS = [
         setPage("galleryPage");
       };
 
-      const adminAccessHandler = () => {
+      const adminPageHandler = () => {
         setPage("adminPage");
       };
 
@@ -73,7 +73,8 @@ const DUMMY_GALLERY_BOOKS = [
             {page === 'mainPage' && <MainPage 
             onBookItemClicked={bookItemClickedHandler} 
              onGalleryClicked={myGalleryHandler}
-             onNotLoggedIn={notLoggedInHandler}/>}
+             onNotLoggedIn={notLoggedInHandler}
+             onAdminPageClicked={adminPageHandler}/>}
 
             {page === 'createBookPage' && <CreateBookPage
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 
@@ -87,7 +88,8 @@ const DUMMY_GALLERY_BOOKS = [
             onGalleryBookItemClicked={galleryBookItemClickedHandler}
             onGalleryItemDeletion={galleryItemDeleteHandler}/>} 
 
-            {page === 'adminPage' && <AdminPage />} 
+            {page === 'adminPage' && <AdminPage 
+            onBackToMainMenuButtonClicked={backButtonClickedHandler} />} 
 
 
         </AuthContextProvider>

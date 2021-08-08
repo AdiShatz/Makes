@@ -1,42 +1,38 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../UI/Header";
 import CreateBookPageContent from "./CreateBookPageContent";
 import Footer from "../UI/Footer";
 import Button from "../UI/Button";
+import useHttp from "../../hooks/use-http";
 import './CreateBookPage.css';
-
-const DUMMY_QUESTIONS = [
-    {
-      id: 'q1',
-      type: 'text',
-      label: 'שם הילד',
-      options: ['גבי','לילך','עדי','ניר'] 
-    },
-    { 
-        id: 'q2',
-        type: 'combo',
-        label: 'בסיפור נבקר את',
-        options: ['סבתא','סבא','דודה','אמא'] 
-    },
-    { 
-        id: 'q3',
-        type: 'combo',
-        label: 'דרך איפה נלך',
-        options: ['יער','חוף הים','פארק','מערה'] 
-    },
-    { 
-        id: 'q4',
-        type: 'combo',
-        label: 'חיה מרושעת',
-        options: ['אריה','נחש','נמר','זאב'] 
-    }
-  ];
 
 
 const CreateBookPage = (props) => {        
 
-    const [questions, setQustions] = useState(DUMMY_QUESTIONS);
+    const [questions, setQuestions] = useState([]);
+    
+      const transformedQuestions = questionsArr => {
+        const loadedQuestions=[];
+        questionsArr.forEach(question =>  loadedQuestions.push({id: question.id, type: question.answerType, label: question.label, options: question.answerOptions}));
+       
+        console.log("loaded:");
+        console.log(loadedQuestions);
 
+        setQuestions(loadedQuestions);
+        
+        console.log("questions:");
+        console.log(questions);
+      };
+  
+      const {isLoading, error, sendRequest: fetchQuestions} = 
+      useHttp({url: 'http://localhost:8080/questionnaire/?name='+ localStorage.getItem('chosenBookName')},
+      transformedQuestions
+      );
+  
+      useEffect(()=>{
+        fetchQuestions();
+      },[]);
+      
     return (
         <React.Fragment>
             <Header >

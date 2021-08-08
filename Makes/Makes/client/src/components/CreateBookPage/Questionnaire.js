@@ -17,9 +17,6 @@ const Questionnaire = (props) => {
                 answersDictonary[question.id]=""; 
             }
         });
-
-        console.log(answersDictonary); // ---------------------> TO DELETE
-
     }
 
     const handleUserAnswersUpdated=(key, value)=>{

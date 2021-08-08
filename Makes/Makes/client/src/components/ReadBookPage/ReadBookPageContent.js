@@ -37,12 +37,12 @@ const ReadBookPageContent = (props) => {
     }
 
     return (
-        <React.Fragment>
+        <div style={{padding: "100px 0 0 0"}}>
             <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/>
             {!isLastPage && <button onClick={nextPageHandler}>הבא</button>}
             {!isFirstPage && <button onClick={prevPageHandler}>הקודם</button>}
 
-        </React.Fragment>
+        </div>
     );
 }
 

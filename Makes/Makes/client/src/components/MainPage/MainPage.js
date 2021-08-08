@@ -8,6 +8,7 @@ import AuthContext from "../../store/auth-context";
 import useHttp from "../../hooks/use-http";
 import './MainPage.css';
 import '../UI/Header.css'
+import '../UI/Footer.css'
 
 const MainPage = (props) => {
 

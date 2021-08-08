@@ -1,12 +1,12 @@
 
 .card {
-  overflow: hidden;
+  /* overflow: hidden;
   box-shadow: 0 2px 20px #e1e5ee;
   border-radius: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  transition:transform 200ms ease-in;
+  transition:transform 200ms ease-in; */
 
 }

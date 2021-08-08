@@ -1,5 +1,30 @@
-.book-page {
-    display:inline-block;
-    width: 50%;
+.main-read-book-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 30px;
+    text-align: center;
   }
-  
+
+
+.book-page-container-left {
+    /* display:inline-block;
+    width: 50%;
+    height: 100%; */
+    background-color: #f1f1f1;
+    padding: 10px;
+    flex: 50%;
+  }
+  .book-page-container-right {
+    /* display:inline-block;
+    width: 50%;
+    height: 100%; */
+    background-color: dodgerblue;
+    padding: 10px;
+    flex: 50%;
+  }
+  @media (max-width: 800px) {
+    .book-page-container-right, .book-page-container-left {
+      flex: 100%;
+    }
+  }

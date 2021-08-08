@@ -32,16 +32,17 @@ const BookItem = (props) => {
       
     return(
 
-    <Card className='book-item' name={props.name}>
+    <div className='book-item hvrbox' name={props.name} onClick={ClickedHandler} >
         <img
         src={require("../../images/" + props.coverPhoto).default}
         alt= "Photo Unavailable"
-        className='book-item__img'
-        onClick={ClickedHandler}/>
-
-        <label className='book-item__name'>{props.name}</label>
+        className='book-item__img hvrbox-layer_bottom'
+        />
+        <div class="hvrbox-layer_top">
+		      <div class="hvrbox-text">{props.name}</div>
+        </div>
         {props.isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
-    </Card>
+    </div>
   
   );
 }

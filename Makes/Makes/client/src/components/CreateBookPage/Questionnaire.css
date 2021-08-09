@@ -1,7 +1,7 @@
 .questionnaire {
 text-align: right;
 align-items: center;
-background-color: chartreuse;
+display: flex;
 }
 
 .questionnaire table{

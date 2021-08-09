@@ -21,10 +21,6 @@ const DUMMY_GALLERY_BOOKS = [
 
   const App = () => {
 
-    const authCtx = useContext(AuthContext);
-
-    const isLoggedIn = authCtx.isLoggedIn;
-
     const [page, setPage] = useState("mainPage");
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
@@ -36,7 +32,7 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("createBookPage");
     };
 
-    const notLoggedInHandler = (book) => {
+    const notLoggedInHandler = () => {
     alert("אנא התחבר על מנת להשלים את הפעולה");
   };
 
@@ -45,7 +41,59 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-      const createBookClickedHandler = () => {
+      const createBookClickedHandler = (newBookData) => {
+
+         const bookData = {
+           userName: localStorage.getItem("userName"),
+           bookName: localStorage.getItem("chosenBookName"),
+           newBookData
+         };
+
+         console.log(bookData);
+
+          // const enteredEmail = emailInputRef.current.value;
+          // const enteredPassword = passwordInputRef.current.value;
+          let url;
+          
+          // setIsLoading(true);
+
+          //TODO
+          url = "http://localhost:8080/customBook/"
+            fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    userName: localStorage.getItem("userName"),
+                    bookName: localStorage.getItem("chosenBookName"),
+                    answers: newBookData
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                // setIsLoading(false);
+                if(res.ok){
+                  console.log("We did it!!!");
+                    return res.json();
+                }
+                else{
+                    return res.json().then((data)=>{
+                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                         if(data && data.error && data.error.message){ 
+                         errorMessage = data.error.message; 
+                         }
+                         throw new Error(errorMessage);
+                    });
+                }
+            });
+            // .then((data) => { 
+            //  authCtx.login(data.idToken, data.email);
+            // })
+            // .catch(err => {
+            // alert(err.message);
+            // }).then(isLogin?props.onClose:switchAuthModeHandler);
+            
+        
         setPage("readBookPage");
       };
     
@@ -63,7 +111,7 @@ const DUMMY_GALLERY_BOOKS = [
 
       const galleryItemDeleteHandler = () =>
       {
-      }
+      };
 
     
     return (

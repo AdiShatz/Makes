@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import InputQuestion from "./InputQuestion";
 import ComboBoxQuestion from "./ComboBoxQuestion";
+import Button from "../UI/Button"
 
 import './Questionnaire.css';
 
@@ -19,16 +20,18 @@ const Questionnaire = (props) => {
         });
     }
 
-    const handleUserAnswersUpdated=(key, value)=>{
+    const userAnswersUpdatedHandler=(key, value)=>{
         answersDictonary[key]=value;
-      
-        console.log(answersDictonary); 
-    }
+          }
     
-
+          const submitHandler = () => {
+                props.onCreateBook(answersDictonary);
+              }
+    
+        
 
     return (
-        <React.Fragment className="questionnaire">
+        <div className="questionnaire">
             {setDefaultValues()}
            <table>
             {props.questions.map((question) => (
@@ -39,21 +42,23 @@ const Questionnaire = (props) => {
             label={question.label}
             options={question.options}
             id={question.id} 
-            updateDictionary={handleUserAnswersUpdated}
+            updateDictionary={userAnswersUpdatedHandler}
                /> }
 
 
             {question.type==="input" && <InputQuestion
              label={question.label}
               id={question.id}
-              updateDictionary={handleUserAnswersUpdated}/>}
+              updateDictionary={userAnswersUpdatedHandler}/>}
 
             </tr>
 
           ))}
            </table>
+            
+           <Button onClick={submitHandler}> צור ספר </Button>
 
-        </React.Fragment>
+        </div>
     );
 
 }

@@ -45,7 +45,50 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-      const createBookClickedHandler = () => {
+      const createBookClickedHandler = (event) => {
+         console.log(event.target);
+          // const enteredEmail = emailInputRef.current.value;
+          // const enteredPassword = passwordInputRef.current.value;
+          let url;
+          
+          // setIsLoading(true);
+
+          //TODO
+          url = "https://localhost8080???????????";
+            fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: "nir",
+                    password: "1234",
+                    returnsecureToken: true
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                // setIsLoading(false);
+                if(res.ok){
+                    return res.json();
+                }
+                else{
+                    return res.json().then((data)=>{
+                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                         if(data && data.error && data.error.message){ 
+                         errorMessage = data.error.message; 
+                         }
+                         throw new Error(errorMessage);
+                    });
+                }
+            });
+            // .then((data) => { 
+            //  authCtx.login(data.idToken, data.email);
+            // })
+            // .catch(err => {
+            // alert(err.message);
+            // }).then(isLogin?props.onClose:switchAuthModeHandler);
+            
+        
         setPage("readBookPage");
       };
     
@@ -63,7 +106,7 @@ const DUMMY_GALLERY_BOOKS = [
 
       const galleryItemDeleteHandler = () =>
       {
-      }
+      };
 
     
     return (

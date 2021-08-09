@@ -21,14 +21,12 @@ const Questionnaire = (props) => {
 
     const handleUserAnswersUpdated=(key, value)=>{
         answersDictonary[key]=value;
-      
-        console.log(answersDictonary); 
-    }
+          }
     
 
 
     return (
-        <React.Fragment className="questionnaire">
+        <div className="questionnaire">
             {setDefaultValues()}
            <table>
             {props.questions.map((question) => (
@@ -53,7 +51,7 @@ const Questionnaire = (props) => {
           ))}
            </table>
 
-        </React.Fragment>
+        </div>
     );
 
 }

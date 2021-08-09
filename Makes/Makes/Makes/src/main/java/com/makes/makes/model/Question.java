@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Question {
 
     @Id
-    private String id = UUID.randomUUID().toString();
+    private String id;
     private String answerType;
     private String label;
     private List<String> answerOptions;
@@ -22,6 +22,13 @@ public class Question {
         this.label = label;
         this.answerOptions = answerOptions;
         this.labelInText = labelInText;
+    }
+
+    public Question(Question question) {
+        this.answerType = question.getAnswerType();
+        this.label = question.getLabel();
+        this.answerOptions = question.getAnswerOptions();
+        this.labelInText = question.getLabelInText();
     }
 
     public List<String> getAnswerOptions() {

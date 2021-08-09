@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Questionnaire from "./Questionnaire"
 import BookCoverPhoto from "./BookCoverPhoto"
-import Button from "../UI/Button"
 
 import './CreateBookPageContent.css';
 

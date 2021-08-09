@@ -4,9 +4,10 @@ import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.Map;
 import java.util.UUID;
+import com.makes.makes.model.*;
 
 public class Page {
-    private String id = UUID.randomUUID().toString();
+    private UUID id;
     static private int pageNum;
     private String text;
     // private Image background;
@@ -17,8 +18,9 @@ public class Page {
     private UUID prevPageId;
 
     @PersistenceConstructor
-    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID[] nextPageId,UUID prevPageId){
+    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId ,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
+        this.id = pageId;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];
@@ -31,7 +33,7 @@ public class Page {
 
     public Page(Page page){
         pageNum ++;
-        this.id = UUID.randomUUID().toString();
+        this.id = page.id;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = page.nextPageId[0];
         this.nextPageId[1] = page.nextPageId[1];
@@ -57,7 +59,7 @@ public class Page {
 
     public static int getPageNum() { return pageNum;}
 
-    public String getId() { return id; }
+    public UUID getId() { return id; }
 
     public UUID getPrevPageId() { return prevPageId; }
 

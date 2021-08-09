@@ -1,10 +1,13 @@
 package com.makes.makes.model;
 
+import lombok.AllArgsConstructor;
+
 import java.util.*;
 
+@AllArgsConstructor
 public class BookFactory {
 
-    public void createNewBook(BookTemplate bookTemplate,String ownerName,Map<String,String>questionsMap)
+    public CustomBook createNewBook(BookTemplate bookTemplate,String ownerName,Map<String,String>questionsMap)
     /// get maybe an id from the front and question id +answer
     {
         List<Page> customPages = new ArrayList<Page>();
@@ -21,6 +24,7 @@ public class BookFactory {
           customPages.add(newPage);
         }
         CustomBook customBook = new CustomBook(bookTemplate.getName(),customPages,ownerName );
+        return customBook;
 
     }
 

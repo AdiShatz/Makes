@@ -24,4 +24,10 @@ public class BookTemplateService {
         BookTemplate bookTemplate = bookTemplateRepository.findByName(name);
         return bookTemplate.getQuestions();
     }
+
+    public BookTemplate getBookTemplate(String name)
+    {
+        return bookTemplateRepository.findByName(name);
+    }
+
 }

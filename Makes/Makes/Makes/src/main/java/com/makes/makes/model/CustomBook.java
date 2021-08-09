@@ -16,18 +16,22 @@ public class CustomBook {
     private String name;
     private List<Page>  pages;
     private String owner;
+    private boolean isSave;
 
     public CustomBook(String name, List<Page> pages,String owner){
         this.name = name;
         this.pages = pages;
         this.owner = owner;
+        this.isSave = false;
     }
 
-    public String getId() { return id;}
+    public String getId() { return this.id;}
 
-    public String getName() { return name;}
+    public String getName() { return this.name;}
 
-    public List<Page> getPages() { return pages;}
+    public List<Page> getPages() { return this.pages;}
 
-
+    public void setSave(boolean save) {
+        this.isSave = save;
+    }
 }

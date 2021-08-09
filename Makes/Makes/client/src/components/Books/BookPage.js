@@ -45,12 +45,12 @@ const BookPage = (props) => {
           <div className="book-page-container-left">
           <button onClick={recordButtonHandler}> {isRecording ? 'עצור' : 'הקלט'}</button>
           <img src={require("../../images/KipaAduma.jfif").default}/>
-          <ReactMediaRecorder
+          {/* <ReactMediaRecorder
         video
         render={({ previewStream }) => {
           return <VideoPreview stream={previewStream} />;
         }}
-      />
+      /> */}
         </div>
 
         <div className="book-page-container-right">

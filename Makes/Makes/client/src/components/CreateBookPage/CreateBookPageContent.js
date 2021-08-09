@@ -9,8 +9,7 @@ const CreateBookPageContent = (props) => {
 
     return (
         <div className="create-book-page-content">
-            <Questionnaire questions={props.questions}/> 
-            <Button onClick={props.onCreateBook}> צור ספר </Button>
+            <Questionnaire questions={props.questions} onCreateBook={props.onCreateBook}/> 
             <BookCoverPhoto/>
         </div>
     );

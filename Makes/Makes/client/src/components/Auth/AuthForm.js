@@ -44,6 +44,8 @@ const AuthForm = (props) => {
         }).then(res => {
             setIsLoading(false);
             if(res.ok){
+                localStorage.setItem('userName', enteredEmail);
+                localStorage.setItem('password', enteredPassword);
                 return res.json();
             }
             else{
@@ -62,8 +64,6 @@ const AuthForm = (props) => {
         .catch(err => {
         alert(err.message);
         }).then(isLogin?props.onClose:switchAuthModeHandler);
-        
-
         
     };
 

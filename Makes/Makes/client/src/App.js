@@ -21,10 +21,6 @@ const DUMMY_GALLERY_BOOKS = [
 
   const App = () => {
 
-    const authCtx = useContext(AuthContext);
-
-    const isLoggedIn = authCtx.isLoggedIn;
-
     const [page, setPage] = useState("mainPage");
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
@@ -36,7 +32,7 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("createBookPage");
     };
 
-    const notLoggedInHandler = (book) => {
+    const notLoggedInHandler = () => {
     alert("אנא התחבר על מנת להשלים את הפעולה");
   };
 
@@ -45,8 +41,16 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-      const createBookClickedHandler = (event) => {
-         console.log(event.target);
+      const createBookClickedHandler = (newBookData) => {
+
+         const bookData = {
+           userName: localStorage.getItem("userName"),
+           bookName: localStorage.getItem("chosenBookName"),
+           newBookData
+         };
+
+         console.log(bookData);
+
           // const enteredEmail = emailInputRef.current.value;
           // const enteredPassword = passwordInputRef.current.value;
           let url;
@@ -54,14 +58,14 @@ const DUMMY_GALLERY_BOOKS = [
           // setIsLoading(true);
 
           //TODO
-          url = "https://localhost8080???????????";
+          url = "http://localhost:8080/customBook/"
             fetch(url,
             {
                 method: 'POST',
                 body: JSON.stringify({
-                    email: "nir",
-                    password: "1234",
-                    returnsecureToken: true
+                    userName: localStorage.getItem("userName"),
+                    bookName: localStorage.getItem("chosenBookName"),
+                    answers: newBookData
                 }),
                 headers: {
                     'Content-Type': 'application/json'
@@ -69,6 +73,7 @@ const DUMMY_GALLERY_BOOKS = [
             }).then(res => {
                 // setIsLoading(false);
                 if(res.ok){
+                  console.log("We did it!!!");
                     return res.json();
                 }
                 else{

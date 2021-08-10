@@ -58,7 +58,7 @@ const DUMMY_GALLERY_BOOKS = [
           // setIsLoading(true);
 
           //TODO
-          url = "http://localhost:8080/customBook/"
+          url = "http://localhost:8080/customBook"
             fetch(url,
             {
                 method: 'POST',

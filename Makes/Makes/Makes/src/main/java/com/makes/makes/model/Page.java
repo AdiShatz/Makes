@@ -1,12 +1,20 @@
 package com.makes.makes.model;
 
+
+import lombok.NoArgsConstructor;
+import org.hibernate.type.UUIDBinaryType;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.Map;
 import java.util.UUID;
 
+import com.makes.makes.model.*;
+
+@NoArgsConstructor
 public class Page {
-    private String id = UUID.randomUUID().toString();
+
+    private UUID id;
     static private int pageNum;
     private String text;
     // private Image background;
@@ -17,12 +25,13 @@ public class Page {
     private UUID prevPageId;
 
     @PersistenceConstructor
-    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID[] nextPageId,UUID prevPageId){
+    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];
         this.prevPageId = prevPageId;
+        this.id = pageId;
         this.text = text;
         this.background = background;
         this.turningPoint = turningPoint;
@@ -31,7 +40,7 @@ public class Page {
 
     public Page(Page page){
         pageNum ++;
-        this.id = UUID.randomUUID().toString();
+        this.id = page.id;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = page.nextPageId[0];
         this.nextPageId[1] = page.nextPageId[1];
@@ -57,7 +66,7 @@ public class Page {
 
     public static int getPageNum() { return pageNum;}
 
-    public String getId() { return id; }
+    public UUID getId() { return id; }
 
     public UUID getPrevPageId() { return prevPageId; }
 
@@ -75,4 +84,31 @@ public class Page {
         }
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
+    public void setTurningPointExist(Boolean turningPointExist) {
+        this.turningPointExist = turningPointExist;
+    }
+
+    public void setTurningPoint(TurningPoint turningPoint) {
+        this.turningPoint = turningPoint;
+    }
+
+    public void setNextPageId(UUID[] nextPageId) {
+        this.nextPageId = nextPageId;
+    }
+
+    public void setPrevPageId(UUID prevPageId) {
+        this.prevPageId = prevPageId;
+    }
 }

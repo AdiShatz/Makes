@@ -50,4 +50,20 @@ public class Question {
     public String getId() {
         return id;
     }
+
+    public void setAnswerType(String answerType) {
+        this.answerType = answerType;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setAnswerOptions(List<String> answerOptions) {
+        this.answerOptions = answerOptions;
+    }
+
+    public void setLabelInText(String labelInText) {
+        this.labelInText = labelInText;
+    }
 }

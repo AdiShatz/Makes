@@ -12,28 +12,6 @@ const BookPage = (props) => {
     const pageData= props.data;
     const img = pageData.img;
 
-
-    // const recordingHandler = () => {
-    //   let device = navigator.mediaDevices.getUserMedia({audio: true});
-    //   let items=[];
-    //   let recorder;
-    //   device.then(stream => {
-    //     recorder = new MediaRecorder(stream);
-    //     recorder.onDataAvailable = event =>{
-    //       items.push(event.data);
-    //       if(recorder.state === 'inactive'){
-    //           let blob = new Blob(items, {type : 'audio/webm'});
-    //           document.getElementById('audio').innerHTML = '<source src="'+ URL.createObjectURL(blob)+'" type="video.webm"/>';
-    //       }
-    //     }
-    //     recorder.start(1000);
-    //   });
-
-    //   setTimeout(()=>{
-    //         recorder.stop();
-    //     }, 4000);
-    // }
-
     return(
 
     <div className="main-read-book-container">

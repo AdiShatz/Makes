@@ -4,21 +4,23 @@
     flex-wrap: nowrap;
     font-size: 30px;
     text-align: center;
+    
   }
 
 
 .book-page-container-left {
-    /* display:inline-block;
-    width: 50%;
-    height: 100%; */
+  
     background-color: #f1f1f1;
     padding: 10px;
     flex: 50%;
   }
+  .book-page-container-left img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
   .book-page-container-right {
-    /* display:inline-block;
-    width: 50%;
-    height: 100%; */
+
     background-color: dodgerblue;
     padding: 10px;
     flex: 50%;

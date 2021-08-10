@@ -3,7 +3,8 @@ import Header from "../UI/Header";
 import ReadBookPageContent from "./ReadBookPageContent";
 import Footer from "../UI/Footer";
 import Button from "../UI/Button";
-
+import RecordView from "../UI/RecordView";
+import "./ReadBookPage.css";
 
 const DUMMY_BOOK = [
     {
@@ -95,6 +96,8 @@ const ReadBookPage = (props) => {
                 <label>קריאת ספר</label>
                 { <button >שמור ספר בגלרייה</button>}
             </Header>
+            <div id="recordView"><RecordView/></div>
+            
             <ReadBookPageContent pages={DUMMY_BOOK}/>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>

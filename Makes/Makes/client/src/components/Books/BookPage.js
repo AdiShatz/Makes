@@ -37,16 +37,18 @@ const BookPage = (props) => {
     return(
 
     <div className="main-read-book-container">
+      
+      
           <div className="book-page-container-left">
-          <img src={require("../../images/KipaAduma.jfif").default}/>
-         <RecordView/>
-        </div>
+              <img src={require("../../images/KipaAduma.jfif").default}/>
+          </div>
 
-        <div className="book-page-container-right">
-        <p>{pageData.text}</p>
-        {pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
+          <div className="book-page-container-right">
+              <p>{pageData.text}</p>
+              {pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
         </div>
-    </div>
+      </div>
+   
   );
 }
 

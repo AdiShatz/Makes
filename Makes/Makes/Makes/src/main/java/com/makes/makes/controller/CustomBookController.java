@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/customBooks")
 public class CustomBookController {
@@ -27,23 +27,31 @@ public class CustomBookController {
     }
 
     @PostMapping("/")
-    public CustomBook createCustomBook(@RequestBody Map<String,String> data)
-    {
-        BookFactory bookFactory = new BookFactory();
+    public CustomBook createCustomBook(@RequestBody CustomBook data)
+    {    
+
+        
+        // BookFactory bookFactory = new BookFactory();
 
 
-        String user =data.get("userName");
-        String bookName =data.get("bookName");
-        String bookData = data.get("newBookData");
-        Map<String,String> questionsAnswersMap = createMapFromString(bookData);
-        BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
+        // String user =data.get("userName");
+        // String bookName =data.get("bookName");
+        
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
-
-        customBookService.insertCustomBook(newCustomBook);
-        return newCustomBook;
+        System.out.println("names:");
+        System.out.println(data);
+        
 
 
+
+        // String bookData = data.get("newBookData");
+        // Map<String,String> questionsAnswersMap = createMapFromString(bookData);
+        // BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
+
+        // CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
+
+        // customBookService.insertCustomBook(newCustomBook);
+        return /*newCustomBook*/data;
     }
 
     private Map<String,String> createMapFromString(String data)
@@ -58,5 +66,4 @@ public class CustomBookController {
         }
         return newMap;
     }
-
 }

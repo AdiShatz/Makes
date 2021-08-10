@@ -43,49 +43,50 @@ const DUMMY_GALLERY_BOOKS = [
 
       const createBookClickedHandler = (newBookData) => {
 
-         const bookData = {
-           userName: localStorage.getItem("userName"),
-           bookName: localStorage.getItem("chosenBookName"),
-           newBookData
-         };
+        //  const bookData = {
+        //    userName: localStorage.getItem("userName"),
+        //    bookName: localStorage.getItem("chosenBookName"),
+        //    newBookData
+        //  };
 
-         console.log(bookData);
+        //  console.log(bookData);
 
           // const enteredEmail = emailInputRef.current.value;
           // const enteredPassword = passwordInputRef.current.value;
-          let url;
+         
           
           // setIsLoading(true);
 
           //TODO
-          url = "http://localhost:8080/customBook/"
+          let url = "http://localhost:8080/customBook/";
             fetch(url,
             {
                 method: 'POST',
                 body: JSON.stringify({
                     userName: localStorage.getItem("userName"),
                     bookName: localStorage.getItem("chosenBookName"),
-                    answers: newBookData
+                    // answers: newBookData
                 }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => {
-                // setIsLoading(false);
-                if(res.ok){
-                  console.log("We did it!!!");
-                    return res.json();
-                }
-                else{
-                    return res.json().then((data)=>{
-                         let errorMessage= 'מצטערים, אירעה שגיאה ';
-                         if(data && data.error && data.error.message){ 
-                         errorMessage = data.error.message; 
-                         }
-                         throw new Error(errorMessage);
-                    });
-                }
             });
+            //.then(res => {
+            //     // setIsLoading(false);
+            //     if(res.ok){
+            //       console.log("We did it!!!");
+            //         return res.json();
+            //     }
+            //     else{
+            //         return res.json().then((data)=>{
+            //              let errorMessage= 'מצטערים, אירעה שגיאה ';
+            //              if(data && data.error && data.error.message){ 
+            //              errorMessage = data.error.message; 
+            //              }
+            //              throw new Error(errorMessage);
+            //         });
+            //     }
+            // });
             // .then((data) => { 
             //  authCtx.login(data.idToken, data.email);
             // })

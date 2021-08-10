@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TurningPoint from '../ReadBookPage/TurningPoint'
-import ReactMediaRecorder from '../UI/ReactMediaRecorder'
+import RecordView from '../UI/RecordView'
 
 import './BookPage.css'
 
@@ -34,23 +34,12 @@ const BookPage = (props) => {
     //     }, 4000);
     // }
 
-    const recordButtonHandler = () => {
-      setIsRecording(!isRecording);
-      setIsRecordingExist(true);
-    }
-
     return(
 
     <div className="main-read-book-container">
           <div className="book-page-container-left">
-          <button onClick={recordButtonHandler}> {isRecording ? 'עצור' : 'הקלט'}</button>
           <img src={require("../../images/KipaAduma.jfif").default}/>
-          {/* <ReactMediaRecorder
-        video
-        render={({ previewStream }) => {
-          return <VideoPreview stream={previewStream} />;
-        }}
-      /> */}
+         <RecordView/>
         </div>
 
         <div className="book-page-container-right">

@@ -10,6 +10,7 @@ const RecordView = () => (
           <button onClick={startRecording}>הקלט</button>
           <button onClick={stopRecording}>עצור</button>
           <audio src={mediaBlobUrl} controls autoplay />
+          {/* test */}
         </div>
       )}
     />

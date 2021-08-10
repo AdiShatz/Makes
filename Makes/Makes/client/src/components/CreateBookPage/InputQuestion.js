@@ -10,13 +10,10 @@ const InputQuestion = (props) => {
       }
 
     return (
-        <React.Fragment>
+        <div className="inpquest">
             <input type="text" dir = "rtl" onChange={handleChange} />
             <label>{props.label}</label>
-        </React.Fragment>
+        </div>
     );
-
-
-
 }
 export default InputQuestion;

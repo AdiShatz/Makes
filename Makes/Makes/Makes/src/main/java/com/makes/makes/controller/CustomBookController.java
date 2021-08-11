@@ -31,6 +31,7 @@ public class CustomBookController {
     @PostMapping("/")
     public CustomBook createCustomBook(@RequestBody JSONObject data)
     {
+
         BookFactory bookFactory = new BookFactory();
 
         String user = data.getAsString("userName");
@@ -50,14 +51,18 @@ public class CustomBookController {
     private Map<String,String> createMapFromString(String data)
     {
         Map<String, String> newMap = new HashMap<String, String>();
+        data = data.substring(1,data.length()-1);
+        data = data.replaceAll("\\s+","");
         String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {
             String pair = pairs[i];
-            String[] keyValue = pair.split(":");
+            String[] keyValue = pair.split("=");
             newMap.put(keyValue[0], keyValue[1]);
         }
         return newMap;
     }
+
+
 
 }

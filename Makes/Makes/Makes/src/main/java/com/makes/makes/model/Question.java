@@ -10,8 +10,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Question {
 
-    @Id
-    private String id;
+    private String id = UUID.randomUUID().toString();
     private String answerType;
     private String label;
     private List<String> answerOptions;

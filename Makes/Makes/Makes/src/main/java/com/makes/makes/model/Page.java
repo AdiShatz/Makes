@@ -72,16 +72,18 @@ public class Page {
 
     public void editText(Map<String,String> labelAnswersMap)
     {
+
         int beginIndex = text.indexOf("<") ;
-        int endIndex = text.indexOf("<");
+        int endIndex = text.indexOf(">");
 
         while (beginIndex>=0 & endIndex>=0)
         {
-            String strToReplace = labelAnswersMap.get(text.substring(beginIndex+1,endIndex-1));
-            text = text.replace(text.substring(beginIndex,endIndex),strToReplace);
-            beginIndex =  text.indexOf("<",beginIndex+1);
-            endIndex = text.indexOf(">",endIndex+1);
+            String substituteStr = labelAnswersMap.get(text.substring(beginIndex+1,endIndex));
+            text = text.replace(text.substring(beginIndex,endIndex+1),substituteStr);
+            beginIndex =  text.indexOf("<");
+            endIndex = text.indexOf(">");
         }
+
     }
 
     public void setId(UUID id) {
@@ -110,5 +112,17 @@ public class Page {
 
     public void setPrevPageId(UUID prevPageId) {
         this.prevPageId = prevPageId;
+    }
+
+    private String alignTextRTL(String text)
+    {
+        String[] lines = text.split("\n");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < lines.length; i++) {
+            sb.append("\u202B");   // right-to-left embedding
+            sb.append(lines[i]);
+            sb.append("\u202C\n"); // pop directional formatting
+        }
+        return sb.toString();
     }
 }

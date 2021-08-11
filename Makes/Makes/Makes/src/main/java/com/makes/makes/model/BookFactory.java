@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 
 import java.util.*;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 public class BookFactory {
 
-    public CustomBook createNewBook(BookTemplate bookTemplate,String ownerName,Map<String,String>questionsMap)
+    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap)
     {
         List<Page> customPages = new ArrayList<Page>();
         Map<String,String> labelAnswersMap = createLabelAnswersMap(questionsMap,bookTemplate.getQuestions());

@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-//import org.json.*;
+import org.json.*;
 
 @ResponseBody
 @RestController
@@ -57,7 +57,7 @@ public class GreetingController {
 //            consumes = {MediaType.APPLICATION_JSON_VALUE},
 //            produces = {MediaType.APPLICATION_JSON_VALUE})
     @PostMapping("/display")
-    public String postBody(@RequestBody JSONObject greeting)
+    public List<Page> postBody(@RequestBody JSONObject greeting)
     {
 
         BookFactory bookFactory = new BookFactory();
@@ -67,7 +67,7 @@ public class GreetingController {
 
         //Greeting newGreerting = new Greeting(1, greeting);
 
-        return bookTemplate.getName();
+        return bookTemplate.getPages();
     }
 
 }

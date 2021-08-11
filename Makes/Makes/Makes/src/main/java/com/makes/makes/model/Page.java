@@ -24,7 +24,7 @@ public class Page {
     private UUID[] nextPageId;
     private UUID prevPageId;
 
-    @PersistenceConstructor
+    //@PersistenceConstructor
     public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
         this.nextPageId = new UUID[2];

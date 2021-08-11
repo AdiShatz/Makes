@@ -34,17 +34,19 @@ public class BookTemplate {
     public List<Question> getQuestions() { return questions;}
 
     private void setPages(List<Page> pages) {
-        for (Page page:pages)
-        {
-            Page newPage = new Page(page);
-        }
+        this.pages=pages;
+//        for (Page page:pages)
+//        {
+//            Page newPage = new Page(page);
+//        }
     }
 
     public void setQuestions(List<Question> questions) {
-        for (Question question: questions)
-        {
-           Question newQuestion = new Question(question);
-        }
+        this.questions = questions;
+//        for (Question question: questions)
+//        {
+//           Question newQuestion = new Question(question);
+//        }
     }
 
     public void setName(String name) {

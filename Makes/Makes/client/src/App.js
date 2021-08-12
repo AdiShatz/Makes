@@ -22,6 +22,7 @@ const DUMMY_GALLERY_BOOKS = [
   const App = () => {
 
     const [page, setPage] = useState("mainPage");
+    const [bookPages, setBookPages] = useState([]);
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
     // const isAdminUser = () => {
@@ -73,7 +74,6 @@ const DUMMY_GALLERY_BOOKS = [
                 }
              })
             .then(res => {
-                // setIsLoading(false);
                 if(res.ok){
                   console.log("200 OK");
                     return res.json();
@@ -88,6 +88,7 @@ const DUMMY_GALLERY_BOOKS = [
                     });
                 }
             }).then((data) => { 
+              setBookPages(data.pages);
              console.log(data);
             });
         setPage("readBookPage");
@@ -124,7 +125,7 @@ const DUMMY_GALLERY_BOOKS = [
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 
             onCreateBook={createBookClickedHandler}/>} 
 
-            {page === 'readBookPage' && <ReadBookPage
+            {page === 'readBookPage' && <ReadBookPage items={bookPages}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={dummyGalleryBooks} 

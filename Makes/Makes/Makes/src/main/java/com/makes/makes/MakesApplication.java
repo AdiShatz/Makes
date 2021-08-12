@@ -34,8 +34,8 @@ public class MakesApplication {
 //			UUID u2 = UUID.randomUUID();
 //			UUID[] uArr1 = {u2, null};
 //			UUID[] uArr2 = {null, null};
-//			Page p1 = new Page(" <PRINCE> הלכה לנשף עם <NAME>", "Sinderela.jpg", false, null, u1, uArr1, null);
-//			Page p2 = new Page(" התאהבו וחיו באושר ועושר <PRINCE>ו <NAME>", "Sinderela.jpg", false, null, u2, uArr2, u1);
+//			Page p1 = new Page(" <PRINCE> הלכה לנשף עם <NAME>", "Sinderela.jpg", false, null, u1, uArr1, null,1);
+//			Page p2 = new Page(" התאהבו וחיו באושר ועושר <PRINCE>ו <NAME>", "Sinderela.jpg", false, null, u2, uArr2, u1,2);
 //			pages.add(p1);
 //			pages.add(p2);
 //

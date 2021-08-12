@@ -43,7 +43,6 @@ const DUMMY_GALLERY_BOOKS = [
     };
 
       const createBookClickedHandler = (newBookData) => {
-          url = "http://localhost:8080/customBooks/"
 
             fetch(url,
             {

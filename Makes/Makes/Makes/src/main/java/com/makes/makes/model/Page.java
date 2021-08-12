@@ -15,7 +15,7 @@ import com.makes.makes.model.*;
 public class Page {
 
     private UUID id;
-    static private int pageNum;
+    private int pageNum;
     private String text;
     // private Image background;
     private String background;
@@ -25,8 +25,8 @@ public class Page {
     private UUID prevPageId;
 
     //@PersistenceConstructor
-    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId){
-        pageNum ++;
+    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId,int pageNum){
+        this.pageNum =pageNum;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];
@@ -39,7 +39,7 @@ public class Page {
     }
 
     public Page(Page page){
-        pageNum ++;
+        pageNum = page.getPageNum();
         this.id = page.id;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = page.nextPageId[0];
@@ -64,7 +64,7 @@ public class Page {
 
     public UUID[] getNextPageId() { return nextPageId; }
 
-    public static int getPageNum() { return pageNum;}
+    public int getPageNum() { return pageNum;}
 
     public UUID getId() { return id; }
 
@@ -125,4 +125,10 @@ public class Page {
         }
         return sb.toString();
     }
+
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+
 }

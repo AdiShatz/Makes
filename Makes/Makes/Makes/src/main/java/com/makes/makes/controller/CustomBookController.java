@@ -45,7 +45,7 @@ public class CustomBookController {
         // BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
         // CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
-
+//nir
         // customBookService.insertCustomBook(newCustomBook);
         return /*newCustomBook*/data;
     }

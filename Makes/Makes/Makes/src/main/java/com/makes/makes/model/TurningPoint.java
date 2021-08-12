@@ -1,7 +1,10 @@
 package com.makes.makes.model;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
 public class TurningPoint {
     String question ;
     List<String> options;
@@ -41,5 +44,9 @@ public class TurningPoint {
         {
             this.options.add(option);
         }
+    }
+
+    public void setMaxOptions(int maxOptions) {
+        this.maxOptions = maxOptions;
     }
 }

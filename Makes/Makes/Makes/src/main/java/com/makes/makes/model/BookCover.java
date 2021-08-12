@@ -14,12 +14,20 @@ import javax.persistence.Id;
 public class BookCover {
 
      @Id
-     private String id;
+    private String id;
     private String name;
     private String coverPhoto;
 
     public BookCover(String name, String coverPhoto) {
         this.name = name;
+        this.coverPhoto = coverPhoto;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 }

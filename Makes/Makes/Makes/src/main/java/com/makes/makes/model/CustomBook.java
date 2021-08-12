@@ -36,4 +36,16 @@ public class CustomBook {
     public void setSave(boolean save) {
         // this.isSave = save;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPages(List<Page> pages) {
+        this.pages = pages;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }

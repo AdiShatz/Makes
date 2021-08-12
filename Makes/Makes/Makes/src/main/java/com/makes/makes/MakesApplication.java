@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.ArrayList;
 import com.makes.makes.model.*;
 import com.makes.makes.repository.*;
-
-
-
 import com.makes.makes.model.BookCover;
 import com.makes.makes.model.Question;
 import com.makes.makes.repository.BookCoverRepository;
@@ -25,10 +22,12 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-//	 @Bean
-//	 CommandLineRunner runner(BookTemplateRepository repository){
+  
 //
-//	 	return args -> {
+//	@Bean
+//	CommandLineRunner runner(BookTemplateRepository repository){
+//
+//		return args -> {
 //
 //			List<Page> pages = new ArrayList<Page>();
 //			UUID u1 = UUID.randomUUID();
@@ -54,9 +53,8 @@ public class MakesApplication {
 //
 //			BookTemplate bt1 = new BookTemplate("סינדרלה", pages, questions);
 //
-//	 		repository.insert(bt1);
+//			repository.insert(bt1);
 //
-//	 	};
+//		};
 //	}
- }
-
+}

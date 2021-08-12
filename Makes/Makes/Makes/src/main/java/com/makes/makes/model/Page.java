@@ -1,11 +1,18 @@
 package com.makes.makes.model;
 
+
+import lombok.NoArgsConstructor;
+import org.hibernate.type.UUIDBinaryType;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.Map;
 import java.util.UUID;
 import com.makes.makes.model.*;
 
+import com.makes.makes.model.*;
+
+@NoArgsConstructor
 public class Page {
     private UUID id;
     static private int pageNum;
@@ -17,14 +24,15 @@ public class Page {
     private UUID[] nextPageId;
     private UUID prevPageId;
 
-    @PersistenceConstructor
-    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId ,UUID[] nextPageId,UUID prevPageId){
+    //@PersistenceConstructor
+    public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
         this.id = pageId;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];
         this.prevPageId = prevPageId;
+        this.id = pageId;
         this.text = text;
         this.background = background;
         this.turningPoint = turningPoint;
@@ -65,16 +73,57 @@ public class Page {
 
     public void editText(Map<String,String> labelAnswersMap)
     {
+
         int beginIndex = text.indexOf("<") ;
-        int endIndex = text.indexOf("<");
+        int endIndex = text.indexOf(">");
 
         while (beginIndex>=0 & endIndex>=0)
         {
-            String strToReplace = labelAnswersMap.get(text.substring(beginIndex+1,endIndex-1));
-            text = text.replace(text.substring(beginIndex,endIndex),strToReplace);
-            beginIndex =  text.indexOf("<",beginIndex+1);
-            endIndex = text.indexOf(">",endIndex+1);
+            String substituteStr = labelAnswersMap.get(text.substring(beginIndex+1,endIndex));
+            text = text.replace(text.substring(beginIndex,endIndex+1),substituteStr);
+            beginIndex =  text.indexOf("<");
+            endIndex = text.indexOf(">");
         }
+
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
+    public void setTurningPointExist(Boolean turningPointExist) {
+        this.turningPointExist = turningPointExist;
+    }
+
+    public void setTurningPoint(TurningPoint turningPoint) {
+        this.turningPoint = turningPoint;
+    }
+
+    public void setNextPageId(UUID[] nextPageId) {
+        this.nextPageId = nextPageId;
+    }
+
+    public void setPrevPageId(UUID prevPageId) {
+        this.prevPageId = prevPageId;
+    }
+
+    private String alignTextRTL(String text)
+    {
+        String[] lines = text.split("\n");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < lines.length; i++) {
+            sb.append("\u202B");   // right-to-left embedding
+            sb.append(lines[i]);
+            sb.append("\u202C\n"); // pop directional formatting
+        }
+        return sb.toString();
+    }
 }

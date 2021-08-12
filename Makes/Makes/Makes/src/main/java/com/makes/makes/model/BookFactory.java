@@ -4,17 +4,12 @@ import lombok.AllArgsConstructor;
 
 import java.util.*;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 public class BookFactory {
 
-    public CustomBook createNewBook(BookTemplate bookTemplate,String ownerName,Map<String,String>questionsMap)
-    /// get maybe an id from the front and question id +answer
+    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap)
     {
         List<Page> customPages = new ArrayList<Page>();
-
-        // need to get a json answers from the front and make it a map TODO
-        //getting an id to a question and an answer form the front
-        //Map<String, String> questionsMap  = new HashMap<String,String>();
         Map<String,String> labelAnswersMap = createLabelAnswersMap(questionsMap,bookTemplate.getQuestions());
 
         for (Page page:bookTemplate.getPages())

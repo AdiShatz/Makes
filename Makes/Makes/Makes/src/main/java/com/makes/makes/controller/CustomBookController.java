@@ -5,10 +5,12 @@ import com.makes.makes.model.BookTemplate;
 import com.makes.makes.model.CustomBook;
 import com.makes.makes.service.BookTemplateService;
 import com.makes.makes.service.CustomBookService;
+import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import org.json.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,22 +29,16 @@ public class CustomBookController {
     }
 
     @PostMapping("/")
-    public CustomBook createCustomBook(@RequestBody CustomBook data)
-    {    
+    public CustomBook createCustomBook(@RequestBody JSONObject data)
+    {
 
-        
-        // BookFactory bookFactory = new BookFactory();
+        BookFactory bookFactory = new BookFactory();
 
-
-        // String user =data.get("userName");
-        // String bookName =data.get("bookName");
-        
-
-        System.out.println("names:");
-        System.out.println(data);
-        
-
-
+        String user = data.getAsString("userName");
+        String bookName = data.getAsString("bookName");
+        String bookData = data.getAsString("newBookData");
+        Map<String,String> questionsAnswersMap = createMapFromString(bookData);
+        BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
         // String bookData = data.get("newBookData");
         // Map<String,String> questionsAnswersMap = createMapFromString(bookData);
@@ -57,11 +53,13 @@ public class CustomBookController {
     private Map<String,String> createMapFromString(String data)
     {
         Map<String, String> newMap = new HashMap<String, String>();
-        String[] pairs = data.split(" ");
+        data = data.substring(1,data.length()-1);
+        data = data.replaceAll("\\s+","");
+        String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {
             String pair = pairs[i];
-            String[] keyValue = pair.split(":");
+            String[] keyValue = pair.split("=");
             newMap.put(keyValue[0], keyValue[1]);
         }
         return newMap;

@@ -58,43 +58,38 @@ const DUMMY_GALLERY_BOOKS = [
           // setIsLoading(true);
 
           //TODO
-          let url = "http://localhost:8080/customBook/";
+          url = "http://localhost:8080/customBooks/"
+
             fetch(url,
             {
                 method: 'POST',
                 body: JSON.stringify({
                     userName: localStorage.getItem("userName"),
                     bookName: localStorage.getItem("chosenBookName"),
-                    // answers: newBookData
+                    newBookData: newBookData
                 }),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 }
+             })
+            .then(res => {
+                // setIsLoading(false);
+                if(res.ok){
+                  console.log("200 OK");
+                    return res.json();
+                }
+                else{
+                    return res.json().then((data)=>{
+                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                         if(data && data.error && data.error.message){ 
+                         errorMessage = data.error.message; 
+                         }
+                         throw new Error(errorMessage);
+                    });
+                }
+            }).then((data) => { 
+             console.log(data);
             });
-            //.then(res => {
-            //     // setIsLoading(false);
-            //     if(res.ok){
-            //       console.log("We did it!!!");
-            //         return res.json();
-            //     }
-            //     else{
-            //         return res.json().then((data)=>{
-            //              let errorMessage= 'מצטערים, אירעה שגיאה ';
-            //              if(data && data.error && data.error.message){ 
-            //              errorMessage = data.error.message; 
-            //              }
-            //              throw new Error(errorMessage);
-            //         });
-            //     }
-            // });
-            // .then((data) => { 
-            //  authCtx.login(data.idToken, data.email);
-            // })
-            // .catch(err => {
-            // alert(err.message);
-            // }).then(isLogin?props.onClose:switchAuthModeHandler);
-            
-        
         setPage("readBookPage");
       };
     

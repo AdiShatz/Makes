@@ -24,7 +24,7 @@ const Questionnaire = (props) => {
         answersDictonary[key]=value;
           }
     
-          const submitHandler = () => {
+          const createHandler = () => {
                 props.onCreateBook(answersDictonary);
               }
     
@@ -33,10 +33,10 @@ const Questionnaire = (props) => {
     return (
         <div className="questionnaire">
             {setDefaultValues()}
-           <table>
+           <form>
             {props.questions.map((question) => (
 
-            <tr>
+            <div className="">
 
             {question.type==="combo" && <ComboBoxQuestion 
             label={question.label}
@@ -51,12 +51,12 @@ const Questionnaire = (props) => {
               id={question.id}
               updateDictionary={userAnswersUpdatedHandler}/>}
 
-            </tr>
+            </div>
 
           ))}
-           </table>
+           </form>
             
-           <Button onClick={submitHandler}> צור ספר </Button>
+           <Button onClick={createHandler}> צור ספר </Button>
 
         </div>
     );

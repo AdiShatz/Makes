@@ -14,7 +14,7 @@ import org.json.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/customBooks")
 public class CustomBookController {
@@ -40,12 +40,14 @@ public class CustomBookController {
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
+        // String bookData = data.get("newBookData");
+        // Map<String,String> questionsAnswersMap = createMapFromString(bookData);
+        // BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
-        customBookService.insertCustomBook(newCustomBook);
-        return newCustomBook;
+        // CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
 
-
+        // customBookService.insertCustomBook(newCustomBook);
+        return /*newCustomBook*/data;
     }
 
     private Map<String,String> createMapFromString(String data)
@@ -62,7 +64,4 @@ public class CustomBookController {
         }
         return newMap;
     }
-
-
-
 }

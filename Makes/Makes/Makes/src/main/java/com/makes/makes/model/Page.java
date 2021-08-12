@@ -8,12 +8,12 @@ import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.Map;
 import java.util.UUID;
+import com.makes.makes.model.*;
 
 import com.makes.makes.model.*;
 
 @NoArgsConstructor
 public class Page {
-
     private UUID id;
     static private int pageNum;
     private String text;
@@ -27,6 +27,7 @@ public class Page {
     //@PersistenceConstructor
     public Page(String text, /*Image*/String background,Boolean turningPointExist ,TurningPoint turningPoint,UUID pageId,UUID[] nextPageId,UUID prevPageId){
         pageNum ++;
+        this.id = pageId;
         this.nextPageId = new UUID[2];
         this.nextPageId[0] = nextPageId[0];
         this.nextPageId[1] = nextPageId[1];

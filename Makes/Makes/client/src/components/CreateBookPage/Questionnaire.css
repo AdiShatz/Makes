@@ -4,7 +4,10 @@ align-items: center;
 display: flex;
 }
 
-.questionnaire table{
+.questionnaire form{
     background-color: cornsilk;
     float: right;
+    margin: 1rem 0;
+    height: 19rem;
+    overflow: auto;
 } 

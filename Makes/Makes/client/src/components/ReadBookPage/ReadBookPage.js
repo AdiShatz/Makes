@@ -14,7 +14,7 @@ const ReadBookPage = (props) => {
                 <label>קריאת ספר</label>
                 { <button >שמור ספר בגלרייה</button>}
             </Header>
-            <ReadBookPageContent pages={props.bookPages}/>
+            <ReadBookPageContent bookPages={props.bookPages}/>
             <div id="recordView"><RecordView/></div>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>

@@ -58,7 +58,7 @@ const DUMMY_GALLERY_BOOKS = [
           // setIsLoading(true);
 
           //TODO
-          url = "http://localhost:8080/customBook/"
+          url = "https://makes-backend-default-rtdb.firebaseio.com/customBooks.json"
             fetch(url,
             {
                 method: 'POST',

@@ -18,7 +18,7 @@ public class BookFactory {
           newPage.editText(labelAnswersMap);
           customPages.add(newPage);
         }
-        CustomBook customBook = new CustomBook(bookTemplate.getName(),/*customPages,*/ownerName );
+        CustomBook customBook = new CustomBook(bookTemplate.getName(),customPages,ownerName );
         return customBook;
 
     }

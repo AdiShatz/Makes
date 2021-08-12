@@ -11,30 +11,30 @@ import java.util.List;
 
 @Data
 @Document
-// @NoArgsConstructor
+@NoArgsConstructor
 public class CustomBook {
     @Id
     private String id;
     private String name;
-    // private List<Page>  pages;
+    private List<Page>  pages;
     private String owner;
-    // private boolean isSave;
+    private boolean isSave;
 
-    public CustomBook(String name/*, List<Page> pages*/,String owner){
+    public CustomBook(String name, List<Page> pages,String owner){
         this.name = name;
-        // this.pages = pages;
+        this.pages = pages;
         this.owner = owner;
-        // this.isSave = false;
+        this.isSave = false;
     }
 
     public String getId() { return this.id;}
 
     public String getName() { return this.name;}
 
-    // public List<Page> getPages() { return this.pages;}
+    public List<Page> getPages() { return this.pages;}
 
     public void setSave(boolean save) {
-        // this.isSave = save;
+        this.isSave = save;
     }
 
     public void setName(String name) {

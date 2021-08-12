@@ -43,22 +43,23 @@ const DUMMY_GALLERY_BOOKS = [
 
       const createBookClickedHandler = (newBookData) => {
 
-         const bookData = {
-           userName: localStorage.getItem("userName"),
-           bookName: localStorage.getItem("chosenBookName"),
-           newBookData
-         };
+        //  const bookData = {
+        //    userName: localStorage.getItem("userName"),
+        //    bookName: localStorage.getItem("chosenBookName"),
+        //    newBookData
+        //  };
 
-         console.log(bookData);
+        //  console.log(bookData);
 
           // const enteredEmail = emailInputRef.current.value;
           // const enteredPassword = passwordInputRef.current.value;
-          let url;
+         
           
           // setIsLoading(true);
 
           //TODO
           url = "http://localhost:8080/customBooks/"
+
             fetch(url,
             {
                 method: 'POST',
@@ -89,8 +90,6 @@ const DUMMY_GALLERY_BOOKS = [
             }).then((data) => { 
              console.log(data);
             });
-            
-        
         setPage("readBookPage");
       };
     

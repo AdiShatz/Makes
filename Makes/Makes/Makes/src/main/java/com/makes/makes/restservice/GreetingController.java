@@ -69,5 +69,4 @@ public class GreetingController {
 
         return greeting.getAsString("newBookData");
     }
-
 }

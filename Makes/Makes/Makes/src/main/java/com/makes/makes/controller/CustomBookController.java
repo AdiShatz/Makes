@@ -55,6 +55,10 @@ public class CustomBookController {
         Map<String, String> newMap = new HashMap<String, String>();
         data = data.substring(1,data.length()-1);
         data = data.replaceAll("\\s+","");
+        if (data.contains(",")==false)
+        {
+            System.out.println("NO ,");
+        }
         String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {

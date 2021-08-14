@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import BookPage from "../Books/BookPage";
 import Button from "../UI/Button";
 
@@ -10,14 +10,27 @@ const ReadBookPageContent = (props) => {
 
     const [pageId, setPageId] = useState(); 
 
-    const currentPageIndex = props.bookPages.findIndex(
-        (page) => page.id === pageId
-      );
+    // const currentPageIndex;
+    //  = props.bookPages.findIndex(
+    //     (page) => page.id === pageId
+    //   );
 
-    const currPage = props.bookPages[currentPageIndex];
-    console.log(currPage);
-    const isFirstPage = currPage.prevPageId === null ? true : false;
-    const isLastPage = currPage.nextPageId[0] === null ? true : false;
+    useEffect(
+        () => {
+            console.log("use effect");
+            console.log(props.bookPages);}
+        // ()=>{currentPageIndex=props.bookPages.findIndex((page)=> page.id === bookPages[0].id)}
+        ,[props]
+    )
+
+    
+
+     const currPage = null;
+    // console.log(currPage);
+    // const isFirstPage = currPage.prevPageId === null ? true : false;
+    //  const isLastPage = currPage.nextPageId[0] === null ? true : false;
+    const isFirstPage = true;
+     const isLastPage = false;
 
     const chosenTurningPointHandler = (value) => {
         turningPointValue = value;
@@ -39,7 +52,7 @@ const ReadBookPageContent = (props) => {
 
     return (
         <React.Fragment>
-            <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/>
+            {/* <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> */}
             {!isLastPage && <button onClick={nextPageHandler}>הבא</button>}
             {!isFirstPage && <button onClick={prevPageHandler}>הקודם</button>}
             <button onClick={prevPageHandler}>הקודם</button>

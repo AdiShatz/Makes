@@ -31,11 +31,11 @@ public class BookCoverController {
         this.customBookService = customBookService;
         this.userService = userService;
     }
-//
-//    @GetMapping("/")
-//    public List<BookCover> fetchAllBooksCover() {
-//        return bookCoverService.getAllBookCovers();
-//    }
+
+    @GetMapping("/")
+    public List<BookCover> fetchAllBooksCover() {
+        return bookCoverService.getAllBookCovers();
+    }
 
 //    @GetMapping("/{id}")
 //    public List<BookCover> userGallery(@PathVariable String id)

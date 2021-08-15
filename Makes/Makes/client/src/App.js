@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
@@ -43,6 +43,7 @@ const DUMMY_GALLERY_BOOKS = [
     };
 
       const createBookClickedHandler = (newBookData) => {
+          let url = "http://localhost:8080/customBooks/";
 
             fetch(url,
             {
@@ -56,13 +57,13 @@ const DUMMY_GALLERY_BOOKS = [
                     'Content-Type': 'application/json',
                 }
              })
-            .then(res => {
-                if(res.ok){
+            .then(response => {
+                if(response.ok){
                   console.log("200 OK");
-                    return res.json();
+                    return response.json();
                 }
                 else{
-                    return res.json().then((data)=>{
+                    return response.json().then((data)=>{
                          let errorMessage= 'מצטערים, אירעה שגיאה ';
                          if(data && data.error && data.error.message){ 
                          errorMessage = data.error.message; 
@@ -71,12 +72,15 @@ const DUMMY_GALLERY_BOOKS = [
                     });
                 }
             }).then((data) => { 
+
               setBookPages(data.pages);
-             console.log(data);
+
             });
+
         setPage("readBookPage");
       };
-    
+   
+
       const backButtonClickedHandler = () => {
         setPage("mainPage");
       };
@@ -108,7 +112,7 @@ const DUMMY_GALLERY_BOOKS = [
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 
             onCreateBook={createBookClickedHandler}/>} 
 
-            {page === 'readBookPage' && <ReadBookPage items={bookPages}
+            {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={dummyGalleryBooks} 

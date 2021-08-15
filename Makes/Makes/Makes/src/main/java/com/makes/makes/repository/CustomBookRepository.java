@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface CustomBookRepository extends MongoRepository<CustomBook, String> {
 
 
-    List<CustomBook> findByEmail(String userEmail);
+//    List<CustomBook> findByEmail(String userEmail);
 }

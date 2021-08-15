@@ -31,10 +31,6 @@ public class UserController {
             {
                 return "Password doesn't match";//TODO CHECK return string?
             }
-            if (user.getUserName().equals(existUser.get().getUserName())==false)
-            {
-                return "User name doesn't match";//TODO CHECK return string?
-            }
             else
             {
                 return existUser.get().getId();
@@ -49,6 +45,10 @@ public class UserController {
     @PostMapping("/joinUs")
     public String register(@RequestBody User user)
     {
+        if (user.getEmail()==null || user.getPassword() == null ||user.getUserName() == null)
+        {
+            return "All cells must be filled";
+        }
 
         Optional<User> existUser = userService.findByEmail(user.getEmail());
 

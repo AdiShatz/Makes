@@ -19,7 +19,7 @@ const ReadBookPageContent = (props) => {
 
             setCurrPage(props.bookPages[0]);
 
-        },[props]
+        },[props,isFirstPage,isLastPage]
     )
 
     const setFirstLastPages = () => {
@@ -63,38 +63,28 @@ const ReadBookPageContent = (props) => {
     }
 
     const nextPageHandler = (event) =>{
-
-        if(currPage.turningPointExist && turningPointValue==='right'){
-            setCurrPage(props.bookPages[props.bookPages.findIndex(
-                    (page) => page.id === currPage.nextPageId[1])]
-            );
-            
-        }
-        else{
-            setCurrPage(props.bookPages[props.bookPages.findIndex(
-                (page) => page.id === currPage.nextPageId[0])]
+        if(currPage.nextPageId[0] != null){
+            if(currPage.turningPointExist && turningPointValue==='right'){
+                setCurrPage(props.bookPages[props.bookPages.findIndex(
+                        (page) => page.id === currPage.nextPageId[1])]
                 );
+                
+            }
+            else{
+                setCurrPage(props.bookPages[props.bookPages.findIndex(
+                    (page) => page.id === currPage.nextPageId[0])]
+                    );
+            }
         }
-        setFirstLastPages();
-        setFirstLastPages();
-        console.log("next---------");
-        console.log("isFirst:");
-        console.log(isFirstPage);
-        console.log("isLast:");
-        console.log(isLastPage);
+       
     }
 
     const prevPageHandler = (event) =>{
-        setCurrPage(props.bookPages[props.bookPages.findIndex(
-            (page) => page.id === currPage.prevPageId)]
-        );
-        setFirstLastPages();
-        setFirstLastPages();
-        console.log("Prev---------");
-        console.log("isFirst:");
-        console.log(isFirstPage);
-        console.log("isLast:");
-        console.log(isLastPage);
+        if(currPage.prevPageId != null){
+            setCurrPage(props.bookPages[props.bookPages.findIndex(
+                (page) => page.id === currPage.prevPageId)]
+            );
+        }
     }
 
     return (

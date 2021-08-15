@@ -8,8 +8,10 @@ let turningPointValue = 'left';
 
 const ReadBookPageContent = (props) => {
 
-     const [pageId, setPageId] = useState(); 
-    const [currPage, setCurrPage] = useState(null); 
+    const [currPage, setCurrPage] = useState(null);
+    const [isFirstPage, setIsFirstPage] = useState(null);
+    const [isLastPage, setIsLastPage] = useState(null);
+
 
     // const currentPageIndex;
     //  = props.bookPages.findIndex(
@@ -18,15 +20,11 @@ const ReadBookPageContent = (props) => {
 
     useEffect(
         () => {
-            console.log("use effect READBOOKPAGE");
-            console.log(props.bookPages);
 
             setCurrPage(props.bookPages[0]);
-            
+            setIsFirstPage(true);
+            setIsLastPage(false);
 
-            // console.log(currPage);
-
-            // setPageId(currPage.id);
 
         },[props]
     )
@@ -46,14 +44,12 @@ const ReadBookPageContent = (props) => {
 
     const nextPageHandler = (event) =>{
         if(currPage.turningPointExist && turningPointValue==='right'){
-            setPageId(currPage.nextPageId[1]);
             setCurrPage(props.bookPages[props.bookPages.findIndex(
                     (page) => page.id === currPage.nextPageId[1])]
             );
             
         }
         else{
-            setPageId(currPage.nextPageId[0]);
             setCurrPage(props.bookPages[props.bookPages.findIndex(
                 (page) => page.id === currPage.nextPageId[0])]
                 );
@@ -61,8 +57,6 @@ const ReadBookPageContent = (props) => {
     }
 
     const prevPageHandler = (event) =>{
-        
-            setPageId(currPage.prevPageId);
             setCurrPage(props.bookPages[props.bookPages.findIndex(
                 (page) => page.id === currPage.prevPageId)]
                 );

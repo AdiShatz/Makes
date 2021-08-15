@@ -22,10 +22,9 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-  
 //
 //	@Bean
-//	CommandLineRunner runner(BookTemplateRepository repository){
+//	CommandLineRunner runner(BookTemplateRepository repository) {
 //
 //		return args -> {
 //
@@ -39,8 +38,9 @@ public class MakesApplication {
 //			pages.add(p1);
 //			pages.add(p2);
 //
+//
 //			List<Question> questions = new ArrayList<Question>();
-//			Question q1 = new Question("input", "?מה שם הילדה", null, "NAME" );
+//			Question q1 = new Question("input", "?מה שם הילדה", null, "NAME");
 //			List<String> princes = new ArrayList<String>();
 //			princes.add("ניר");
 //			princes.add("סהר");

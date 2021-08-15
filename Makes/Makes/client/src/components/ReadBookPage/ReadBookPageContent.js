@@ -5,44 +5,65 @@ import Button from "../UI/Button";
 import './ReadBookPageContent.css';
 
 let turningPointValue = 'left';
+var isFirstPage = true;
+var isLastPage = false;
 
 const ReadBookPageContent = (props) => {
 
     const [currPage, setCurrPage] = useState(null);
-    const [isFirstPage, setIsFirstPage] = useState(null);
-    const [isLastPage, setIsLastPage] = useState(null);
-
-
-    // const currentPageIndex;
-    //  = props.bookPages.findIndex(
-    //     (page) => page.id === pageId
-    //   );
+    // const [isFirstPage, setIsFirstPage] = useState(true);
+    // const [isLastPage, setIsLastPage] = useState(false);
 
     useEffect(
         () => {
 
             setCurrPage(props.bookPages[0]);
-            setIsFirstPage(true);
-            setIsLastPage(false);
-
 
         },[props]
     )
 
+    const setFirstLastPages = () => {
+        if(currPage.prevPageId === null){
+            
+            isFirstPage = true;
+        }else{
+            console.log("first false");
+            isFirstPage = false;
+        }
+        
+        if(currPage.nextPageId[0] === null){
+            isLastPage = true;
+        }
+        else{
+           isLastPage = false;
+        }
+        // if(currPage.prevPageId === null){
+            
+        //     setIsFirstPage(true);
+        // }else{
+        //     console.log("first false");
+        //     setIsFirstPage(false);
+        // }
+        
+        // if(currPage.nextPageId[0] === null){
+        //     setIsLastPage(true);
+        // }
+        // else{
+        //     setIsLastPage(false);
+        // }
+    }
     
 
     //  const currPage = ;
     // console.log(currPage);
-    // const isFirstPage = currPage.prevPageId === null ? true : false;
-    //  const isLastPage = currPage.nextPageId[0] === null ? true : false;
-    const isFirstPage = true;
-     const isLastPage = false;
-
+  
+   
     const chosenTurningPointHandler = (value) => {
         turningPointValue = value;
     }
 
     const nextPageHandler = (event) =>{
+
         if(currPage.turningPointExist && turningPointValue==='right'){
             setCurrPage(props.bookPages[props.bookPages.findIndex(
                     (page) => page.id === currPage.nextPageId[1])]
@@ -54,20 +75,33 @@ const ReadBookPageContent = (props) => {
                 (page) => page.id === currPage.nextPageId[0])]
                 );
         }
+        setFirstLastPages();
+        setFirstLastPages();
+        console.log("next---------");
+        console.log("isFirst:");
+        console.log(isFirstPage);
+        console.log("isLast:");
+        console.log(isLastPage);
     }
 
     const prevPageHandler = (event) =>{
-            setCurrPage(props.bookPages[props.bookPages.findIndex(
-                (page) => page.id === currPage.prevPageId)]
-                );
+        setCurrPage(props.bookPages[props.bookPages.findIndex(
+            (page) => page.id === currPage.prevPageId)]
+        );
+        setFirstLastPages();
+        setFirstLastPages();
+        console.log("Prev---------");
+        console.log("isFirst:");
+        console.log(isFirstPage);
+        console.log("isLast:");
+        console.log(isLastPage);
     }
 
     return (
         <React.Fragment>
              <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> 
-            {!isLastPage && <button onClick={nextPageHandler}>הבא</button>}
-            {!isFirstPage && <button onClick={prevPageHandler}>הקודם</button>}
-            <button onClick={prevPageHandler}>הקודם</button>
+            {<button onClick={nextPageHandler}>הבא</button>}
+            {<button onClick={prevPageHandler}>הקודם</button>}
 
         </React.Fragment>
     );

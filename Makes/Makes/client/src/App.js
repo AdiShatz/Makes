@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
@@ -42,7 +42,6 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-    
       const createBookClickedHandler = (newBookData) => {
           let url = "http://localhost:8080/customBooks/";
             fetch(url,
@@ -73,11 +72,12 @@ const DUMMY_GALLERY_BOOKS = [
                 }
             }).then((data) => { 
 
+              setBookPages(data.pages);
+              console.log("data.pages");
               console.log(data.pages);
-                setBookPages(data.pages);
-             console.log(bookPages);
 
             });
+
         setPage("readBookPage");
       };
    

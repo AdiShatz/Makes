@@ -42,46 +42,6 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-    
-  // const createBookClickedHandler = useCallback(async (newBookData) => {
-  //   console.log("1");
-  //   console.log(newBookData);
-  //     const response = await fetch("http://localhost:8080/customBooks/",
-  //       {
-  //           method: 'POST',
-  //           body: JSON.stringify({
-  //               userName: localStorage.getItem("userName"),
-  //               bookName: localStorage.getItem("chosenBookName"),
-  //               newBookData: newBookData
-  //           }),
-  //           headers: {
-  //               'Content-Type': 'application/json',
-  //           }
-  //        });
-
-  //     if (!response.ok) {
-  //       console.log("NOT OK!!!")
-  //     }
-
-  //     const data = await response.json();
-
-  //     console.log("2");
-  //   console.log(data.pages);
-
-
-  //     setBookPages((prevState) => prevState.concat(data.pages));
-
-  //     console.log("3");
-  //     console.log(bookPages);
-
-  //     setPage("readBookPage");
-
-  // }, []);
-
-  // useEffect(() => {
-  //   createBookClickedHandler();
-  // }, [createBookClickedHandler]);
-
       const createBookClickedHandler = (newBookData) => {
           let url = "http://localhost:8080/customBooks/";
             fetch(url,
@@ -112,12 +72,10 @@ const DUMMY_GALLERY_BOOKS = [
                 }
             }).then((data) => { 
 
-              debugger;
-
+              setBookPages(data.pages);
               console.log("data.pages");
               console.log(data.pages);
 
-              setBookPages(data.pages);
             });
 
         setPage("readBookPage");

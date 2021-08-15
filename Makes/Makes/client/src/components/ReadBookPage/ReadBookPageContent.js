@@ -8,29 +8,29 @@ let turningPointValue = 'left';
 
 const ReadBookPageContent = (props) => {
 
-    const [currPage, setCurrPage] = useState({}); 
-    const [pageId, setPageId] = useState("");
-    const [isFirstPage, setIsFirstPage] = useState(true);
-    const [isLastPage, setIsLastPage] = useState(false);
+    const [pageId, setPageId] = useState(); 
 
+    // const currentPageIndex;
+    //  = props.bookPages.findIndex(
+    //     (page) => page.id === pageId
+    //   );
 
     useEffect(
         () => {
-            console.log("props.bookPages");
-            console.log(props.bookPages);
-            setCurrPage(props.bookPages);
-            console.log(currPage);
-            setPageId(pageId);
-            console.log(pageId);
+            console.log("use effect");
+            console.log(props.bookPages);}
+        // ()=>{currentPageIndex=props.bookPages.findIndex((page)=> page.id === bookPages[0].id)}
+        ,[props]
+    )
 
-     console.log("currPage");
-     console.log(currPage);
+    
 
-     setIsFirstPage(currPage.pageNum === '1' ? true : false);
-     setIsLastPage(currPage.nextPageId[0] === null ? true : false);
-    }
-    ,[props])
-
+     const currPage = null;
+    // console.log(currPage);
+    // const isFirstPage = currPage.prevPageId === null ? true : false;
+    //  const isLastPage = currPage.nextPageId[0] === null ? true : false;
+    const isFirstPage = true;
+     const isLastPage = false;
 
     const chosenTurningPointHandler = (value) => {
         turningPointValue = value;

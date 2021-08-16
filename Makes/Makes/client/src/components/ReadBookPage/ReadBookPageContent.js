@@ -19,7 +19,7 @@ const ReadBookPageContent = (props) => {
 
             setCurrPage(props.bookPages[0]);
 
-        },[props,isFirstPage,isLastPage]
+        },[props]
     )
 
     const setFirstLastPages = () => {
@@ -37,25 +37,9 @@ const ReadBookPageContent = (props) => {
         else{
            isLastPage = false;
         }
-        // if(currPage.prevPageId === null){
-            
-        //     setIsFirstPage(true);
-        // }else{
-        //     console.log("first false");
-        //     setIsFirstPage(false);
-        // }
-        
-        // if(currPage.nextPageId[0] === null){
-        //     setIsLastPage(true);
-        // }
-        // else{
-        //     setIsLastPage(false);
-        // }
     }
     
 
-    //  const currPage = ;
-    // console.log(currPage);
   
    
     const chosenTurningPointHandler = (value) => {
@@ -90,8 +74,8 @@ const ReadBookPageContent = (props) => {
     return (
         <React.Fragment>
              <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> 
-            {<button onClick={nextPageHandler}>הבא</button>}
-            {<button onClick={prevPageHandler}>הקודם</button>}
+            {currPage && currPage.prevPageId === null && <button onClick={nextPageHandler}>הבא</button>}
+            {currPage && currPage.nextPageId[0] === null && <button onClick={prevPageHandler}>הקודם</button>}
 
         </React.Fragment>
     );

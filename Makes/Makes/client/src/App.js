@@ -73,9 +73,6 @@ const DUMMY_GALLERY_BOOKS = [
             }).then((data) => { 
 
               setBookPages(data.pages);
-              console.log("data.pages");
-              console.log(data.pages);
-
             });
 
         setPage("readBookPage");

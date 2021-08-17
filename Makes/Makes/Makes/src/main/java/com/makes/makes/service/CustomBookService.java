@@ -5,6 +5,9 @@ import com.makes.makes.repository.BookTemplateRepository;
 import com.makes.makes.repository.CustomBookRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CustomBookService {
     private final CustomBookRepository customBookRepository;
@@ -17,6 +20,11 @@ public class CustomBookService {
     {
         customBookRepository.insert(customBook);
     }
+
+//    public List<CustomBook> findUsersBook(String userEmail)
+//    {
+//        return customBookRepository.findByEmail(userEmail);
+//    }
 
 
 }

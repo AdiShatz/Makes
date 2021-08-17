@@ -28,10 +28,8 @@ public class MakesApplication {
 //		return args -> {
 //
 //			BookCover bookCover = new BookCover("הדייג ואשתו", "Sinderela.jpg");
-//
 //			repository.insert(bookCover);
 //
 //		};
 //	}
 }
-

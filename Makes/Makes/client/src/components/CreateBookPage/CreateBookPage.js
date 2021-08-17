@@ -20,8 +20,8 @@ const CreateBookPage = (props) => {
 
       };
   
-      const {isLoading, error, sendRequest: fetchQuestions} = 
-      useHttp({url: 'http://localhost:8080/questionnaire/?name='+ localStorage.getItem('chosenBookName')},
+      const {sendRequest: fetchQuestions} = 
+      useHttp({url: 'http://localhost:8080/questionnaire/?name='+ localStorage.getItem('bookName')},
       transformedQuestions
       );
   

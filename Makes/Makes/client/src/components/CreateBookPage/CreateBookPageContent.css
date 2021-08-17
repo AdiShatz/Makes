@@ -1,6 +1,34 @@
-.create-book-page-content {
+.create-book-page-container {
     text-align: right;
     /* background-color: blueviolet; */
+   
+    /* height: 72vh; */
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+.left-container{
+ 
+    padding: 10px;
+    flex: 50%;
+}
+.right-container{
+   
+    padding: 10px;
+    flex: 50%;
+}
+#top-Padding{
     padding-top: 100px;
-    height: 72vh;
+    background-image: url(../../images/createBookBackgraound.jpg);
+    height: fit-content;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#create-book-button{
+    
+    text-align: center;
+}
+#create-book-button button{
+    margin-bottom: 100px;
 }

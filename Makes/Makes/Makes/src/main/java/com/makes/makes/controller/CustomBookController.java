@@ -3,6 +3,7 @@ package com.makes.makes.controller;
 import com.makes.makes.model.BookFactory;
 import com.makes.makes.model.BookTemplate;
 import com.makes.makes.model.CustomBook;
+import com.makes.makes.service.BookCoverService;
 import com.makes.makes.service.BookTemplateService;
 import com.makes.makes.service.CustomBookService;
 import net.minidev.json.JSONObject;
@@ -22,10 +23,12 @@ public class CustomBookController {
 
     private final CustomBookService customBookService;
     private final BookTemplateService bookTemplateService;
+    private final BookCoverService bookCoverService;
 
-    public CustomBookController(CustomBookService customBookService,BookTemplateService bookTemplateService) {
+    public CustomBookController(CustomBookService customBookService,BookTemplateService bookTemplateService,BookCoverService bookCoverService) {
         this.customBookService = customBookService;
         this.bookTemplateService = bookTemplateService;
+        this.bookCoverService = bookCoverService;
     }
 
     @PostMapping("/")
@@ -36,11 +39,13 @@ public class CustomBookController {
 
         String user = data.getAsString("userName");
         String bookName = data.getAsString("bookName");
+        String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
+        String bookCoverId = bookCoverService.findBookCoverIdByName(bookName);
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap);
+        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,bookCoverId);
 
         customBookService.insertCustomBook(newCustomBook);
         return newCustomBook;
@@ -53,10 +58,6 @@ public class CustomBookController {
         Map<String, String> newMap = new HashMap<String, String>();
         data = data.substring(1,data.length()-1);
         data = data.replaceAll("\\s+","");
-        if (data.contains(",")==false)
-        {
-            System.out.println("NO ,");
-        }
         String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {

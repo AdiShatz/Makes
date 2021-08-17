@@ -6,6 +6,7 @@ import classes from './AuthForm.module.css';
 const AuthForm = (props) => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    const userNameInputRef = useRef("אורח");
     
     const authCtx = useContext(AuthContext);
 
@@ -21,22 +22,27 @@ const AuthForm = (props) => {
       event.preventDefault();
       const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
+      let enteredUserName;
+      if(userNameInputRef && userNameInputRef.current){
+        enteredUserName= userNameInputRef.current.value;
+      }
       let url;
       
-      setIsLoading(true);
+      setIsLoading(true);      
         if(isLogin){
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBRn0rrAr5eEmW-z3unJG-DxGoAm5c1C-k";
+            url = "http://localhost:8080/authentication/signIn";
         }
         else{
-        url="https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBRn0rrAr5eEmW-z3unJG-DxGoAm5c1C-k";
+        url = "http://localhost:8080/authentication/joinUs";
         }
+
         fetch(url,
         {
             method: 'POST',
             body: JSON.stringify({
                 email: enteredEmail,
                 password: enteredPassword,
-                returnsecureToken: true
+                userName: enteredUserName
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -44,8 +50,6 @@ const AuthForm = (props) => {
         }).then(res => {
             setIsLoading(false);
             if(res.ok){
-                localStorage.setItem('userName', enteredEmail);
-                localStorage.setItem('password', enteredPassword);
                 return res.json();
             }
             else{
@@ -59,7 +63,15 @@ const AuthForm = (props) => {
             }
         })
         .then((data) => { 
-         authCtx.login(data.idToken, data.email);
+          if(data.error)
+          {
+         alert(data.error);
+          }
+          else{
+            if(isLogin){
+              authCtx.login(data.id, data.userName);
+            }
+          }
         })
         .catch(err => {
         alert(err.message);
@@ -73,6 +85,10 @@ const AuthForm = (props) => {
       <h1 >{isLogin ? 'התחברות' : 'יצירת משתמש '}</h1>
 
       <form onSubmit={submitHandler}>
+      {!isLogin && <div className={classes.control}>
+          <label htmlFor='userName'>שם</label>
+          <input type='userName' id='userName' required ref={isLogin ? "אורח" : userNameInputRef}/>
+        </div>}
         <div className={classes.control}>
           <label htmlFor='email'>אימייל</label>
           <input type='email' id='email' required ref={emailInputRef}/>

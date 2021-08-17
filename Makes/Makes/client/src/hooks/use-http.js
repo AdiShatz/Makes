@@ -19,6 +19,7 @@ const useHttp = (requestConfig, applyData) =>{
             if(!response.ok){
                 throw new Error("מצטערים, הבקשה לא הצליחה");
             }
+            
             const data = await response.json();
             applyData(data);
         } 

@@ -1,11 +1,11 @@
 .questionnaire {
 text-align: right;
 align-items: center;
-display: flex;
+/* display: flex; */
 }
 
 .questionnaire form{
-    background-color: cornsilk;
+    background-color: rgba(240, 188, 188, 0.514);
     float: right;
     margin: 1rem 0;
     height: 19rem;

@@ -11,8 +11,9 @@ const InputQuestion = (props) => {
 
     return (
         <div className="inpquest">
-            <input type="text" dir = "rtl" onChange={handleChange} />
             <label>{props.label}</label>
+            <input type="text" dir = "rtl" onChange={handleChange} />
+            
         </div>
     );
 }

@@ -8,9 +8,14 @@ const BookPage = (props) => {
     
     const [isRecording, setIsRecording] = useState(false);
     const [isRecordingExist, setIsRecordingExist] = useState(false);
+    const [pageData, setPageData] = useState(null);
+    const [img, setImg] = useState(null);
 
-    const pageData= props.data;
-    const img = pageData.img;
+    useEffect(
+        () => {
+            setPageData(props.data);
+        },[props]
+    )
 
     return(
 
@@ -22,8 +27,8 @@ const BookPage = (props) => {
           </div>
 
           <div className="book-page-container-right">
-              <p>{pageData.text}</p>
-              {pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
+              {pageData!=null && <p>{pageData.text}</p>}
+              {pageData!=null && pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
         </div>
       </div>
    

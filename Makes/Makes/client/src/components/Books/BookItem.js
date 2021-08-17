@@ -10,7 +10,7 @@ const BookItem = (props) => {
     const ClickedHandler = () => {
       
       // if(authCtx.isLoggedIn){
-        localStorage.setItem('chosenBookName', props.name);
+        localStorage.setItem('bookName', props.name);
 
        if(props.isGalleryItem === 'false'){
         props.onBookItemClicked();

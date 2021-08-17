@@ -11,8 +11,6 @@ var isLastPage = false;
 const ReadBookPageContent = (props) => {
 
     const [currPage, setCurrPage] = useState(null);
-    // const [isFirstPage, setIsFirstPage] = useState(true);
-    // const [isLastPage, setIsLastPage] = useState(false);
 
     useEffect(
         () => {
@@ -27,7 +25,6 @@ const ReadBookPageContent = (props) => {
             
             isFirstPage = true;
         }else{
-            console.log("first false");
             isFirstPage = false;
         }
         

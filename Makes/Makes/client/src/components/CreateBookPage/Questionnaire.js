@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef} from "react";
 import InputQuestion from "./InputQuestion";
 import ComboBoxQuestion from "./ComboBoxQuestion";
 import Button from "../UI/Button"
@@ -8,6 +8,7 @@ import './Questionnaire.css';
 let answersDictonary= new Object();
 
 const Questionnaire = (props) => {
+    const chosenBookNameInputRef = useRef(localStorage.getItem("bookName"));
 
     const setDefaultValues=()=>{
         props.questions.map(question => {
@@ -25,15 +26,17 @@ const Questionnaire = (props) => {
           }
     
           const createHandler = () => {
-                props.onCreateBook(answersDictonary);
+                props.onCreateBook(answersDictonary, chosenBookNameInputRef.current.value);
               }
-    
-        
 
     return (
         <div className="questionnaire">
             {setDefaultValues()}
            <form>
+           <input type='bookName' id='bookName' dir = "rtl" required ref={chosenBookNameInputRef}/> 
+
+            <label>שם הסיפור</label>
+
             {props.questions.map((question) => (
 
             <div className="">
@@ -54,11 +57,12 @@ const Questionnaire = (props) => {
             </div>
 
           ))}
+                     <div id="create-book-button"><Button onClick={createHandler}> צור ספר </Button></div>
            </form>
-            
-           
 
         </div>
+
+        
     );
 
 }

@@ -30,6 +30,11 @@ public class BookCoverService {
         return bookCoverRepository.findCoverBookById(id);
     }
 
+    public void insertBookCover (BookCover bookCover)
+    {
+        bookCoverRepository.insert(bookCover);
+    }
+
     public void saveBookCover(BookCover bookCover)
     {
         bookCoverRepository.save(bookCover);

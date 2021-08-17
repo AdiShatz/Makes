@@ -1,5 +1,6 @@
 package com.makes.makes.controller;
 
+import com.makes.makes.model.BookCover;
 import com.makes.makes.model.BookFactory;
 import com.makes.makes.model.BookTemplate;
 import com.makes.makes.model.CustomBook;
@@ -41,7 +42,9 @@ public class CustomBookController {
         String bookName = data.getAsString("bookName");
         String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
-        String bookCoverId = bookCoverService.findBookCoverIdByName(bookName);
+        BookCover bookCover = bookCoverService.findBookCoverByName(bookName);
+        bookCover.setBookName(chosenBookName);
+        String bookCoverId = bookCover.getId();
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 

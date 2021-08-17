@@ -12,7 +12,7 @@ const ReadBookPage = (props) => {
         <React.Fragment>
             <Header >
                 <label>קריאת ספר</label>
-                { <button >שמור ספר בגלרייה</button>}
+                { <button >מחק ספר</button>}
             </Header>
             <ReadBookPageContent bookPages={props.bookPages}/>
             <div id="recordView"><RecordView/></div>

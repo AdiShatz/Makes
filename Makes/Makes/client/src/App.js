@@ -50,6 +50,7 @@ const DUMMY_GALLERY_BOOKS = [
                 body: JSON.stringify({
                     userName: localStorage.getItem("userName"),
                     bookName: localStorage.getItem("bookName"),
+                    chosenBookName: chosenBookName,
                     newBookData: newBookData
                 }),
                 headers: {

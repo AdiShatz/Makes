@@ -22,7 +22,7 @@ public class BookCoverService {
 
     public BookCover findBookCoverByName(String name)
     {
-        return bookCoverRepository.findByName(name);
+        return bookCoverRepository.findByTemplateName(name);
     }
 
     public  BookCover findBookCoverById(String id)

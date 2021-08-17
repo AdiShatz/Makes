@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BookCoverRepository
         extends MongoRepository<BookCover, String> {
-    BookCover findByName(String name);
+    BookCover findByTemplateName(String templateName);
     BookCover findCoverBookById(String id);
 
 }

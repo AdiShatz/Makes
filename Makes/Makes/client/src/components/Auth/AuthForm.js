@@ -22,7 +22,10 @@ const AuthForm = (props) => {
       event.preventDefault();
       const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
-      const enteredUserName = userNameInputRef.current.value;
+      let enteredUserName;
+      if(userNameInputRef && userNameInputRef.current){
+        enteredUserName= userNameInputRef.current.value;
+      }
       let url;
       
       setIsLoading(true);      
@@ -47,10 +50,6 @@ const AuthForm = (props) => {
         }).then(res => {
             setIsLoading(false);
             if(res.ok){
-              console.log("res");
-                console.log(res);
-                localStorage.setItem('userName', enteredUserName);
-                // localStorage.setItem('password', enteredPassword);
                 return res.json();
             }
             else{
@@ -64,9 +63,15 @@ const AuthForm = (props) => {
             }
         })
         .then((data) => { 
-          console.log("data");
-          console.log(data);
-         authCtx.login(data.idToken, data.email);
+          if(data.error)
+          {
+         alert(data.error);
+          }
+          else{
+            if(isLogin){
+              authCtx.login(data.id, data.userName);
+            }
+          }
         })
         .catch(err => {
         alert(err.message);

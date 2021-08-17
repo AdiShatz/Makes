@@ -1,31 +1,31 @@
 import React, {useState} from 'react';
 
 const AuthContext = React.createContext({
-    token:'',
+    id:'',
     username: 'אורח',
     isLoggedIn: false,
-    login: (token) => {},
+    login: (id) => {},
     logout: () => {}
 });
 
 export const AuthContextProvider = (props) => {
-    const [token, setToken] = useState(null);
+    const [id, setid] = useState(null);
     const [username, setUsername] = useState('אורח');
 
-    const userIsLoggedIn = !!token; // convert string to bolean
+    const userIsLoggedIn = !!id; // convert string to bolean
 
-    const loginHandler = (token, username) => {
-        setToken(token);
+    const loginHandler = (id, username) => {
+        setid(id);
         setUsername(username)
     };
 
     const logoutHandler = () => {
-        setToken(null);
+        setid(null);
         setUsername('אורח')
     };
 
     const contextValue = {
-        token: token,
+        id: id,
         username: username,
         isLoggedIn: userIsLoggedIn,
         login: loginHandler,

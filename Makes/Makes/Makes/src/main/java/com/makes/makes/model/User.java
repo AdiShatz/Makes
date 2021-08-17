@@ -16,12 +16,15 @@ public class User {
     private String userName;
     private String email;
     private String password;
+    private String error;
 
     public User(String userName,String email,String password)
     {
+        this.id= "1";
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.error = null;
     }
 
     public String getId() {
@@ -40,6 +43,10 @@ public class User {
         return password;
     }
 
+    public String getError() {
+        return error;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -55,4 +62,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
 }

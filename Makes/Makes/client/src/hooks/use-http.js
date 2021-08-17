@@ -21,6 +21,8 @@ const useHttp = (requestConfig, applyData) =>{
             }
             
             const data = await response.json();
+            console.log("cover books:");
+            console.log(data);
             applyData(data);
         } 
         catch(err){

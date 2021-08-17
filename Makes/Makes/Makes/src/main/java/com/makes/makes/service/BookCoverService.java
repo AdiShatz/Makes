@@ -20,14 +20,23 @@ public class BookCoverService {
         return bookCoverRepository.findAll();
     }
 
-    public String findBookCoverIdByName(String name)
+    public BookCover findBookCoverByTemplateName(String name)
     {
-        BookCover bookCover = bookCoverRepository.findByName(name);
-        return bookCover.getId();
+        return bookCoverRepository.findByTemplateName(name);
     }
 
     public  BookCover findBookCoverById(String id)
     {
         return bookCoverRepository.findCoverBookById(id);
+    }
+
+    public void insertBookCover (BookCover bookCover)
+    {
+        bookCoverRepository.insert(bookCover);
+    }
+
+    public void saveBookCover(BookCover bookCover)
+    {
+        bookCoverRepository.save(bookCover);
     }
 }

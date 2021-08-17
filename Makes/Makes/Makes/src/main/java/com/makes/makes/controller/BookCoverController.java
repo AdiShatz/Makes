@@ -44,7 +44,7 @@ public class BookCoverController {
         List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
         for ( CustomBook userBook:usersBooks)
         {
-            BookCover userCoverBook = bookCoverService.findBookCoverById(userBook.getCoverBookId());
+            BookCover userCoverBook = bookCoverService.findBookCoverByTemplateName(userBook.getCoverBookName());
             usersCoverBooks.add(userCoverBook);
         }
         return  usersCoverBooks;

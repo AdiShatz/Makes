@@ -32,9 +32,6 @@ public class UserController {
                 user.setError("סיסמא שגוייה. אנא נסה שוב");
                 
             }
-            else{
-
-            }
         }
         else
         {

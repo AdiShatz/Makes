@@ -27,13 +27,14 @@ const Questionnaire = (props) => {
           const createHandler = () => {
                 props.onCreateBook(answersDictonary);
               }
-    
-        
 
     return (
         <div className="questionnaire">
             {setDefaultValues()}
            <form>
+           <input type='bookName' id='bookName' dir = "rtl"/> 
+            <label>שם הסיפור</label>
+
             {props.questions.map((question) => (
 
             <div className="">
@@ -54,11 +55,12 @@ const Questionnaire = (props) => {
             </div>
 
           ))}
+                     <div id="create-book-button"><Button onClick={createHandler}> צור ספר </Button></div>
            </form>
-            
-           
 
         </div>
+
+        
     );
 
 }

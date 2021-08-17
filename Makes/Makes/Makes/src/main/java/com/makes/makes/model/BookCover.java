@@ -30,4 +30,20 @@ public class BookCover {
     public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
 }

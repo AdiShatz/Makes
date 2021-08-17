@@ -1,13 +1,14 @@
 package com.makes.makes.model;
 
+import com.makes.makes.service.BookCoverService;
 import lombok.AllArgsConstructor;
 
 import java.util.*;
 
-//@AllArgsConstructor
+
 public class BookFactory {
 
-    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap)
+    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap,String chosenBookName,String bookCoverId)
     {
         List<Page> customPages = new ArrayList<Page>();
         Map<String,String> labelAnswersMap = createLabelAnswersMap(questionsMap,bookTemplate.getQuestions());
@@ -18,7 +19,7 @@ public class BookFactory {
           newPage.editText(labelAnswersMap);
           customPages.add(newPage);
         }
-        CustomBook customBook = new CustomBook(bookTemplate.getName(),customPages,ownerName );
+        CustomBook customBook = new CustomBook(chosenBookName,customPages,ownerName,bookCoverId);
         return customBook;
 
     }

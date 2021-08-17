@@ -24,12 +24,11 @@ public class BookCoverController {
 
     private final BookCoverService bookCoverService;
     private final CustomBookService customBookService;
-    private final UserService userService;//TODO CHECK IF NEED!
+
 
     public BookCoverController(BookCoverService bookCoverService,CustomBookService customBookService,UserService userService) {
         this.bookCoverService = bookCoverService;
         this.customBookService = customBookService;
-        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -37,19 +36,18 @@ public class BookCoverController {
         return bookCoverService.getAllBookCovers();
     }
 
-//    @GetMapping("/{id}")
-//    public List<BookCover> userGallery(@PathVariable String id)
-//    {
-//        //TODO maybe we can save the user id in customBook.owner
-//        User user = userService.findById(id);
-//        List<CustomBook>  usersBooks = customBookService.findUsersBook(user.getEmail());
-//        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
-//        for ( CustomBook userBook:usersBooks)
-//        {
-//            BookCover userCoverBook = new BookCover(userBook.getName(),);//IMAGE????));//TODO
-//            usersCoverBooks.add(userCoverBook);
-//        }
-//        return  usersCoverBooks;
-//
-//    }
+    @GetMapping("/{userEmail}")
+    public List<BookCover> userGallery(@PathVariable String userEmail)
+    {
+
+        List<CustomBook>  usersBooks = customBookService.findUsersBook(userEmail);
+        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
+        for ( CustomBook userBook:usersBooks)
+        {
+            BookCover userCoverBook = bookCoverService.findBookCoverById(userBook.getCoverBookId());
+            usersCoverBooks.add(userCoverBook);
+        }
+        return  usersCoverBooks;
+
+    }
 }

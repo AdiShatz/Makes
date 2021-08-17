@@ -21,10 +21,10 @@ public class CustomBookService {
         customBookRepository.insert(customBook);
     }
 
-//    public List<CustomBook> findUsersBook(String userEmail)
-//    {
-//        return customBookRepository.findByEmail(userEmail);
-//    }
+    public List<CustomBook> findUsersBook(String owner)
+    {
+        return customBookRepository.findByOwner(owner);
+    }
 
 
 }

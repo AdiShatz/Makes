@@ -19,4 +19,15 @@ public class BookCoverService {
 
         return bookCoverRepository.findAll();
     }
+
+    public String findBookCoverIdByName(String name)
+    {
+        BookCover bookCover = bookCoverRepository.findByName(name);
+        return bookCover.getId();
+    }
+
+    public  BookCover findBookCoverById(String id)
+    {
+        return bookCoverRepository.findCoverBookById(id);
+    }
 }

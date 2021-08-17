@@ -29,4 +29,9 @@ public class BookCoverService {
     {
         return bookCoverRepository.findCoverBookById(id);
     }
+
+    public void saveBookCover(BookCover bookCover)
+    {
+        bookCoverRepository.save(bookCover);
+    }
 }

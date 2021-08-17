@@ -44,6 +44,7 @@ public class CustomBookController {
         String bookData = data.getAsString("newBookData");
         BookCover bookCover = bookCoverService.findBookCoverByName(bookName);
         bookCover.setBookName(chosenBookName);
+        bookCoverService.saveBookCover(bookCover);
         String bookCoverId = bookCover.getId();
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);

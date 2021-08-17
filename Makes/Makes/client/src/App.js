@@ -111,6 +111,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     });
                 }
             }).then((data) => { 
+              console.log(data);
               setGalleryBookCovers(data.usersCoverBooks);
         });
 

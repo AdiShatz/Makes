@@ -56,7 +56,7 @@ const Questionnaire = (props) => {
           ))}
            </form>
             
-           <Button onClick={createHandler}> צור ספר </Button>
+           
 
         </div>
     );

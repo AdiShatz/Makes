@@ -17,7 +17,7 @@ const ComboBoxQuestion = (props) => {
 
     return (
         <div className="comboquest">
-            <th>
+             <label>{props.label}</label>
             <select onChange={handleChange}>
 
             {props.options.map((option) => (
@@ -27,11 +27,11 @@ const ComboBoxQuestion = (props) => {
           ))}
 
             </select>
-            </th>
+           
 
-            <th>
-            <label>{props.label}</label>
-            </th>
+            
+           
+           
 
         </div>
     );

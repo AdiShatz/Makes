@@ -18,14 +18,14 @@ public class CustomBook {
     private String name;
     private List<Page>  pages;
     private String owner;
-    private String coverBookId;
+    private String coverBookName;
     private boolean isSave;
 
-    public CustomBook(String name, List<Page> pages,String owner,String coverBookId){
+    public CustomBook(String name, List<Page> pages,String owner,String coverBookName){
         this.name = name;
         this.pages = pages;
         this.owner = owner;
-        this.coverBookId = coverBookId;
+        this.coverBookName = coverBookName;
         this.isSave = false;
     }
 
@@ -60,11 +60,15 @@ public class CustomBook {
     }
 
     public String getCoverBookId() {
-        return coverBookId;
+        return coverBookName;
     }
 
-    public void setCoverBookId(String coverBookId) {
-        this.coverBookId = coverBookId;
+    public String getCoverBookName() {
+        return coverBookName;
+    }
+
+    public void setCoverBookName(String coverBookName) {
+        this.coverBookName = coverBookName;
     }
 
     public boolean isSave() {

@@ -11,8 +11,7 @@ const ReadBookPage = (props) => {
     return (
         <React.Fragment>
             <Header >
-            <label>קריאת ספר</label>
-                {/* <label>{props.bookName}</label> */}
+                <label>{props.bookName}</label>
                 { <button >מחק ספר</button>}
             </Header>
             <ReadBookPageContent bookPages={props.bookPages}/>

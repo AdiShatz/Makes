@@ -23,6 +23,7 @@ const DUMMY_GALLERY_BOOKS = [
 
     const [page, setPage] = useState("mainPage");
     const [bookPages, setBookPages] = useState([]);
+    const [bookName, setBookName] = useState();
     const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
 
     // const isAdminUser = () => {
@@ -44,6 +45,7 @@ const DUMMY_GALLERY_BOOKS = [
 
       const createBookClickedHandler = (newBookData, chosenBookName) => {
           let url = "http://localhost:8080/customBooks/";
+          setBookName(chosenBookName);
             fetch(url,
             {
                 method: 'POST',
@@ -72,7 +74,6 @@ const DUMMY_GALLERY_BOOKS = [
                     });
                 }
             }).then((data) => { 
-
               setBookPages(data.pages);
             });
 
@@ -102,7 +103,7 @@ const DUMMY_GALLERY_BOOKS = [
         <AuthContextProvider>
 
             {page === 'mainPage' && <MainPage 
-            onBookItemClicked={bookItemClickedHandler} 
+             onBookItemClicked={bookItemClickedHandler} 
              onGalleryClicked={myGalleryHandler}
              onNotLoggedIn={notLoggedInHandler}
              onAdminPageClicked={adminPageHandler}/>}
@@ -112,6 +113,7 @@ const DUMMY_GALLERY_BOOKS = [
             onCreateBook={createBookClickedHandler}/>} 
 
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
+             bookName={bookName}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={dummyGalleryBooks} 

@@ -75,6 +75,8 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     });
                 }
             }).then((data) => { 
+              console.log("create-book data");
+              console.log(data);
               setBookPages(data.pages);
             });
 
@@ -111,6 +113,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     });
                 }
             }).then((data) => { 
+              console.log("gallery data");
               console.log(data);
               setGalleryBookCovers(data.usersCoverBooks);
         });

@@ -1,46 +1,81 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import BookPage from "../Books/BookPage";
 import Button from "../UI/Button";
 
 import './ReadBookPageContent.css';
 
 let turningPointValue = 'left';
+var isFirstPage = true;
+var isLastPage = false;
 
 const ReadBookPageContent = (props) => {
 
-    const [pageId, setPageId] = useState("p1"); 
+    const [currPage, setCurrPage] = useState(null);
+    // const [isFirstPage, setIsFirstPage] = useState(true);
+    // const [isLastPage, setIsLastPage] = useState(false);
 
-    const currentPageIndex = props.pages.findIndex(
-        (page) => page.id === pageId
-      );
+    useEffect(
+        () => {
 
-    const currPage = props.pages[currentPageIndex];
-    const isFirstPage = currPage.pageNum === '1' ? true : false;
-    const isLastPage = currPage.nextPageId[0] === null ? true : false;
+            setCurrPage(props.bookPages[0]);
 
+        },[props]
+    )
+
+    const setFirstLastPages = () => {
+        if(currPage.prevPageId === null){
+            
+            isFirstPage = true;
+        }else{
+            console.log("first false");
+            isFirstPage = false;
+        }
+        
+        if(currPage.nextPageId[0] === null){
+            isLastPage = true;
+        }
+        else{
+           isLastPage = false;
+        }
+    }
+    
+
+  
+   
     const chosenTurningPointHandler = (value) => {
         turningPointValue = value;
     }
 
     const nextPageHandler = (event) =>{
-        if(currPage.turningPointExist && turningPointValue==='right'){
-            setPageId(currPage.nextPageId[1]);
+        if(currPage.nextPageId[0] != null){
+            if(currPage.turningPointExist && turningPointValue==='right'){
+                setCurrPage(props.bookPages[props.bookPages.findIndex(
+                        (page) => page.id === currPage.nextPageId[1])]
+                );
+                
+            }
+            else{
+                setCurrPage(props.bookPages[props.bookPages.findIndex(
+                    (page) => page.id === currPage.nextPageId[0])]
+                    );
+            }
         }
-        else{
-            setPageId(currPage.nextPageId[0]);
-        }
+       
     }
 
     const prevPageHandler = (event) =>{
-        
-            setPageId(currPage.prevPageId);
+        if(currPage.prevPageId != null){
+            setCurrPage(props.bookPages[props.bookPages.findIndex(
+                (page) => page.id === currPage.prevPageId)]
+            );
+        }
     }
 
     return (
         <React.Fragment>
-            <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/>
-            {!isLastPage && <button onClick={nextPageHandler}>הבא</button>}
-            {!isFirstPage && <button onClick={prevPageHandler}>הקודם</button>}
+             <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> 
+            {currPage && currPage.prevPageId === null && <button onClick={nextPageHandler}>הבא</button>}
+            {currPage && currPage.nextPageId[0] === null && <button onClick={prevPageHandler}>הקודם</button>}
 
         </React.Fragment>
     );

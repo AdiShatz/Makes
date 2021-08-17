@@ -44,7 +44,6 @@ const DUMMY_GALLERY_BOOKS = [
 
       const createBookClickedHandler = (newBookData) => {
           let url = "http://localhost:8080/customBooks/";
-
             fetch(url,
             {
                 method: 'POST',
@@ -74,7 +73,6 @@ const DUMMY_GALLERY_BOOKS = [
             }).then((data) => { 
 
               setBookPages(data.pages);
-
             });
 
         setPage("readBookPage");

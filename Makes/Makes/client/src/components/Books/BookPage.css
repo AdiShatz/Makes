@@ -25,6 +25,9 @@
     padding: 10px;
     flex: 50%;
   }
+  .book-page-container-right p{
+    padding-top: 100px;
+  }
   @media (max-width: 800px) {
     .book-page-container-right, .book-page-container-left {
       flex: 100%;

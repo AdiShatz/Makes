@@ -42,14 +42,14 @@ const DUMMY_GALLERY_BOOKS = [
       setPage("readBookPage");
     };
 
-      const createBookClickedHandler = (newBookData) => {
+      const createBookClickedHandler = (newBookData, chosenBookName) => {
           let url = "http://localhost:8080/customBooks/";
             fetch(url,
             {
                 method: 'POST',
                 body: JSON.stringify({
                     userName: localStorage.getItem("userName"),
-                    bookName: localStorage.getItem("chosenBookName"),
+                    bookName: localStorage.getItem("bookName"),
                     newBookData: newBookData
                 }),
                 headers: {

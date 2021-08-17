@@ -13,12 +13,7 @@ const BookPage = (props) => {
 
     useEffect(
         () => {
-            
-            console.log("use effect BOOKPAGE");
-            console.log(props.data);
-
             setPageData(props.data);
-
         },[props]
     )
 

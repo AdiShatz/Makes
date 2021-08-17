@@ -9,5 +9,6 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 12rem;
-    max-width: 100%;
+    max-width: 50%;
+    direction: rtl;
   }

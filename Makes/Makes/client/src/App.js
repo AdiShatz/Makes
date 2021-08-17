@@ -50,7 +50,7 @@ const DUMMY_GALLERY_BOOKS = [
             {
                 method: 'POST',
                 body: JSON.stringify({
-                    userName: localStorage.getItem("userName"),
+                    userName: localStorage.getItem("userEmail"),
                     bookName: localStorage.getItem("bookName"),
                     chosenBookName: chosenBookName,
                     newBookData: newBookData
@@ -86,6 +86,33 @@ const DUMMY_GALLERY_BOOKS = [
       };
 
       const myGalleryHandler = () => {
+          let url = "http://localhost:8080/booksCovers/" + localStorage.getItem("userEmail");
+            fetch(url,
+            {
+                method: 'GET',
+                body: null, 
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+             })
+            .then(response => {
+                if(response.ok){
+                  console.log("200 OK");
+                    return response.json();
+                }
+                else{
+                    return response.json().then((data)=>{
+                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                         if(data && data.error && data.error.message){ 
+                         errorMessage = data.error.message; 
+                         }
+                         throw new Error(errorMessage);
+                    });
+                }
+            }).then((data) => { 
+              console.log(data);
+        });
+
         setPage("galleryPage");
       };
 

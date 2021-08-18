@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TurningPoint from '../ReadBookPage/TurningPoint'
-import RecordView from '../UI/RecordView'
 
 import './BookPage.css'
 

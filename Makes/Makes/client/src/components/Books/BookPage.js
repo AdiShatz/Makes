@@ -31,14 +31,6 @@ const BookPage = (props) => {
 
           <div className="book-page-container-right">
               {pageData && <p>{pageData.text}</p>}
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
-              <label>ניר בדיקה</label>
               {pageData && pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
         </div>
       </div>

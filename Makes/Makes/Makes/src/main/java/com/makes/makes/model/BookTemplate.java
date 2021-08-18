@@ -16,12 +16,14 @@ public class BookTemplate {
     private List<Page> pages;
     private List<Question> questions;
     private String owner;
+    private String bookCoverId;
 
-    public BookTemplate(String name, List<Page> pages, List<Question> questions){
+    public BookTemplate(String name, List<Page> pages, List<Question> questions,String bookCoverId){
         this.name = name;
         this.questions = questions;
         this.pages =pages;
         this.owner = "Admin";
+        this.bookCoverId = bookCoverId;
 
     }
 
@@ -55,5 +57,21 @@ public class BookTemplate {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public String getBookCoverId() {
+        return bookCoverId;
+    }
+
+    public void setBookCoverId(String bookCoverId) {
+        this.bookCoverId = bookCoverId;
     }
 }

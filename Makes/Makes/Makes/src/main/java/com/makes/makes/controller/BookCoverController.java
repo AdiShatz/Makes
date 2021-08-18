@@ -42,14 +42,5 @@ public class BookCoverController {
     {
         return bookCoverService.getAllUserCoverBook(userEmail);
 
-//        List<CustomBook>  usersBooks = customBookService.findUsersBook(userEmail);
-//        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
-//        for ( CustomBook userBook:usersBooks)
-//        {
-//            BookCover userCoverBook = bookCoverService.findBookCoverByTemplateName(userBook.getCoverBookName());
-//            usersCoverBooks.add(userCoverBook);
-//        }
-//        return  usersCoverBooks;
-
     }
 }

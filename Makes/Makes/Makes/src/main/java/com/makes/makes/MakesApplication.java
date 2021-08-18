@@ -23,29 +23,18 @@ public class MakesApplication {
 	}
 
 //	@Bean
-//	CommandLineRunner runner(BookCoverRepository repository) {
+//	CommandLineRunner runner(BookTemplateRepository Trepository,BookCoverRepository coverRepository) {
 //
 //		return args -> {
 //			BookCover bookCover1 = new BookCover("סינדרלה","Sinderela.jpg");
-//			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg");
-//			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg");
-//			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
+////			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg");
+////			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg");
+////			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
 //
-//			repository.insert(bookCover1);
-//			repository.insert(bookCover2);
-//			repository.insert(bookCover3);
-//			repository.insert(bookCover4);
-//
-//
-//
-//		};
-//	}
-
-//
-//	@Bean
-//	CommandLineRunner runner(BookTemplateRepository repository) {
-//
-//		return args -> {
+//			coverRepository.insert(bookCover1);
+////			repository.insert(bookCover2);
+////			repository.insert(bookCover3);
+////			repository.insert(bookCover4);
 //
 //			List<Page> pages = new ArrayList<Page>();
 //			UUID u1 = UUID.randomUUID();
@@ -70,10 +59,14 @@ public class MakesApplication {
 //			questions.add(q2);
 //
 //
-//			BookTemplate bt1 = new BookTemplate("סינדרלה", pages, questions);
+//			BookTemplate bt1 = new BookTemplate("סינדרלה", pages, questions, bookCover1.getId());
 //
-//			repository.insert(bt1);
+//			Trepository.insert(bt1);
+//
+//
+//
 //
 //		};
 //	}
+
 }

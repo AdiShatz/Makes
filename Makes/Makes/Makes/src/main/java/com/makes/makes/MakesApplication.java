@@ -22,6 +22,25 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
+//	@Bean
+//	CommandLineRunner runner(BookCoverRepository repository) {
+//
+//		return args -> {
+//			BookCover bookCover1 = new BookCover("סינדרלה","Sinderela.jpg");
+//			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg");
+//			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg");
+//			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
+//
+//			repository.insert(bookCover1);
+//			repository.insert(bookCover2);
+//			repository.insert(bookCover3);
+//			repository.insert(bookCover4);
+//
+//
+//
+//		};
+//	}
+
 //
 //	@Bean
 //	CommandLineRunner runner(BookTemplateRepository repository) {

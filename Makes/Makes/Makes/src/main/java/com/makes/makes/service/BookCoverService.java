@@ -39,4 +39,9 @@ public class BookCoverService {
     {
         bookCoverRepository.save(bookCover);
     }
+
+    public List<BookCover> getAllUserCoverBook(String user)
+    {
+        return bookCoverRepository.findCoverBooksByOwner(user);
+    }
 }

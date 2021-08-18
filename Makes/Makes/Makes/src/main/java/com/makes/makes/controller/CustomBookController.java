@@ -42,10 +42,12 @@ public class CustomBookController {
         String bookName = data.getAsString("bookName");
         String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
+
         BookCover bookCover = bookCoverService.findBookCoverByTemplateName(bookName);
-        BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto());
+        BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user);
         bookCoverService.insertBookCover(userBookCover);
         String templateBookCoverName = bookCover.getTemplateName();
+
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 

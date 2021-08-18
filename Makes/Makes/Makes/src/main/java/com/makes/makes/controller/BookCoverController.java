@@ -32,22 +32,24 @@ public class BookCoverController {
     }
 
     @GetMapping("/")
-    public List<BookCover> fetchAllBooksCover() {
-        return bookCoverService.getAllBookCovers();
+    public List<BookCover> fetchAllBooksCover()
+    {
+        return bookCoverService.getAllUserCoverBook("Admin");
     }
 
     @GetMapping("/{userEmail}")
     public List<BookCover> userGallery(@PathVariable String userEmail)
     {
+        return bookCoverService.getAllUserCoverBook(userEmail);
 
-        List<CustomBook>  usersBooks = customBookService.findUsersBook(userEmail);
-        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
-        for ( CustomBook userBook:usersBooks)
-        {
-            BookCover userCoverBook = bookCoverService.findBookCoverByTemplateName(userBook.getCoverBookName());
-            usersCoverBooks.add(userCoverBook);
-        }
-        return  usersCoverBooks;
+//        List<CustomBook>  usersBooks = customBookService.findUsersBook(userEmail);
+//        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
+//        for ( CustomBook userBook:usersBooks)
+//        {
+//            BookCover userCoverBook = bookCoverService.findBookCoverByTemplateName(userBook.getCoverBookName());
+//            usersCoverBooks.add(userCoverBook);
+//        }
+//        return  usersCoverBooks;
 
     }
 }

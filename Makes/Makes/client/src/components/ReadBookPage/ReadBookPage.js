@@ -15,9 +15,7 @@ const ReadBookPage = (props) => {
             <ReadBookPageContent bookPages={props.bookPages}/>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>
-                <Button type="button" /*onClick={props.onGalleryClicke}*/>הגלריה שלי</Button>
-
-                
+                <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>
             </Footer>
         </React.Fragment>
     );

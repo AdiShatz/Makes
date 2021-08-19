@@ -41,6 +41,5 @@ public class BookCoverController {
     public List<BookCover> userGallery(@PathVariable String userEmail)
     {
         return bookCoverService.getAllUserCoverBook(userEmail);
-
     }
 }

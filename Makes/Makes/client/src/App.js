@@ -6,19 +6,6 @@ import GalleryPage from "./components/GalleryPage/GalleryPage";
 import AuthContext, {AuthContextProvider} from "./store/auth-context";
 import AdminPage from "./components/AdminPage/AdminPage";
 
-// const DUMMY_GALLERY_BOOKS = [
-//   {
-//     id: 'b1',
-//     name: 'כיפה אדומה',
-//     coverPhoto: "KipaAduma.jfif"
-//   },
-//   { 
-//       id: 'b4',
-//     name: 'שילגיה',
-//     coverPhoto: "Shilgiya.jpeg"
-//   }
-// ];
-
   const App = () => {
 
     const [page, setPage] = useState("mainPage");
@@ -40,7 +27,37 @@ import AdminPage from "./components/AdminPage/AdminPage";
   };
 
 
-    const galleryBookItemClickedHandler = () => {
+    const galleryBookItemClickedHandler = (bookName) => {
+      let url = "http://localhost:8080/customBooks/readUserBook";
+            fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    userName: localStorage.getItem("userEmail"),
+                    bookName: bookName
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+             })
+            .then(response => {
+                if(response.ok){
+                  console.log("200 OK");
+                    return response.json();
+                }
+                else{
+                    return response.json().then((data)=>{
+                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                         if(data && data.error && data.error.message){ 
+                         errorMessage = data.error.message; 
+                         }
+                         throw new Error(errorMessage);
+                    });
+                }
+            }).then((data) => { 
+              setBookPages(data.pages);
+            });
+
       setPage("readBookPage");
     };
 
@@ -75,15 +92,12 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     });
                 }
             }).then((data) => { 
-              console.log("create-book data");
-              console.log(data);
               setBookPages(data.pages);
             });
 
         setPage("readBookPage");
       };
    
-
       const backButtonClickedHandler = () => {
         setPage("mainPage");
       };
@@ -127,6 +141,26 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
       const galleryItemDeleteHandler = () =>
       {
+        // let url = "http://localhost:8080/customBooks/";
+        //   fetch(url,
+        //   {
+        //       method: 'DELETE',
+        //    })
+        //   .then(response => {
+        //       if(response.ok){
+        //         console.log("200 OK");
+        //           return response.json();
+        //       }
+        //       else{
+        //           return response.json().then((data)=>{
+        //                let errorMessage= 'מצטערים, אירעה שגיאה ';
+        //                if(data && data.error && data.error.message){ 
+        //                errorMessage = data.error.message; 
+        //                }
+        //                throw new Error(errorMessage);
+        //           });
+        //       }
+        //   })
       };
 
     
@@ -146,7 +180,8 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
              bookName={bookName}
-             onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+             onBackToMainMenuButtonClicked={backButtonClickedHandler}
+             onGalleryClicked={myGalleryHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={galleryBookCovers} 
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 

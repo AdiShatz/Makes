@@ -100,3 +100,16 @@
 
 		};
 	}
+	
+--------------------------------------------------הוספת קאבר-------------------------------------------------------
+
+@Bean
+	CommandLineRunner runner(BookCoverRepository repository) {
+
+		return args -> {
+
+			BookCover bookCover = new BookCover("הדייג ואשתו", "Sinderela.jpg");
+			repository.insert(bookCover);
+
+		};
+	}

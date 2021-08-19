@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from "react";
-import Card from '../UI/Card';
 import AuthContext from "../../store/auth-context";
 import './BookItem.css'
 
@@ -38,7 +37,7 @@ const BookItem = (props) => {
 
       
     return(
-
+      <div>
     <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
         {coverPhoto && <img
         src={require("../../images/" + coverPhoto).default}
@@ -48,7 +47,8 @@ const BookItem = (props) => {
         <div class="hvrbox-layer_top">
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
-        {isGalleryItem && isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
+    </div>
+    {isGalleryItem && isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
     </div>
   
   );

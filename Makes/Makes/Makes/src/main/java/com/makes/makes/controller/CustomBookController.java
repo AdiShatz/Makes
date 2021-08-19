@@ -58,8 +58,17 @@ public class CustomBookController {
         customBookService.insertCustomBook(newCustomBook);
         return newCustomBook;
 
-
     }
+
+    @PostMapping("/readUserBook")
+    public CustomBook readUserBook(@RequestBody JSONObject data)
+    {
+        String user = data.getAsString("userName");
+        String bookName = data.getAsString("bookName");
+        return  customBookService.findUserBookByBookName(user,bookName);
+    }
+
+
 
     private Map<String,String> createMapFromString(String data)
     {
@@ -75,6 +84,7 @@ public class CustomBookController {
         }
         return newMap;
     }
+
 
 
 

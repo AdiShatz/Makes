@@ -98,7 +98,6 @@ import AdminPage from "./components/AdminPage/AdminPage";
         setPage("readBookPage");
       };
    
-
       const backButtonClickedHandler = () => {
         setPage("mainPage");
       };
@@ -142,6 +141,26 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
       const galleryItemDeleteHandler = () =>
       {
+        // let url = "http://localhost:8080/customBooks/";
+        //   fetch(url,
+        //   {
+        //       method: 'DELETE',
+        //    })
+        //   .then(response => {
+        //       if(response.ok){
+        //         console.log("200 OK");
+        //           return response.json();
+        //       }
+        //       else{
+        //           return response.json().then((data)=>{
+        //                let errorMessage= 'מצטערים, אירעה שגיאה ';
+        //                if(data && data.error && data.error.message){ 
+        //                errorMessage = data.error.message; 
+        //                }
+        //                throw new Error(errorMessage);
+        //           });
+        //       }
+        //   })
       };
 
     

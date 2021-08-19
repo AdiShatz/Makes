@@ -1,7 +1,10 @@
 @Bean
-	CommandLineRunner runner(BookTemplateRepository repository) {
+	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
 
 		return args -> {
+		
+			BookCover bookCover = new BookCover("כיפה אדומה", "Sinderela.jpg");
+			BCRepository.insert(bookCover);
 
 			List<Page> pages = new ArrayList<Page>();
 			UUID u1 = UUID.randomUUID();
@@ -34,7 +37,7 @@
 					"\"נכדתך, כיפה אדומה\" ענה ה<אויב>, מחקה את קולה של כיפה אדומה, \"הבאתי לך <אוכל> ששלחה לך אמא.\"\n" +
 					"הסבתא שהייתה במיטה, קראה:\n" +
 					"\"פתחי את הדלת נכדתי.\"\n" +
-					"ה<אויב > פתח את הדלת, והתנפל על סבתא ואכל אותה ברגע. ה<אויב> לקח לסבתא את הבגדים ונכנס למיטתה וחיכה לכיפה אדומה. \n" +
+					"ה<אויב> פתח את הדלת, והתנפל על סבתא ואכל אותה ברגע. ה<אויב> לקח לסבתא את הבגדים ונכנס למיטתה וחיכה לכיפה אדומה. \n" +
 					"טוק טוק. נשמעה דפיקה על הדלת.\n" +
 					"\"מי שם?\" ענה ה<אויב>\n" +
 					"כיפה אדומה ענתה:\n" +
@@ -92,22 +95,9 @@
 			questions.add(q3);
 			questions.add(q4);
 
-			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions);
+			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions, bookCover.getId());
 
-			repository.insert(bt1);
-
-		};
-	}
-	
----------------------------------------------------------הוספת הקאבר-------------------------------------------------
-
-	@Bean
-	CommandLineRunner runner(BookCoverRepository repository) {
-
-		return args -> {
-
-			BookCover bookCover = new BookCover("כיפה אדומה", "Sinderela.jpg");
-			repository.insert(bookCover);
+			BTRepository.insert(bt1);
 
 		};
 	}

@@ -1,7 +1,10 @@
 	@Bean
-	CommandLineRunner runner(BookTemplateRepository repository) {
+	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
 
 		return args -> {
+		
+			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "Sinderela.jpg");
+			BCRepository.insert(bookCover);
 
 			List<Page> pages = new ArrayList<Page>();
 			UUID u1 = UUID.randomUUID();
@@ -69,24 +72,9 @@
 			questions.add(q2);
 			questions.add(q3);
 
-			BookTemplate bt1 = new BookTemplate("ג'ק ואפון הפלא", pages, questions);
+			BookTemplate bt1 = new BookTemplate("ג'ק ואפון הפלא", pages, questions, bookCover.getId());
 
-			repository.insert(bt1);
-
-		};
-	}
-	
-	
-	
----------------------------------------------------------הוספת הקאבר-------------------------------------------------
-
-@Bean
-	CommandLineRunner runner(BookCoverRepository repository) {
-
-		return args -> {
-
-			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "Sinderela.jpg");
-			repository.insert(bookCover);
+			BTRepository.insert(bt1);
 
 		};
 	}

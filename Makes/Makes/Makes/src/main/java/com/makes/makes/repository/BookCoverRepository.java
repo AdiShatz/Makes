@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface BookCoverRepository
         extends MongoRepository<BookCover, String> {
+
     BookCover findByTemplateName(String templateName);
     BookCover findCoverBookById(String id);
     List<BookCover> findCoverBooksByOwner(String owner);
+    void  deleteById(String id);
 
 }

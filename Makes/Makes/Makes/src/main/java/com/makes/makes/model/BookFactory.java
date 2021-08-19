@@ -8,7 +8,7 @@ import java.util.*;
 
 public class BookFactory {
 
-    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap,String chosenBookName)
+    public CustomBook createNewBook(BookTemplate bookTemplate, String ownerName, Map<String,String>questionsMap,String chosenBookName,String bookCoverId)
     {
         List<Page> customPages = new ArrayList<Page>();
         Map<String,String> labelAnswersMap = createLabelAnswersMap(questionsMap,bookTemplate.getQuestions());
@@ -19,7 +19,7 @@ public class BookFactory {
           newPage.editText(labelAnswersMap);
           customPages.add(newPage);
         }
-        CustomBook customBook = new CustomBook(chosenBookName,customPages,ownerName);
+        CustomBook customBook = new CustomBook(chosenBookName,customPages,ownerName,bookCoverId);
         return customBook;
 
     }

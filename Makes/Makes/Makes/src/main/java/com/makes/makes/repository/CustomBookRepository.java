@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface CustomBookRepository extends MongoRepository<CustomBook, String> {
 
 
+    Optional<CustomBook> findById(String id);
     List<CustomBook> findByOwner(String owner);
-
-
+    void deleteById(String id);
 }

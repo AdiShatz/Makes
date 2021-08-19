@@ -44,4 +44,9 @@ public class BookCoverService {
     {
         return bookCoverRepository.findCoverBooksByOwner(user);
     }
+
+    public  void deleteBookCoverById(String id)
+    {
+        bookCoverRepository.deleteById(id);
+    }
 }

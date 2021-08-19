@@ -9,11 +9,7 @@ const TurningPoint = (props) => {
 
     useEffect(
         () => {
-            if(props.data){
-                console.log("TurningPoint props.data:");
-                console.log(props.data);
                 setTPData(props.data);
-                }
         },[props]
     )
 

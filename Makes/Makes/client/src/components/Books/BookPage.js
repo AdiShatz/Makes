@@ -9,11 +9,7 @@ const BookPage = (props) => {
 
     useEffect(
         () => {
-            if(props.data){
-                console.log("bookPage props.data:");
-                console.log(props.data);
             setPageData(props.data);
-            }
         },[props]
     )
 

@@ -41,6 +41,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
 
     const galleryBookItemClickedHandler = () => {
+
       setPage("readBookPage");
     };
 
@@ -146,7 +147,8 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
              bookName={bookName}
-             onBackToMainMenuButtonClicked={backButtonClickedHandler}/>} 
+             onBackToMainMenuButtonClicked={backButtonClickedHandler}
+             onGalleryClicked={myGalleryHandler}/>} 
 
             {page === 'galleryPage' && <GalleryPage items={galleryBookCovers} 
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 

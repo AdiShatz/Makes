@@ -9,9 +9,7 @@ const TurningPoint = (props) => {
 
     useEffect(
         () => {
-            if(props.data){
                 setTPData(props.data);
-                }
         },[props]
     )
 
@@ -19,10 +17,10 @@ const TurningPoint = (props) => {
         props.onTurningPointChosen(event.target.id);
     }
     return (
-            <Card>
-                {tpData && <p>{tpData.text}</p>}
-                {tpData &&<button id='left' onClick={clickHandler}>{tpData.leftOption}</button>}
-                {tpData &&<button id='right' onClick={clickHandler}>{tpData.rightOption}</button>}
+            <Card className="t-p-card">
+                {tpData && <p>{tpData.question}</p>}
+                {tpData && <button id='left' onClick={clickHandler}>{tpData.options[0]}</button>}
+                {tpData && <button id='right' onClick={clickHandler}>{tpData.options[1]}</button>}
             </Card>
     );
 }

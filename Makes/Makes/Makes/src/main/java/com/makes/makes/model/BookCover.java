@@ -18,11 +18,22 @@ public class BookCover {
     private String templateName;
     private String bookName;
     private String coverPhoto;
+    private String owner;
 
-    public BookCover(String bookName,String templateName, String coverPhoto) {
+    public BookCover(String bookName,String templateName, String coverPhoto,String owner) {
         this.templateName = templateName;
         this.bookName = bookName;
         this.coverPhoto = coverPhoto;
+        this.owner = owner;
+    }
+
+    public BookCover(String templateName, String coverPhoto)
+    {
+        this.templateName = templateName;
+        this.bookName = null;
+        this.coverPhoto = coverPhoto;
+        this.owner = "Admin";
+
     }
 
     public void setName(String name) {

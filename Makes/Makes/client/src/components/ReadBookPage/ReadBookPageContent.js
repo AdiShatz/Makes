@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import BookPage from "../Books/BookPage";
-import Button from "../UI/Button";
 
 import './ReadBookPageContent.css';
 

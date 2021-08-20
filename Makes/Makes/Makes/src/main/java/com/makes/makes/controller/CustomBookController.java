@@ -54,10 +54,11 @@ public class CustomBookController {
 
 
         CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,userBookCover.getId());
-        userBookCover.setBookId(newCustomBook.getId());
-        bookCoverService.saveBookCover(userBookCover);
+
 
         customBookService.insertCustomBook(newCustomBook);
+        userBookCover.setBookId(newCustomBook.getId());
+        bookCoverService.saveBookCover(userBookCover);
         return newCustomBook;
 
     }

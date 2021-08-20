@@ -127,28 +127,28 @@ import AdminPage from "./components/AdminPage/AdminPage";
         setPage("adminPage");
       };
 
-      const galleryItemDeleteHandler = () =>
+      const galleryItemDeleteHandler = (bookId) =>
       {
-        // let url = "http://localhost:8080/customBooks/";
-        //   fetch(url,
-        //   {
-        //       method: 'DELETE',
-        //    })
-        //   .then(response => {
-        //       if(response.ok){
-        //         console.log("200 OK");
-        //           return response.json();
-        //       }
-        //       else{
-        //           return response.json().then((data)=>{
-        //                let errorMessage= 'מצטערים, אירעה שגיאה ';
-        //                if(data && data.error && data.error.message){ 
-        //                errorMessage = data.error.message; 
-        //                }
-        //                throw new Error(errorMessage);
-        //           });
-        //       }
-        //   })
+        let url = "http://localhost:8080/customBooks/deleteUserBook/" + bookId;
+          fetch(url,
+          {
+              method: 'DELETE',
+           })
+          .then(response => {
+              if(response.ok){
+                console.log("200 OK");
+                  return response.json();
+              }
+              else{
+                  return response.json().then((data)=>{
+                       let errorMessage= 'מצטערים, אירעה שגיאה ';
+                       if(data && data.error && data.error.message){ 
+                       errorMessage = data.error.message; 
+                       }
+                       throw new Error(errorMessage);
+                  });
+              }
+          })
       };
 
     

@@ -37,6 +37,9 @@ const BookItem = (props) => {
     }
   };
 
+  const DeleteHandler = () => {
+    props.onGalleryItemDeletion(bookId);
+};
       
     return(
       <div>
@@ -50,7 +53,7 @@ const BookItem = (props) => {
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
     </div>
-    {isGalleryItem && isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
+    {isGalleryItem && isGalleryItem==='true' && <button onClick={DeleteHandler}>מחק</button> }       
     </div>
   
   );

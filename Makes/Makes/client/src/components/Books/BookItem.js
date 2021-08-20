@@ -7,12 +7,14 @@ const BookItem = (props) => {
   const authCtx = useContext(AuthContext);
 
   const [name, setName] = useState();
+  const [bookId, setBookId] = useState();
   const [isGalleryItem, setIsGalleryItem] = useState();
   const [coverPhoto, setCoverPhoto] = useState();
 
   useEffect(
       () => {
           setName(props.name);
+          setBookId(props.bookId);
           setIsGalleryItem(props.isGalleryItem);
           setCoverPhoto(props.coverPhoto);
       },[props]
@@ -27,7 +29,7 @@ const BookItem = (props) => {
         props.onBookItemClicked();
        }
         else{
-        props.onGalleryBookItemClicked(name);
+        props.onGalleryBookItemClicked(bookId);
         }
 
     }else{

@@ -22,18 +22,11 @@ import AdminPage from "./components/AdminPage/AdminPage";
   };
 
 
-    const galleryBookItemClickedHandler = (bookName) => {
-      let url = "http://localhost:8080/customBooks/readUserBook";
+    const galleryBookItemClickedHandler = (bookId) => {
+      let url = "http://localhost:8080/customBooks/readUserBook" + bookId ;
             fetch(url,
             {
-                method: 'POST',
-                body: JSON.stringify({
-                    userName: localStorage.getItem("userEmail"),
-                    bookName: bookName
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+                method: 'GET',
              })
             .then(response => {
                 if(response.ok){

@@ -12,11 +12,6 @@ import AdminPage from "./components/AdminPage/AdminPage";
     const [bookPages, setBookPages] = useState([]);
     const [galleryBookCovers, setGalleryBookCovers] = useState([]);
     const [bookName, setBookName] = useState();
-    // const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
-
-    // const isAdminUser = () => {
-    //   if(localStorage.getItem.name)==
-    // }
 
     const bookItemClickedHandler = () => {
       setPage("createBookPage");

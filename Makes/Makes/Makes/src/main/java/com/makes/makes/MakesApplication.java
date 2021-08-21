@@ -22,6 +22,7 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
+
 //	@Bean
 //	CommandLineRunner runner(BookCoverRepository BCrepository, BookTemplateRepository BTrepository) {
 //
@@ -278,5 +279,4 @@ public class MakesApplication {
 //
 //	};
 //}
-
 }

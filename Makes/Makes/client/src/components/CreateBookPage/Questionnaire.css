@@ -8,6 +8,28 @@ align-items: center;
     background-color: rgba(240, 188, 188, 0.514);
     float: right;
     margin: 1rem 0;
-    height: 19rem;
+    /* height: 19rem; */
+    border: 2px solid #faf3f1;
     overflow: auto;
+    padding-right: 20px;
 } 
+.inpquest label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  
+  .inpquest input {
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 20rem;
+    max-width: 60%;
+    
+  }
+  #create-book-button{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: x-large;
+      text-align: center;
+  }

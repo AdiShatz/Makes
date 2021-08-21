@@ -33,10 +33,10 @@ const Questionnaire = (props) => {
         <div className="questionnaire">
             {setDefaultValues()}
            <form>
-           <input type='bookName' id='bookName' dir = "rtl" required ref={chosenBookNameInputRef}/> 
-
-            <label>שם הסיפור</label>
-
+           <div className="inpquest"> 
+                <label>שם הסיפור</label>
+                <input type='bookName' id='bookName' dir = "rtl" required ref={chosenBookNameInputRef}/> 
+            </div>
             {props.questions.map((question) => (
 
             <div className="">

@@ -9,7 +9,7 @@ const CreateBookPageContent = (props) => {
     return (
         <React.Fragment>
         <div id="top-Padding">
-                <div style={{textAlign: "center"}}><label>מלא את השאלון והסיפור שלך תיכף יהיה מוכן</label></div>
+                <div style={{textAlign: "center"}}><label id="create-book-subtitle">מלא את השאלון והסיפור שלך תיכף יהיה מוכן</label></div>
                 <div className="create-book-page-container">
                     <div className="right-container"><p>הרבה הרבה הסברים על השאלון והסיפור</p></div> 
                     <div className="left-container"><Questionnaire questions={props.questions} onCreateBook={props.onCreateBook}/> </div>

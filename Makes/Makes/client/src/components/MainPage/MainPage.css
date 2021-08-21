@@ -21,7 +21,7 @@ nav {
 .login-button:hover,
 .login:active {
     background: #da7249;
-    border: 2px solid #faf3f1;
+    /* border: 2px solid #faf3f1; */
 }
 label{
     padding-left: 30px;;

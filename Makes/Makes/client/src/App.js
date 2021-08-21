@@ -23,7 +23,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
 
     const galleryBookItemClickedHandler = (bookId) => {
-      let url = "http://localhost:8080/customBooks/readUserBook" + bookId ;
+      let url = "http://localhost:8080/customBooks/readUserBook/" + bookId ;
             fetch(url,
             {
                 method: 'GET',

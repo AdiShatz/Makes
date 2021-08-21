@@ -11,15 +11,6 @@ const BookItem = (props) => {
   const [isGalleryItem, setIsGalleryItem] = useState();
   const [coverPhoto, setCoverPhoto] = useState();
 
-  useEffect(
-      () => {
-          setName(props.name);
-          setBookId(props.bookId);
-          setIsGalleryItem(props.isGalleryItem);
-          setCoverPhoto(props.coverPhoto);
-      },[props]
-  )
-
     const ClickedHandler = (e) => {
       
        if(authCtx.isLoggedIn){
@@ -29,8 +20,8 @@ const BookItem = (props) => {
         props.onBookItemClicked();
        }
         else{
-        console.log(e);
-       // props.onGalleryBookItemClicked(bookId);
+        // console.log(e);
+       props.onGalleryBookItemClicked(bookId);
         }
 
     }else{
@@ -41,6 +32,15 @@ const BookItem = (props) => {
   const DeleteHandler = () => {
     props.onGalleryItemDeletion(bookId);
 };
+
+useEffect(
+  () => {
+      setName(props.name);
+      setBookId(props.bookId);
+      setIsGalleryItem(props.isGalleryItem);
+      setCoverPhoto(props.coverPhoto);
+  },[props, ClickedHandler, DeleteHandler]
+)
       
     return(
       <div>

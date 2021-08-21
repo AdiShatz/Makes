@@ -43,7 +43,7 @@ const BookItem = (props) => {
       
     return(
       <div>
-    <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
+    {((bookId && isGalleryItem) || (!isGalleryItem)) && <div className='book-item hvrbox' name={name} onClick={ClickedHandler} > }
         {coverPhoto && <img
         src={require("../../images/" + coverPhoto).default}
         alt= "Photo Unavailable"

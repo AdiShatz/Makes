@@ -53,7 +53,7 @@ const BookItem = (props) => {
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
     </div>
-    {isGalleryItem && isGalleryItem==='true' && <button onClick={DeleteHandler}>מחק</button> }       
+    {isGalleryItem && isGalleryItem==='true' && bookId && <button onClick={DeleteHandler}>מחק</button> }       
     </div>
   
   );

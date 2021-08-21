@@ -20,7 +20,7 @@ const BookItem = (props) => {
       },[props]
   )
 
-    const ClickedHandler = () => {
+    const ClickedHandler = (e) => {
       
        if(authCtx.isLoggedIn){
         localStorage.setItem('bookName', name);
@@ -29,7 +29,8 @@ const BookItem = (props) => {
         props.onBookItemClicked();
        }
         else{
-        props.onGalleryBookItemClicked(bookId);
+        console.log(e);
+       // props.onGalleryBookItemClicked(bookId);
         }
 
     }else{
@@ -43,7 +44,7 @@ const BookItem = (props) => {
       
     return(
       <div>
-    {((bookId && isGalleryItem) || (!isGalleryItem)) && <div className='book-item hvrbox' name={name} onClick={ClickedHandler} > }
+    {((bookId && isGalleryItem) || (isGalleryItem==='false')) && <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
         {coverPhoto && <img
         src={require("../../images/" + coverPhoto).default}
         alt= "Photo Unavailable"
@@ -52,7 +53,7 @@ const BookItem = (props) => {
         <div class="hvrbox-layer_top">
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
-    </div>
+    </div>}
     {isGalleryItem && isGalleryItem==='true' && bookId && <button onClick={DeleteHandler}>מחק</button> }       
     </div>
   

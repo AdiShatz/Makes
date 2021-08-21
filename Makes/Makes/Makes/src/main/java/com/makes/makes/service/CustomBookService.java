@@ -21,9 +21,19 @@ public class CustomBookService {
         customBookRepository.insert(customBook);
     }
 
-    public List<CustomBook> findUsersBook(String owner)
+    public  CustomBook findUserBookByBookName(String owner,String bookName)
     {
-        return customBookRepository.findByOwner(owner);
+        List<CustomBook> customBookList = customBookRepository.findByOwner(owner);
+
+        for (CustomBook customBook: customBookList)
+        {
+            if (customBook.getName().equals(bookName))
+            {
+               return customBook;
+            }
+        }
+       return null;
+
     }
 
 

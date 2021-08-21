@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import BookItem from "./BookItem"
 import './BooksList.css'
 
@@ -6,11 +6,19 @@ import './BooksList.css'
 
 const BooksList = (props) => {
 
+  const [bookCovers, setBookCovers] = useState([]);
+
+  useEffect(
+      () => {
+        setBookCovers(props.items);
+      },[props]
+  );
+
       return (
         <div className='books-list'>
-          {props.items.map((book) => (
+          {bookCovers && bookCovers.map((book) => (
             <BookItem
-              name={book.name}
+              name={book.owner==="Admin" ? book.templateName : book.bookName}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}
               onNotLoggedIn={props.onNotLoggedIn}

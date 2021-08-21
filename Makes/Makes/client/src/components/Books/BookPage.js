@@ -1,15 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TurningPoint from '../ReadBookPage/TurningPoint'
-import RecordView from '../UI/RecordView'
 
 import './BookPage.css'
 
 const BookPage = (props) => {
     
-    const [isRecording, setIsRecording] = useState(false);
-    const [isRecordingExist, setIsRecordingExist] = useState(false);
     const [pageData, setPageData] = useState(null);
-    const [img, setImg] = useState(null);
 
     useEffect(
         () => {
@@ -18,19 +14,23 @@ const BookPage = (props) => {
     )
 
     return(
+        <div>
 
     <div className="main-read-book-container">
       
       
           <div className="book-page-container-left">
-              <img src={require("../../images/KipaAduma.jfif").default}/>
+          {pageData && <img src={require("../../images/"+pageData.background).default}/> }
           </div>
 
           <div className="book-page-container-right">
-              {pageData!=null && <p>{pageData.text}</p>}
-              {pageData!=null && pageData.turningPointExist && <TurningPoint data={pageData.turningPointData} onTurningPointChosen={props.onTurningPointChosen}/>}
+              {pageData && <p>{pageData.text}</p>}
+              {pageData && pageData.turningPointExist && <TurningPoint data={pageData.turningPoint} onTurningPointChosen={props.onTurningPointChosen}/>}
         </div>
+
       </div>
+    {pageData && pageData.pageNum && <label>{pageData.pageNum}</label>}
+    </div>
    
   );
 }

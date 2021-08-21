@@ -19,6 +19,13 @@
     font-weight: bold;
     padding: 10px;
     flex: 50%;
+    align-self: center;
+    
+}
+.right-container p{
+    background-color: rgba(240, 188, 188, 0.514);
+    margin-left: 100px;
+    font-size: 150%;
 }
 #top-Padding{
     padding-top: 100px;
@@ -35,5 +42,5 @@
     margin-bottom: 100px;
 } */
 #create-book-subtitle{
-    font-size: 120%;
+    font-size: 170%;
 }

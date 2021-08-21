@@ -10,6 +10,7 @@ const BookItem = (props) => {
   const [bookId, setBookId] = useState();
   const [isGalleryItem, setIsGalleryItem] = useState();
   const [coverPhoto, setCoverPhoto] = useState();
+  const [isDeleted, setIsDeleted] = useState(false);
 
     const ClickedHandler = (e) => {
       
@@ -20,7 +21,6 @@ const BookItem = (props) => {
         props.onBookItemClicked();
        }
         else{
-        // console.log(e);
        props.onGalleryBookItemClicked(bookId);
         }
 
@@ -31,6 +31,8 @@ const BookItem = (props) => {
 
   const DeleteHandler = () => {
     props.onGalleryItemDeletion(bookId);
+    setIsDeleted(true);
+    
 };
 
 useEffect(
@@ -39,11 +41,11 @@ useEffect(
       setBookId(props.bookId);
       setIsGalleryItem(props.isGalleryItem);
       setCoverPhoto(props.coverPhoto);
-  },[props, ClickedHandler, DeleteHandler]
+  },[props]
 )
       
     return(
-      <div>
+      <div className= {isDeleted ? "hide_card" : "show_card"}>
     {((bookId && isGalleryItem) || (isGalleryItem==='false')) && <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
         {coverPhoto && <img
         src={require("../../images/" + coverPhoto).default}

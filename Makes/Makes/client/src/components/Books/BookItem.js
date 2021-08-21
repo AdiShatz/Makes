@@ -7,18 +7,12 @@ const BookItem = (props) => {
   const authCtx = useContext(AuthContext);
 
   const [name, setName] = useState();
+  const [bookId, setBookId] = useState();
   const [isGalleryItem, setIsGalleryItem] = useState();
   const [coverPhoto, setCoverPhoto] = useState();
+  const [isDeleted, setIsDeleted] = useState(false);
 
-  useEffect(
-      () => {
-          setName(props.name);
-          setIsGalleryItem(props.isGalleryItem);
-          setCoverPhoto(props.coverPhoto);
-      },[props]
-  )
-
-    const ClickedHandler = () => {
+    const ClickedHandler = (e) => {
       
        if(authCtx.isLoggedIn){
         localStorage.setItem('bookName', name);
@@ -27,7 +21,7 @@ const BookItem = (props) => {
         props.onBookItemClicked();
        }
         else{
-        props.onGalleryBookItemClicked(name);
+       props.onGalleryBookItemClicked(bookId);
         }
 
     }else{
@@ -35,10 +29,24 @@ const BookItem = (props) => {
     }
   };
 
+  const DeleteHandler = () => {
+    props.onGalleryItemDeletion(bookId);
+    setIsDeleted(true);
+    
+};
+
+useEffect(
+  () => {
+      setName(props.name);
+      setBookId(props.bookId);
+      setIsGalleryItem(props.isGalleryItem);
+      setCoverPhoto(props.coverPhoto);
+  },[props]
+)
       
     return(
-      <div>
-    <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
+      <div className= {isDeleted ? "hide_card" : "show_card"}>
+    {((bookId && isGalleryItem) || (isGalleryItem==='false')) && <div className='book-item hvrbox' name={name} onClick={ClickedHandler} >
         {coverPhoto && <img
         src={require("../../images/" + coverPhoto).default}
         alt= "Photo Unavailable"
@@ -47,8 +55,8 @@ const BookItem = (props) => {
         <div class="hvrbox-layer_top">
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
-    </div>
-    {isGalleryItem && isGalleryItem==='true' && <button onClick={props.onGalleryItemDeletion}>מחק</button> }       
+    </div>}
+    {isGalleryItem && isGalleryItem==='true' && bookId && <button onClick={DeleteHandler}>מחק</button> }       
     </div>
   
   );

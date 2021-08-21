@@ -46,26 +46,37 @@ public class CustomBookController {
         BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
         BookCover bookCover = bookCoverService.findBookCoverById(bookTemplate.getBookCoverId());
-        BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user);
+        BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user,null);
         bookCoverService.insertBookCover(userBookCover);
 
 
         Map<String,String> questionsAnswersMap = createMapFromString(bookData);
 
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName);
+        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,userBookCover.getId());
+
 
         customBookService.insertCustomBook(newCustomBook);
+        userBookCover.setBookId(newCustomBook.getId());
+        bookCoverService.saveBookCover(userBookCover);
         return newCustomBook;
 
     }
 
-    @PostMapping("/readUserBook")
-    public CustomBook readUserBook(@RequestBody JSONObject data)
+    @GetMapping("/readUserBook/{bookId}")
+    public CustomBook readUserBook(@PathVariable String bookId )
     {
-        String user = data.getAsString("userName");
-        String bookName = data.getAsString("bookName");
-        return  customBookService.findUserBookByBookName(user,bookName);
+        CustomBook b = customBookService.findUserBook(bookId);
+
+        return  b;
+    }
+
+    @DeleteMapping("/deleteUserBook/{bookId}")
+    public void deleteUserBook(@PathVariable String bookId)
+    {
+        CustomBook deleteBook = customBookService.findUserBook(bookId);
+        bookCoverService.deleteBookCoverById(deleteBook.getBookCoverId());
+        customBookService.deleteBookById(bookId);
     }
 
 

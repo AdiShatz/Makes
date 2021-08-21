@@ -12,11 +12,6 @@ import AdminPage from "./components/AdminPage/AdminPage";
     const [bookPages, setBookPages] = useState([]);
     const [galleryBookCovers, setGalleryBookCovers] = useState([]);
     const [bookName, setBookName] = useState();
-    // const [dummyGalleryBooks, setDummyBooks] = useState(DUMMY_GALLERY_BOOKS); // TO CHANGE
-
-    // const isAdminUser = () => {
-    //   if(localStorage.getItem.name)==
-    // }
 
     const bookItemClickedHandler = () => {
       setPage("createBookPage");
@@ -27,18 +22,11 @@ import AdminPage from "./components/AdminPage/AdminPage";
   };
 
 
-    const galleryBookItemClickedHandler = (bookName) => {
-      let url = "http://localhost:8080/customBooks/readUserBook";
+    const galleryBookItemClickedHandler = (bookId) => {
+      let url = "http://localhost:8080/customBooks/readUserBook/" + bookId ;
             fetch(url,
             {
-                method: 'POST',
-                body: JSON.stringify({
-                    userName: localStorage.getItem("userEmail"),
-                    bookName: bookName
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+                method: 'GET',
              })
             .then(response => {
                 if(response.ok){
@@ -139,28 +127,28 @@ import AdminPage from "./components/AdminPage/AdminPage";
         setPage("adminPage");
       };
 
-      const galleryItemDeleteHandler = () =>
+      const galleryItemDeleteHandler = (bookId) =>
       {
-        // let url = "http://localhost:8080/customBooks/";
-        //   fetch(url,
-        //   {
-        //       method: 'DELETE',
-        //    })
-        //   .then(response => {
-        //       if(response.ok){
-        //         console.log("200 OK");
-        //           return response.json();
-        //       }
-        //       else{
-        //           return response.json().then((data)=>{
-        //                let errorMessage= 'מצטערים, אירעה שגיאה ';
-        //                if(data && data.error && data.error.message){ 
-        //                errorMessage = data.error.message; 
-        //                }
-        //                throw new Error(errorMessage);
-        //           });
-        //       }
-        //   })
+        let url = "http://localhost:8080/customBooks/deleteUserBook/" + bookId;
+          fetch(url,
+          {
+              method: 'DELETE',
+           })
+          .then(response => {
+              if(response.ok){
+                console.log("200 OK");
+                  return response.json();
+              }
+              else{
+                  return response.json().then((data)=>{
+                       let errorMessage= 'מצטערים, אירעה שגיאה ';
+                       if(data && data.error && data.error.message){ 
+                       errorMessage = data.error.message; 
+                       }
+                       throw new Error(errorMessage);
+                  });
+              }
+          })
       };
 
     

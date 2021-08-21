@@ -19,20 +19,23 @@ public class BookCover {
     private String bookName;
     private String coverPhoto;
     private String owner;
+    private String bookId;
 
-    public BookCover(String bookName,String templateName, String coverPhoto,String owner) {
+    public BookCover(String bookName,String templateName, String coverPhoto,String owner,String bookId) {
         this.templateName = templateName;
         this.bookName = bookName;
         this.coverPhoto = coverPhoto;
         this.owner = owner;
+        this.bookId = bookId;
     }
 
-    public BookCover(String templateName, String coverPhoto)
+    public BookCover(String templateName, String coverPhoto,String bookId)
     {
         this.templateName = templateName;
         this.bookName = null;
         this.coverPhoto = coverPhoto;
         this.owner = "Admin";
+        this.bookId = bookId;
 
     }
 
@@ -74,5 +77,21 @@ public class BookCover {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 }

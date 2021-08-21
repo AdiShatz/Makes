@@ -24,6 +24,14 @@
     object-fit: cover;
   }
 
+  .hide_card{
+	visibility: hidden;
+  }
+
+  .show_card{
+  visibility: visible;
+}
+
   /*-------------hover on book item effect---------------------*/
   .hvrbox * {
 	box-sizing: border-box;

@@ -23,12 +23,10 @@ public class BookCoverController {
     private static final Logger log = LoggerFactory.getLogger(BookCoverController.class.getName());
 
     private final BookCoverService bookCoverService;
-    private final CustomBookService customBookService;
 
 
-    public BookCoverController(BookCoverService bookCoverService,CustomBookService customBookService,UserService userService) {
+    public BookCoverController(BookCoverService bookCoverService) {
         this.bookCoverService = bookCoverService;
-        this.customBookService = customBookService;
     }
 
     @GetMapping("/")

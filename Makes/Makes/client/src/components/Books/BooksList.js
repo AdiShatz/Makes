@@ -19,6 +19,7 @@ const BooksList = (props) => {
           {bookCovers && bookCovers.map((book) => (
             <BookItem
               name={book.owner==="Admin" ? book.templateName : book.bookName}
+              bookId = {book.bookId}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}
               onNotLoggedIn={props.onNotLoggedIn}

@@ -21,20 +21,14 @@ public class CustomBookService {
         customBookRepository.insert(customBook);
     }
 
-    public  CustomBook findUserBookByBookName(String owner,String bookName)
+    public  CustomBook findUserBook(String bookId)
     {
-        List<CustomBook> customBookList = customBookRepository.findByOwner(owner);
-
-        for (CustomBook customBook: customBookList)
-        {
-            if (customBook.getName().equals(bookName))
-            {
-               return customBook;
-            }
-        }
-       return null;
-
+        return customBookRepository.findById(bookId).get();
     }
 
+    public void deleteBookById(String id)
+    {
+        customBookRepository.deleteById(id);
+    }
 
 }

@@ -28,7 +28,7 @@ public class MakesApplication {
 //
 //		return args -> {
 //
-//			BookCover bookCover = new BookCover("כיפה אדומה", "Sinderela.jpg");
+//			BookCover bookCover = new BookCover("כיפה אדומה", "Sinderela.jpg",null);
 //			BCrepository.insert(bookCover);
 //
 //			List<Page> pages = new ArrayList<Page>();
@@ -146,7 +146,8 @@ public class MakesApplication {
 //			UUID[] uArr5o1 = {null, null};
 //			UUID[] uArr5o2 = {null, null};
 //
-//			BookCover bookCover1 = new BookCover("הדייג ואשתו","photo1.jpg");
+//			BookCover bookCover1 = new BookCover("הדייג ואשתו","photo1.jpg",null);
+//	        coverRepository.insert(bookCover1);
 //
 //			List<String> options = new ArrayList<String>();
 //			options.add("כן");
@@ -227,7 +228,7 @@ public class MakesApplication {
 //
 //			BookTemplate bt1 = new BookTemplate("הדייג ואשתו", pages, questions, bookCover1.getId());
 //
-//			coverRepository.insert(bookCover1);
+//
 //			Trepository.insert(bt1);
 //
 //		};

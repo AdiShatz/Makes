@@ -66,9 +66,7 @@ public class CustomBookController {
     @GetMapping("/readUserBook/{bookId}")
     public CustomBook readUserBook(@PathVariable String bookId )
     {
-        CustomBook b = customBookService.findUserBook(bookId);
-
-        return  b;
+        return  customBookService.findUserBook(bookId);
     }
 
     @DeleteMapping("/deleteUserBook/{bookId}")

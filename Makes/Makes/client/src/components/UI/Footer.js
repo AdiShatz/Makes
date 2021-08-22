@@ -7,8 +7,9 @@ const year = date.getFullYear();
 const Footer = (props) =>{
    return( 
        <footer className="footer">
-   <p> © Makes {year}</p>
+   
           {props.children}
+          <p> © Makes {year}</p>
    </footer>
    );
 }

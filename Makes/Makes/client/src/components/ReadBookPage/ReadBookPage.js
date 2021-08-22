@@ -9,7 +9,7 @@ const ReadBookPage = (props) => {
     return (
         <React.Fragment>
             <Header >
-                <label>{props.bookName}</label>
+                <label style={{paddingRight: "30px"}}>{props.bookName}</label>
                 {/* { <button >מחק ספר</button>} */}
             </Header>
             <div style={{height: "100px"}}></div>

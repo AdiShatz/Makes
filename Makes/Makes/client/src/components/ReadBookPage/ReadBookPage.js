@@ -10,8 +10,9 @@ const ReadBookPage = (props) => {
         <React.Fragment>
             <Header >
                 <label>{props.bookName}</label>
-                { <button >מחק ספר</button>}
+                {/* { <button >מחק ספר</button>} */}
             </Header>
+            <div style={{height: "100px"}}></div>
             <ReadBookPageContent bookPages={props.bookPages}/>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>

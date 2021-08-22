@@ -1,3 +1,17 @@
 .t-p-card{
-    background-color: brown;
+    background-color: #ffd1c2;
+    border-radius: 50px;
+    border: 3px solid rgb(2 2 2);
+    margin-top: 50px;
+    font-size: larger;
+}
+.t-p-card button
+{
+    margin-left: 10px;
+    background-color: #faf7f6;
+    padding: 0.25rem 2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+    border-radius: 30px;
 }

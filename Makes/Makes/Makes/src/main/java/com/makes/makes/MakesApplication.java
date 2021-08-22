@@ -22,7 +22,7 @@ public class MakesApplication {
 		SpringApplication.run(MakesApplication.class, args);
 	}
 
-
+//
 //	@Bean
 //	CommandLineRunner runner(BookCoverRepository BCrepository, BookTemplateRepository BTrepository) {
 //
@@ -126,7 +126,7 @@ public class MakesApplication {
 //
 //		};
 //	}
-
+//
 //	@Bean
 //	CommandLineRunner runner(BookTemplateRepository Trepository,BookCoverRepository coverRepository) {
 //
@@ -233,20 +233,20 @@ public class MakesApplication {
 //
 //		};
 //	}
-
+//
 //@Bean
 //CommandLineRunner runner(BookTemplateRepository Trepository,BookCoverRepository coverRepository) {
 //
 //	return args -> {
-//		BookCover bookCover1 = new BookCover("סינדרלה","Sinderela.jpg");
-//			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg");
-//			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg");
-//			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
+//		BookCover bookCover1 = new BookCover("סינדרלה","Sinderela.jpg",null);
+//			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg",null);
+//			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg",null);
+////			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
 //
 //		coverRepository.insert(bookCover1);
 //		coverRepository.insert(bookCover2);
 //		coverRepository.insert(bookCover3);
-//		coverRepository.insert(bookCover4);
+////		coverRepository.insert(bookCover4);
 //
 //		List<Page> pages = new ArrayList<Page>();
 //		UUID u1 = UUID.randomUUID();

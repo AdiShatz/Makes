@@ -1,0 +1,13 @@
+.continue-button{
+    
+    background-color: #faf7f6;
+    padding: 0.25rem 2rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    border-radius: 30px;
+}
+
+.next-button{
+    margin-left: 5%;
+    margin-right: 70%;
+}

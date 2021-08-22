@@ -29,7 +29,7 @@ const BookPage = (props) => {
         </div>
 
       </div>
-    {pageData && pageData.pageNum && <label>{pageData.pageNum}</label>}
+    {pageData && pageData.pageNum && <label style={{paddingLeft:"50%"}}>{pageData.pageNum}</label>}
     </div>
    
   );

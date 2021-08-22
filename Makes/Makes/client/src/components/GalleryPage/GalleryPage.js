@@ -12,8 +12,9 @@ const GalleryPage = (props) => {
     return (
         <React.Fragment>
             <Header >
-                <h1>הגלריה שלי</h1>
+                <label style={{paddingRight:"30px"}}>הגלריה שלי</label>
             </Header>
+            <div style={{height: "100px"}}></div>
             <GalleryPageContent 
             items={props.items}
             onGalleryBookItemClicked={props.onGalleryBookItemClicked}

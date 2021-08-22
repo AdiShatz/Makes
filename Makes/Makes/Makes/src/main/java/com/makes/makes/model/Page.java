@@ -70,7 +70,7 @@ public class Page {
 
     public UUID getPrevPageId() { return prevPageId; }
 
-    public void editText(Map<String,String> labelAnswersMap)
+    public void editText(Map<String,String> labelAnswersMap,Map<String,String> defaultLabelsInText)
     {
 
         int beginIndex = text.indexOf("<") ;
@@ -79,6 +79,10 @@ public class Page {
         while (beginIndex>=0 & endIndex>=0)
         {
             String substituteStr = labelAnswersMap.get(text.substring(beginIndex+1,endIndex));
+            if (substituteStr == null)
+            {
+                substituteStr =defaultLabelsInText.get(text.substring(beginIndex+1,endIndex));
+            }
             text = text.replace(text.substring(beginIndex,endIndex+1),substituteStr);
             beginIndex =  text.indexOf("<");
             endIndex = text.indexOf(">");

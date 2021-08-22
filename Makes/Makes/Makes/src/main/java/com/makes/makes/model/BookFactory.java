@@ -41,6 +41,7 @@ public class BookFactory {
     {
         for (Question question:questions)
         {
+            questionId = questionId.replaceAll("\\s+","");
             if (question.getId().equals(questionId))
             {
                 return question.getLabelInText();

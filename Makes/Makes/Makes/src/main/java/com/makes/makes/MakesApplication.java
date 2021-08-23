@@ -1,8 +1,7 @@
 package com.makes.makes;
 
-import java.util.UUID;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
+
 import com.makes.makes.model.*;
 import com.makes.makes.repository.*;
 import com.makes.makes.model.BookCover;
@@ -120,7 +119,13 @@ public class MakesApplication {
 //			questions.add(q3);
 //			questions.add(q4);
 //
-//			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions, bookCover.getId());
+//			Map<String,String> defaultLabelInText = new HashMap<String, String>();
+//			defaultLabelInText.put("שם","כיפה אדומה");
+//			defaultLabelInText.put("אוכל","מרק");
+//			defaultLabelInText.put("אויב","זאב");
+//			defaultLabelInText.put("תחביב","קטפה פרחים");
+//
+//			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions, bookCover.getId(),defaultLabelInText);
 //
 //			BTrepository.insert(bt1);
 //

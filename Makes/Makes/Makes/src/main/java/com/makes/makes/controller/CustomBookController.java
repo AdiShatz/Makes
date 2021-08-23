@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import org.json.*;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,13 +85,22 @@ public class CustomBookController {
     {
         Map<String, String> newMap = new HashMap<String, String>();
         data = data.substring(1,data.length()-1);
-        data = data.replaceAll("\\s+","");
         String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {
             String pair = pairs[i];
             String[] keyValue = pair.split("=");
-            newMap.put(keyValue[0], keyValue[1]);
+            if (keyValue.length==1)
+            {
+                ArrayList<String> newKeyValue = new ArrayList<String>();
+                newKeyValue.add(keyValue[0]);
+                newKeyValue.add(null);
+                newMap.put(newKeyValue.get(0), newKeyValue.get(1));
+            }
+            else
+            {
+                newMap.put(keyValue[0], keyValue[1]);
+            }
         }
         return newMap;
     }

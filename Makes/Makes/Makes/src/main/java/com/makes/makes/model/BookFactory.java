@@ -16,7 +16,7 @@ public class BookFactory {
         for (Page page:bookTemplate.getPages())
         {
           Page newPage = new Page(page);
-          newPage.editText(labelAnswersMap);
+          newPage.editText(labelAnswersMap,bookTemplate.getDefaultLabelsInText());
           customPages.add(newPage);
         }
         CustomBook customBook = new CustomBook(chosenBookName,customPages,ownerName,bookCoverId);
@@ -41,6 +41,7 @@ public class BookFactory {
     {
         for (Question question:questions)
         {
+            questionId = questionId.replaceAll("\\s+","");
             if (question.getId().equals(questionId))
             {
                 return question.getLabelInText();

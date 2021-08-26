@@ -1,9 +1,9 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
-import AuthContext, {AuthContextProvider} from "./store/auth-context";
+import {AuthContextProvider} from "./store/auth-context";
 import AdminPage from "./components/AdminPage/AdminPage";
 
   const App = () => {
@@ -57,7 +57,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 body: JSON.stringify({
                     userName: localStorage.getItem("userEmail"),
                     bookName: localStorage.getItem("bookName"),
-                    chosenBookName: chosenBookName==="" ? localStorage.getItem("bookName") : chosenBookName,
+                    chosenBookName: chosenBookName === "" ? localStorage.getItem("bookName") : chosenBookName,
                     newBookData: newBookData
                 }),
                 headers: {

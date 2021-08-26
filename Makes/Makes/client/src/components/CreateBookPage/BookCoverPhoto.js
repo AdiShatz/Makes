@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import ph1 from "../../images/photo1.png"
 
 import './BookCoverPhoto.css';

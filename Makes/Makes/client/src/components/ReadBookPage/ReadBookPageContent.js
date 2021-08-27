@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from "react";
 import BookPage from "../Books/BookPage";
-import Button from "../UI/Button";
 
 import './ReadBookPageContent.css';
 
 let turningPointValue = 'left';
-var isFirstPage = true;
-var isLastPage = false;
 
 const ReadBookPageContent = (props) => {
 
@@ -56,7 +53,6 @@ const ReadBookPageContent = (props) => {
              <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> 
             {currPage && currPage.nextPageId[0] && <button className="continue-button next-button" onClick={nextPageHandler}>הבא</button>}
             {currPage && currPage.prevPageId && <button className="continue-button" onClick={prevPageHandler}>הקודם</button>}
-
         </React.Fragment>
     );
 }

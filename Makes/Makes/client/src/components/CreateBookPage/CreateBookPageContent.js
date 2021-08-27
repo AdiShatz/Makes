@@ -1,7 +1,5 @@
-import React, {Children, useState} from "react";
+import React from "react";
 import Questionnaire from "./Questionnaire"
-import BookCoverPhoto from "./BookCoverPhoto"
-import Button from "../UI/Button";
 import './CreateBookPageContent.css';
 
 const CreateBookPageContent = (props) => {

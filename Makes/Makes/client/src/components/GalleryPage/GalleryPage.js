@@ -1,9 +1,8 @@
-import React, {Fragment, useState} from "react";
+import React from "react";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import Button from "../UI/Button";
 import GalleryPageContent from "./GalleryPageContent";
-
 
 import "./GalleryPage.css";
 

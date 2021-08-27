@@ -1,9 +1,9 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState} from "react";
 import MainPage from "./components/MainPage/MainPage";
 import CreateBookPage from "./components/CreateBookPage/CreateBookPage";
 import ReadBookPage from "./components/ReadBookPage/ReadBookPage";
 import GalleryPage from "./components/GalleryPage/GalleryPage";
-import AuthContext, {AuthContextProvider} from "./store/auth-context";
+import {AuthContextProvider} from "./store/auth-context";
 import AdminPage from "./components/AdminPage/AdminPage";
 
   const App = () => {
@@ -19,8 +19,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
     const notLoggedInHandler = () => {
     alert("אנא התחבר על מנת להשלים את הפעולה");
-  };
-
+      };
 
     const galleryBookItemClickedHandler = (bookId) => {
       let url = "http://localhost:8080/customBooks/readUserBook/" + bookId ;
@@ -47,7 +46,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
             });
 
       setPage("readBookPage");
-    };
+      };
 
       const createBookClickedHandler = (newBookData, chosenBookName) => {
           let url = "http://localhost:8080/customBooks/";
@@ -58,7 +57,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 body: JSON.stringify({
                     userName: localStorage.getItem("userEmail"),
                     bookName: localStorage.getItem("bookName"),
-                    chosenBookName: chosenBookName,
+                    chosenBookName: chosenBookName === "" ? localStorage.getItem("bookName") : chosenBookName,
                     newBookData: newBookData
                 }),
                 headers: {
@@ -167,7 +166,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
             onCreateBook={createBookClickedHandler}/>} 
 
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
-             bookName={bookName}
+             bookName={bookName===""?localStorage.getItem("bookName"):bookName}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}
              onGalleryClicked={myGalleryHandler}/>} 
 

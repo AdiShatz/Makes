@@ -16,6 +16,12 @@ const BooksList = (props) => {
 
       return (
         <div className='books-list'>
+          {bookCovers.length===0 && 
+          <div>
+            <h2>!הגלרייה ריקה</h2>
+          <p>אופס.. ניראה שעדיין לא שמרת סיפור בגלרייה,
+           חזור לדף הראשי, וצור סיפור מותאם אישית </p>
+          </div>}
           {bookCovers && bookCovers.map((book) => (
             <BookItem
               name={book.owner==="Admin" ? book.templateName : book.bookName}

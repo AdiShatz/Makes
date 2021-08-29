@@ -70,8 +70,9 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     return response.json();
                 }
                 else{
-                    return response.json().then((data)=>{
-                         let errorMessage= 'מצטערים, אירעה שגיאה ';
+                    return response.json().then((data)=>
+                    {
+                        let errorMessage ="שם הספר כבר קיים בגלרייה";
                          if(data && data.error && data.error.message){ 
                          errorMessage = data.error.message; 
                          }
@@ -80,7 +81,11 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 }
             }).then((data) => { 
               setBookPages(data.pages);
-            });
+            })
+            .catch((err)=>{
+                alert(err.message);
+            })
+            ;
 
         setPage("readBookPage");
       };

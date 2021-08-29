@@ -84,6 +84,8 @@ import AdminPage from "./components/AdminPage/AdminPage";
             })
             .catch((err)=>{
                 alert(err.message);
+                setPage("createBookPage");
+                
             })
             ;
 

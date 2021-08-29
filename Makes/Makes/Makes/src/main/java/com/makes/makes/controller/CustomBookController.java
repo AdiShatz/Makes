@@ -1,5 +1,6 @@
 package com.makes.makes.controller;
 
+import Exceptions.RequirementsException;
 import com.makes.makes.model.BookCover;
 import com.makes.makes.model.BookFactory;
 import com.makes.makes.model.BookTemplate;
@@ -16,6 +17,7 @@ import org.json.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -35,8 +37,7 @@ public class CustomBookController {
     }
 
     @PostMapping("/")
-    public CustomBook createCustomBook(@RequestBody JSONObject data)
-    {
+    public CustomBook createCustomBook(@RequestBody JSONObject data) throws RequirementsException {
 
         BookFactory bookFactory = new BookFactory();
 
@@ -45,24 +46,29 @@ public class CustomBookController {
         String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
 
-        BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
+        if (isBookNameExists(chosenBookName,user)==true)
+        {
 
-        BookCover bookCover = bookCoverService.findBookCoverById(bookTemplate.getBookCoverId());
-        BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user,null);
-        bookCoverService.insertBookCover(userBookCover);
+            throw new RequirementsException("Book name already exists");
+        }
+        else
+        {
+            BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
+            BookCover bookCover = bookCoverService.findBookCoverById(bookTemplate.getBookCoverId());
+            BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user,null);
+            bookCoverService.insertBookCover(userBookCover);
 
-        Map<String,String> questionsAnswersMap = createMapFromString(bookData);
+            Map<String,String> questionsAnswersMap = createMapFromString(bookData);
 
+            CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,userBookCover.getId());
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,userBookCover.getId());
+            customBookService.insertCustomBook(newCustomBook);
+            userBookCover.setBookId(newCustomBook.getId());
+            bookCoverService.saveBookCover(userBookCover);
+            return newCustomBook;
 
-
-        customBookService.insertCustomBook(newCustomBook);
-        userBookCover.setBookId(newCustomBook.getId());
-        bookCoverService.saveBookCover(userBookCover);
-        return newCustomBook;
-
+        }
     }
 
     @GetMapping("/readUserBook/{bookId}")
@@ -77,6 +83,20 @@ public class CustomBookController {
         CustomBook deleteBook = customBookService.findUserBook(bookId);
         bookCoverService.deleteBookCoverById(deleteBook.getBookCoverId());
         customBookService.deleteBookById(bookId);
+    }
+
+    private boolean isBookNameExists(String userBookName,String user)
+    {
+        List<CustomBook> userBooks = customBookService.findUserBookByName(userBookName,user);
+        if (userBooks.size()==0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
     }
 
 

@@ -246,13 +246,13 @@ public class MakesApplication {
 //		BookCover bookCover1 = new BookCover("סינדרלה","Sinderela.jpg",null);
 //			BookCover bookCover2 = new BookCover("שילגיה","Shilgiya.jpeg",null);
 //			BookCover bookCover3 = new BookCover("פיטר-פן","Piterpen.jpg",null);
-////			BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif");
-//
+//	BookCover bookCover4 = new BookCover("כיפה אדומה","KipaAduma.jfif",null);
+
 //		coverRepository.insert(bookCover1);
 //		coverRepository.insert(bookCover2);
 //		coverRepository.insert(bookCover3);
-////		coverRepository.insert(bookCover4);
-//
+//		coverRepository.insert(bookCover4);
+
 //		List<Page> pages = new ArrayList<Page>();
 //		UUID u1 = UUID.randomUUID();
 //		UUID u2 = UUID.randomUUID();

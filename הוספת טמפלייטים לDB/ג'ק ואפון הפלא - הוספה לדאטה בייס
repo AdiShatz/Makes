@@ -1,7 +1,10 @@
 	@Bean
-	CommandLineRunner runner(BookTemplateRepository repository) {
+	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
 
 		return args -> {
+
+			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "Sinderela.jpg");
+			BCRepository.insert(bookCover);
 
 			List<Page> pages = new ArrayList<Page>();
 			UUID u1 = UUID.randomUUID();
@@ -56,22 +59,27 @@
 			pages.add(p5o2);
 
 			List<Question> questions = new ArrayList<Question>();
-			Question q1 = new Question("input", "?מה שם הילד", null, "שם");
-			Question q2 = new Question("input", "איזו חיה מגדל ג'ק?", null, "חיה");
+			Question q1 = new Question("input", "מה שם הילד?", null, "שם");
+			Question q2 = new Question("input", "איזו חיה מגדל הילד?", null, "חיה");
 			List<String> giantCreature = new ArrayList<String>();
 			giantCreature.add("ענק");
 			giantCreature.add("ציקלופ");
 			giantCreature.add("דרקון");
 			giantCreature.add("מפלץ");
-			Question q3 = new Question("combo", "איזה יצור יפגוש ג'ק?", giantCreature, "יצור_ענק");
+			Question q3 = new Question("combo", "איזה יצור יפגוש הילד?", giantCreature, "יצור_ענק");
 
 			questions.add(q1);
 			questions.add(q2);
 			questions.add(q3);
 
-			BookTemplate bt1 = new BookTemplate("הדייג ואשתו", pages, questions);
+			Map<String,String> defaultAnswers = new HashMap<String, String>();
+			defaultAnswers.put("שם","ג'ק");
+			defaultAnswers.put("חיה","כבשה");
+			defaultAnswers.put("יצור_ענק","ענק");
 
-			repository.insert(bt1);
+			BookTemplate bt1 = new BookTemplate("ג'ק ואפון הפלא", pages, questions, bookCover.getId(), defaultAnswers);
+
+			BTRepository.insert(bt1);
 
 		};
 	}

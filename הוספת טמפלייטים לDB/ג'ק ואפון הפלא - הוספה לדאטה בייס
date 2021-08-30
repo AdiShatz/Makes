@@ -2,7 +2,7 @@
 	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
 
 		return args -> {
-		
+
 			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "Sinderela.jpg");
 			BCRepository.insert(bookCover);
 
@@ -59,7 +59,7 @@
 			pages.add(p5o2);
 
 			List<Question> questions = new ArrayList<Question>();
-			Question q1 = new Question("input", "?מה שם הילד", null, "שם");
+			Question q1 = new Question("input", "מה שם הילד?", null, "שם");
 			Question q2 = new Question("input", "איזו חיה מגדל הילד?", null, "חיה");
 			List<String> giantCreature = new ArrayList<String>();
 			giantCreature.add("ענק");
@@ -72,7 +72,12 @@
 			questions.add(q2);
 			questions.add(q3);
 
-			BookTemplate bt1 = new BookTemplate("ג'ק ואפון הפלא", pages, questions, bookCover.getId());
+			Map<String,String> defaultAnswers = new HashMap<String, String>();
+			defaultAnswers.put("שם","ג'ק");
+			defaultAnswers.put("חיה","כבשה");
+			defaultAnswers.put("יצור_ענק","ענק");
+
+			BookTemplate bt1 = new BookTemplate("ג'ק ואפון הפלא", pages, questions, bookCover.getId(), defaultAnswers);
 
 			BTRepository.insert(bt1);
 

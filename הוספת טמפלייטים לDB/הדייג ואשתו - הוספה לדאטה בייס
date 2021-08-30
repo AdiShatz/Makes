@@ -2,7 +2,7 @@
 	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
 
 		return args -> {
-		
+
 			BookCover bookCover = new BookCover("הדייג ואשתו", "Sinderela.jpg");
 			BCRepository.insert(bookCover);
 
@@ -76,13 +76,13 @@
 			pages.add(p5o2);
 
 			List<Question> questions = new ArrayList<Question>();
-			Question q1 = new Question("input", "?מה שם הילד", null, "שם");
+			Question q1 = new Question("input", "מה שם הילד?", null, "שם");
 			List<String> seaCreature = new ArrayList<String>();
 			seaCreature.add("דג");
 			seaCreature.add("תמנון");
 			seaCreature.add("כוכב ים");
 			seaCreature.add("דולפין");
-			Question q2 = new Question("combo", "איזו חיה יתפוס הדייג", seaCreature, "יצור_ימי");
+			Question q2 = new Question("combo", "איזו חיה יתפוס הדייג?", seaCreature, "יצור_ימי");
 			List<String> house = new ArrayList<String>();
 			house.add("וילה");
 			house.add("ארמון");
@@ -96,8 +96,14 @@
 			questions.add(q3);
 			questions.add(q4);
 
+			Map<String,String> defaultAnswers = new HashMap<String, String>();
+			defaultAnswers.put("שם","ברוך");
+			defaultAnswers.put("יצור_ימי","דג");
+			defaultAnswers.put("בית","ארמון");
+			defaultAnswers.put("משאלה_שניה","כתר, שרביט מלכות, משרתים");
 
-			BookTemplate bt1 = new BookTemplate("הדייג ואשתו", pages, questions, BookCover.getId());
+
+			BookTemplate bt1 = new BookTemplate("הדייג ואשתו", pages, questions, BookCover.getId(), defaultAnswers);
 
 			BTRepository.insert(bt1);
 

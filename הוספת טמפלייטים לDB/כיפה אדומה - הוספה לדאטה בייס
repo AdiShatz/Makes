@@ -1,9 +1,9 @@
 @Bean
-	CommandLineRunner runner(BookTemplateRepository BTRepository, BookCoverRepository BCRepository) {
+	CommandLineRunner runner(BookCoverRepository BCRepository, BookTemplateRepository BTRepository) {
 
 		return args -> {
-		
-			BookCover bookCover = new BookCover("כיפה אדומה", "Sinderela.jpg");
+
+			BookCover bookCover = new BookCover("כיפה אדומה", "kipa/main.jpg",null);
 			BCRepository.insert(bookCover);
 
 			List<Page> pages = new ArrayList<Page>();
@@ -37,7 +37,7 @@
 					"\"נכדתך, כיפה אדומה\" ענה ה<אויב>, מחקה את קולה של כיפה אדומה, \"הבאתי לך <אוכל> ששלחה לך אמא.\"\n" +
 					"הסבתא שהייתה במיטה, קראה:\n" +
 					"\"פתחי את הדלת נכדתי.\"\n" +
-					"ה<אויב> פתח את הדלת, והתנפל על סבתא ואכל אותה ברגע. ה<אויב> לקח לסבתא את הבגדים ונכנס למיטתה וחיכה לכיפה אדומה. \n" +
+					"ה<אויב > פתח את הדלת, והתנפל על סבתא ואכל אותה ברגע. ה<אויב> לקח לסבתא את הבגדים ונכנס למיטתה וחיכה לכיפה אדומה. \n" +
 					"טוק טוק. נשמעה דפיקה על הדלת.\n" +
 					"\"מי שם?\" ענה ה<אויב>\n" +
 					"כיפה אדומה ענתה:\n" +
@@ -80,7 +80,7 @@
 			pages.add(p4o2);
 
 			List<Question> questions = new ArrayList<Question>();
-			Question q1 = new Question("input", "?מה שם הילדה", null, "שם");
+			Question q1 = new Question("input", "מה שם הילדה?", null, "שם");
 			Question q2 = new Question("input", "מה הביאה הילדה לסבתא לאכול?", null, "אוכל");
 			Question q3 = new Question("input", "את מי פגשה הילדה בדרך?", null, "אויב");
 			List<String> hobby = new ArrayList<String>();
@@ -95,7 +95,13 @@
 			questions.add(q3);
 			questions.add(q4);
 
-			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions, bookCover.getId());
+			Map<String,String> defaultAnswers = new HashMap<String, String>();
+			defaultAnswers.put("שם","כיפה אדומה");
+			defaultAnswers.put("אוכל","מרק");
+			defaultAnswers.put("אויב","זאב");
+			defaultAnswers.put("תחביב","קטפה פרחים");
+
+			BookTemplate bt1 = new BookTemplate("כיפה אדומה", pages, questions, bookCover.getId(),defaultAnswers);
 
 			BTRepository.insert(bt1);
 

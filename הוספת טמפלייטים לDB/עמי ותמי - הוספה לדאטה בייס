@@ -77,8 +77,15 @@
 			questions.add(q1);
 			questions.add(q2);
 			questions.add(q3);
+			
+			Map<String,String> defaultAnswers = new HashMap<String, String>();
+			defaultAnswers.put("שם","תמי");
+			defaultAnswers.put("שם_לאח","עמי");
+			defaultAnswers.put("אוכל_אהוב","מרק ולחם");
+			defaultAnswers.put("קינוח_אהוב","גלידה וקצפת");
+			defaultAnswers.put("סימני_דרך","חלוקי_נחל");
 
-			BookTemplate bt1 = new BookTemplate("עמי ותמי", pages, questions, bookCover.getId());
+			BookTemplate bt1 = new BookTemplate("עמי ותמי", pages, questions, bookCover.getId(), defaultAnswers);
 
 			BTRepository.insert(bt1);
 			

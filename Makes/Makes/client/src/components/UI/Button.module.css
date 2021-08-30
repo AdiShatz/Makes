@@ -12,7 +12,7 @@
 .button:hover,
 .button:active {
   background: #da7249;
-  border: 2px solid #faf3f1;
+  /* border: 2px solid #faf3f1; */
 }
 
 .button:focus {

@@ -23,7 +23,7 @@ const MainPage = (props) => {
   
     const transformedBooks = booksArr => {
       const loadedBooks=[];
-      booksArr.forEach(book =>  loadedBooks.push({name: book.name, coverPhoto: book.coverPhoto}));
+      booksArr.forEach(book =>  loadedBooks.push({templateName: book.templateName, bookName: book.bookName, coverPhoto: book.coverPhoto, owner: book.owner}));
     setBookCards(loadedBooks);
     };
 
@@ -63,7 +63,6 @@ const MainPage = (props) => {
             </Header>
             {isLoading && <h1>...אנא המתן</h1>}
             {!isLoading &&  <MainPageContent 
-             items={props.items}
              onBookItemClicked={props.onBookItemClicked}
              onNotLoggedIn={props.onNotLoggedIn}
              items={bookCards}/>}

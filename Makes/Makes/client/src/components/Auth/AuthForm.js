@@ -70,6 +70,7 @@ const AuthForm = (props) => {
           else{
             if(isLogin){
               authCtx.login(data.id, data.userName);
+              localStorage.setItem("userEmail", data.email);
             }
           }
         })

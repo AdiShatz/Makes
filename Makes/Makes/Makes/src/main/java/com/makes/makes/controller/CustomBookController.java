@@ -1,5 +1,7 @@
 package com.makes.makes.controller;
 
+import Exceptions.RequirementsException;
+import com.makes.makes.model.BookCover;
 import com.makes.makes.model.BookFactory;
 import com.makes.makes.model.BookTemplate;
 import com.makes.makes.model.CustomBook;
@@ -12,7 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import org.json.*;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -32,8 +37,7 @@ public class CustomBookController {
     }
 
     @PostMapping("/")
-    public CustomBook createCustomBook(@RequestBody JSONObject data)
-    {
+    public CustomBook createCustomBook(@RequestBody JSONObject data) throws RequirementsException {
 
         BookFactory bookFactory = new BookFactory();
 
@@ -41,32 +45,86 @@ public class CustomBookController {
         String bookName = data.getAsString("bookName");
         String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
-        String bookCoverId = bookCoverService.findBookCoverIdByName(bookName);
-        Map<String,String> questionsAnswersMap = createMapFromString(bookData);
-        BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
-        CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,bookCoverId);
+        if (isBookNameExists(chosenBookName,user)==true)
+        {
 
-        customBookService.insertCustomBook(newCustomBook);
-        return newCustomBook;
+            throw new RequirementsException("Book name already exists");
+        }
+        else
+        {
+            BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
 
+            BookCover bookCover = bookCoverService.findBookCoverById(bookTemplate.getBookCoverId());
+            BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user,null);
+            bookCoverService.insertBookCover(userBookCover);
+
+            Map<String,String> questionsAnswersMap = createMapFromString(bookData);
+
+            CustomBook newCustomBook = bookFactory.createNewBook(bookTemplate,user,questionsAnswersMap,chosenBookName,userBookCover.getId());
+
+            customBookService.insertCustomBook(newCustomBook);
+            userBookCover.setBookId(newCustomBook.getId());
+            bookCoverService.saveBookCover(userBookCover);
+            return newCustomBook;
+
+        }
+    }
+
+    @GetMapping("/readUserBook/{bookId}")
+    public CustomBook readUserBook(@PathVariable String bookId )
+    {
+        return  customBookService.findUserBook(bookId);
+    }
+
+    @DeleteMapping("/deleteUserBook/{bookId}")
+    public void deleteUserBook(@PathVariable String bookId)
+    {
+        CustomBook deleteBook = customBookService.findUserBook(bookId);
+        bookCoverService.deleteBookCoverById(deleteBook.getBookCoverId());
+        customBookService.deleteBookById(bookId);
+    }
+
+    private boolean isBookNameExists(String userBookName,String user)
+    {
+        List<CustomBook> userBooks = customBookService.findUserBookByName(userBookName,user);
+        if (userBooks.size()==0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
     }
+
+
 
     private Map<String,String> createMapFromString(String data)
     {
         Map<String, String> newMap = new HashMap<String, String>();
         data = data.substring(1,data.length()-1);
-        data = data.replaceAll("\\s+","");
         String[] pairs = data.split(",");
         for (int i=0;i<pairs.length;i++)
         {
             String pair = pairs[i];
             String[] keyValue = pair.split("=");
-            newMap.put(keyValue[0], keyValue[1]);
+            if (keyValue.length==1)
+            {
+                ArrayList<String> newKeyValue = new ArrayList<String>();
+                newKeyValue.add(keyValue[0]);
+                newKeyValue.add(null);
+                newMap.put(newKeyValue.get(0), newKeyValue.get(1));
+            }
+            else
+            {
+                newMap.put(keyValue[0], keyValue[1]);
+            }
         }
         return newMap;
     }
+
 
 
 

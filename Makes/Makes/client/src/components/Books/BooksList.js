@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import BookItem from "./BookItem"
 import './BooksList.css'
 
@@ -6,11 +6,26 @@ import './BooksList.css'
 
 const BooksList = (props) => {
 
+  const [bookCovers, setBookCovers] = useState([]);
+
+  useEffect(
+      () => {
+        setBookCovers(props.items);
+      },[props]
+  );
+
       return (
         <div className='books-list'>
-          {props.items.map((book) => (
+          {bookCovers.length===0 && 
+          <div>
+            <h2>!הגלרייה ריקה</h2>
+          <p>אופס.. ניראה שעדיין לא שמרת סיפור בגלרייה,
+           חזור לדף הראשי, וצור סיפור מותאם אישית </p>
+          </div>}
+          {bookCovers && bookCovers.map((book) => (
             <BookItem
-              name={book.name}
+              name={book.owner==="Admin" ? book.templateName : book.bookName}
+              bookId = {book.bookId}
               coverPhoto={book.coverPhoto}
               onBookItemClicked={props.onBookItemClicked}
               onNotLoggedIn={props.onNotLoggedIn}

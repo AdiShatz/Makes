@@ -23,31 +23,21 @@ public class BookCoverController {
     private static final Logger log = LoggerFactory.getLogger(BookCoverController.class.getName());
 
     private final BookCoverService bookCoverService;
-    private final CustomBookService customBookService;
 
 
-    public BookCoverController(BookCoverService bookCoverService,CustomBookService customBookService,UserService userService) {
+    public BookCoverController(BookCoverService bookCoverService) {
         this.bookCoverService = bookCoverService;
-        this.customBookService = customBookService;
     }
 
     @GetMapping("/")
-    public List<BookCover> fetchAllBooksCover() {
-        return bookCoverService.getAllBookCovers();
+    public List<BookCover> fetchAllBooksCover()
+    {
+        return bookCoverService.getAllUserCoverBook("Admin");
     }
 
     @GetMapping("/{userEmail}")
     public List<BookCover> userGallery(@PathVariable String userEmail)
     {
-
-        List<CustomBook>  usersBooks = customBookService.findUsersBook(userEmail);
-        List<BookCover>  usersCoverBooks= new ArrayList<BookCover>();
-        for ( CustomBook userBook:usersBooks)
-        {
-            BookCover userCoverBook = bookCoverService.findBookCoverById(userBook.getCoverBookId());
-            usersCoverBooks.add(userCoverBook);
-        }
-        return  usersCoverBooks;
-
+        return bookCoverService.getAllUserCoverBook(userEmail);
     }
 }

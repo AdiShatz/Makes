@@ -32,9 +32,6 @@ public class UserController {
                 user.setError("סיסמא שגוייה. אנא נסה שוב");
                 
             }
-            else{
-
-            }
         }
         else
         {
@@ -48,27 +45,17 @@ public class UserController {
     @PostMapping("/joinUs")
     public User register(@RequestBody User user)
     {
-        // if (user.getEmail()==null || user.getPassword() == null ||user.getUserName() == null)
-        // {
-        //     //return "All cells must be filled";
-        // }
 
         Optional<User> existUser = userService.findByEmail(user.getEmail());
 
         if (existUser.isPresent() ==true)
         {
-            //return user.getEmail() + " already exist";//TODO CHECK if i need to return a string
             user.setError("המשתמש כבר קיים");
 
         }
-        // if (user.getPassword().length() < 6)
-        // {
-        //     return "Password must contain at least six characters";//TODO CHECK IF NEED
-        // }
         else
         {
             userService.add(user);
-            // return "You have successfully registered";//TODO CHECK if return string
         }
 
         return user;

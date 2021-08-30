@@ -1,9 +1,8 @@
-import React, {Fragment, useState} from "react";
+import React from "react";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import Button from "../UI/Button";
 import GalleryPageContent from "./GalleryPageContent";
-
 
 import "./GalleryPage.css";
 
@@ -12,8 +11,9 @@ const GalleryPage = (props) => {
     return (
         <React.Fragment>
             <Header >
-                <h1>הגלריה שלי</h1>
+                <label style={{paddingRight:"30px"}}>הגלריה שלי</label>
             </Header>
+            <div style={{height: "100px"}}></div>
             <GalleryPageContent 
             items={props.items}
             onGalleryBookItemClicked={props.onGalleryBookItemClicked}

@@ -1,19 +1,12 @@
-import React, {useState} from "react";
-
-
+import React from "react";
 
 import './ComboBoxQuestion.css';
 
 const ComboBoxQuestion = (props) => {
 
     const handleChange = (event) => {
-        
-        // props.setUserAnswer([props.id, event.target.value]);
-
         props.updateDictionary(props.id, event.target.value);
-       
       }
-
 
     return (
         <div className="comboquest">
@@ -27,16 +20,8 @@ const ComboBoxQuestion = (props) => {
           ))}
 
             </select>
-           
-
-            
-           
-           
-
         </div>
     );
-
-
 
 }
 export default ComboBoxQuestion;

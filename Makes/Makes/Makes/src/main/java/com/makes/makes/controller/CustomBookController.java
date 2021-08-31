@@ -45,6 +45,7 @@ public class CustomBookController {
         String bookName = data.getAsString("bookName");
         String chosenBookName = data.getAsString("chosenBookName");
         String bookData = data.getAsString("newBookData");
+        String gender = data.getAsString("gender");
 
         if (isBookNameExists(chosenBookName,user)==true)
         {
@@ -53,7 +54,7 @@ public class CustomBookController {
         }
         else
         {
-            BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName);
+            BookTemplate bookTemplate = bookTemplateService.getBookTemplate(bookName +" - " +gender);
 
             BookCover bookCover = bookCoverService.findBookCoverById(bookTemplate.getBookCoverId());
             BookCover userBookCover = new BookCover(chosenBookName,bookCover.getTemplateName(),bookCover.getCoverPhoto(),user,null);
@@ -98,8 +99,6 @@ public class CustomBookController {
         }
 
     }
-
-
 
     private Map<String,String> createMapFromString(String data)
     {

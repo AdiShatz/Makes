@@ -9,6 +9,7 @@ let answersDictonary= new Object();
 
 const Questionnaire = (props) => {
     const chosenBookNameInputRef = useRef(localStorage.getItem("bookName"));
+    const chosenGenderInputRef = useRef("זכר");
 
     const setDefaultValues=()=>{
         props.questions.map(question => {
@@ -26,7 +27,7 @@ const Questionnaire = (props) => {
           }
     
           const createHandler = () => {
-                props.onCreateBook(answersDictonary, chosenBookNameInputRef.current.value);
+                props.onCreateBook(answersDictonary, chosenBookNameInputRef.current.value, chosenGenderInputRef.current.value);
               }
 
     return (
@@ -35,7 +36,12 @@ const Questionnaire = (props) => {
            <form>
            <div className="inpquest"> 
                 <label>שם הסיפור</label>
-                <input type='bookName' id='bookName' dir = "rtl" required ref={chosenBookNameInputRef}/> 
+                <input type='bookName' id='bookName' dir = "rtl" required ref={chosenBookNameInputRef}/>
+                <label>מין</label>
+                <select type='gender' id='gender' dir = "rtl" required ref={chosenGenderInputRef}>
+                    <option>בן</option>
+                    <option>בת</option>
+                </select>  
             </div>
             {props.questions.map((question) => (
 

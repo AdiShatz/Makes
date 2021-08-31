@@ -27,12 +27,13 @@
     margin-left: 100px;
     font-size: 150%;
 }
-#top-Padding{
-    padding-top: 100px;
+#create-book-container{
+    
     background-image: url(../../images/createBookBackgraound.jpg);
-    height: fit-content;
+    height: 89vh;
     background-size: cover;
     background-repeat: no-repeat;
+
 }
 /* #create-book-button{
     

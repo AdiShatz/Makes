@@ -14,4 +14,12 @@
     margin-bottom: 10px;
     font-size: 1.15rem;
     border-radius: 30px;
+    border: solid rgb(2 2 2);
+}
+.t-p-card button:hover{
+    background-color: #b88e7e 
+}
+.button-chosen{
+    background-color: #ea9d7f !important;
+    border: 2px solid rgb(2 2 2) !important;
 }

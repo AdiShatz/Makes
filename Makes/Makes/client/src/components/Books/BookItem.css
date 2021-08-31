@@ -31,6 +31,16 @@
   .show_card{
   visibility: visible;
 }
+.centered{
+	text-align: -webkit-center;
+}
+.trash-button{
+	border-radius: 8px;
+
+}
+.trash-button:hover{
+	background-color: rgb(247, 89, 89);
+}
 
   /*-------------hover on book item effect---------------------*/
   .hvrbox * {

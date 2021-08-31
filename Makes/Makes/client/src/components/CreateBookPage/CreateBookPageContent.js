@@ -6,7 +6,8 @@ const CreateBookPageContent = (props) => {
 
     return (
         <React.Fragment>
-        <div id="top-Padding">
+        <div id="create-book-container">
+            <div style={{height:"100px"}}></div>
                 <div style={{textAlign: "center"}}><label id="create-book-subtitle">מלא את השאלון והסיפור שלך תיכף יהיה מוכן</label></div>
                 <div className="create-book-page-container">
                     <div className="right-container"><p>התשובות שתספק לשאלון יעזרו לנו לבנות ספר מותאם אישית,

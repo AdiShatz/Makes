@@ -56,7 +56,9 @@ useEffect(
 		      {name && <div class="hvrbox-text">{name}</div>}
         </div>
     </div>}
-    {isGalleryItem && isGalleryItem==='true' && bookId && <button onClick={DeleteHandler}>מחק</button> }       
+    <div className="centered">{isGalleryItem && isGalleryItem==='true' && bookId && <button className="trash-button" onClick={DeleteHandler}>🗑️</button> } </div>
+      
+          
     </div>
   
   );

@@ -48,7 +48,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
       setPage("readBookPage");
       };
 
-      const createBookClickedHandler = (newBookData, chosenBookName) => {
+      const createBookClickedHandler = (newBookData, chosenBookName, chosenGender) => {
           let url = "http://localhost:8080/customBooks/";
           setBookName(chosenBookName);
             fetch(url,
@@ -58,6 +58,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     userName: localStorage.getItem("userEmail"),
                     bookName: localStorage.getItem("bookName"),
                     chosenBookName: chosenBookName === "" ? localStorage.getItem("bookName") : chosenBookName,
+                    gender: chosenGender,
                     newBookData: newBookData
                 }),
                 headers: {

@@ -1,10 +1,7 @@
 package com.makes.makes.controller;
 
 import Exceptions.RequirementsException;
-import com.makes.makes.model.BookCover;
-import com.makes.makes.model.BookFactory;
-import com.makes.makes.model.BookTemplate;
-import com.makes.makes.model.CustomBook;
+import com.makes.makes.model.*;
 import com.makes.makes.service.BookCoverService;
 import com.makes.makes.service.BookTemplateService;
 import com.makes.makes.service.CustomBookService;
@@ -70,6 +67,24 @@ public class CustomBookController {
 
         }
     }
+
+    @PutMapping("/editBook/{bookId}")
+    public void editBook(@PathVariable String bookId,@RequestBody JSONObject data )
+    {
+        String text = data.getAsString("text");
+        String pageId = data.getAsString("pageId");
+        CustomBook userBook = customBookService.findUserBook(bookId);
+        userBook.editPageById(pageId,text);
+        customBookService.saveBook(userBook);
+    }
+
+
+//    @PutMapping("/editBook/{bookId}")
+//    public void editBook(@PathVariable String bookId/*??*/ ,@RequestBody CustomBook editedBook)
+//    {
+//        editedBook.setId(bookId);//???
+//        customBookService.saveBook(editedBook);
+//    }
 
     @GetMapping("/readUserBook/{bookId}")
     public CustomBook readUserBook(@PathVariable String bookId )

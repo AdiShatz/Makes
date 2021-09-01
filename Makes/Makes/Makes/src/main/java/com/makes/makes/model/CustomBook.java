@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 
 @Data
@@ -70,4 +72,18 @@ public class CustomBook {
     public boolean isSave() {
         return isSave;
     }
+
+    public void editPageById(String pageId,String text)
+    {
+        for (Page page:pages)
+        {
+            if (page.getId().equals(pageId))
+            {
+                page.setText(text);
+                break;
+            }
+
+        }
+    }
+
 }

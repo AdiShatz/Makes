@@ -69,7 +69,7 @@ public class CustomBookController {
     public void editBook(@PathVariable String bookId,@RequestBody JSONObject data )
     {
         String text = data.getAsString("text");
-        UUID pageId = (UUID) data.getOrDefault("pageId",UUID.class);
+        UUID pageId = (UUID)data.get("pageId");
         CustomBook userBook = customBookService.findUserBook(bookId);
         userBook.editPageById(pageId,text);
         customBookService.saveBook(userBook);

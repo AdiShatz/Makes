@@ -3,7 +3,7 @@
 
 		return args -> {
 
-			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "Sinderela.jpg");
+			BookCover bookCover = new BookCover("ג'ק ואפון הפלא", "jack.jpg");
 			BCRepository.insert(bookCover);
 
 			List<Page> pages = new ArrayList<Page>();

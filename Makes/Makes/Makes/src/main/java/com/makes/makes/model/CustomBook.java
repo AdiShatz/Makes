@@ -73,11 +73,11 @@ public class CustomBook {
         return isSave;
     }
 
-    public void editPageById(String pageId,String text)
+    public void editPageById(UUID pageId,String text)
     {
         for (Page page:pages)
         {
-            if (page.getId().equals(pageId))
+            if (page.getId().equals(pageId.toString()))
             {
                 page.setText(text);
                 break;

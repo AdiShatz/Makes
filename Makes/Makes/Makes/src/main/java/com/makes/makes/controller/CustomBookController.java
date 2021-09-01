@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.json.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -72,7 +69,7 @@ public class CustomBookController {
     public void editBook(@PathVariable String bookId,@RequestBody JSONObject data )
     {
         String text = data.getAsString("text");
-        String pageId = data.getAsString("pageId");
+        UUID pageId = (UUID) data.getOrDefault("pageId",UUID.class);
         CustomBook userBook = customBookService.findUserBook(bookId);
         userBook.editPageById(pageId,text);
         customBookService.saveBook(userBook);

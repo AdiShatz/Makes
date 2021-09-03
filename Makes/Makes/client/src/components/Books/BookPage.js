@@ -5,29 +5,40 @@ import './BookPage.css'
 
 const BookPage = (props) => {
     
-    const [pageData, setPageData] = useState(null);
-    const [pageText, setPageText] = useState(null);
-    const [isEditMode, setIsEditMode] = useState(false);
-    const [isEdited, setIsEdited] = useState(false);
+    const [text, setText] = useState(null);
+    const [pageNum, setPageNum] = useState(null);
+    const [background, setBackground] = useState(null);
+    const [turningPointExist, setTurningPointExist] = useState(null);
+    const [turningPoint, setTurningPoint] = useState(null);
+
+    const [newText, setNewText] = useState(null);
+    // const [isEditMode, setIsEditMode] = useState(false);
+    // const [isEdited, setIsEdited] = useState(false);
 
     const chosenBookTextInputRef = useRef(null);
 
 
     useEffect(
         () => {
-            setPageData(props.data);
+            setText(props.text);
+            setPageNum(props.pageNum)
+            setTurningPointExist(props.turningPointExist)
+            setTurningPoint(props.turningPoint)
+            setBackground(props.background)
         },[props]
     )
 
     const handleEdit = () =>{
-      setIsEditMode(true);
-      
+      props.setIsEditMode(true);
     }
 
     const handleSave = () =>{
-      setIsEditMode(false);
-      setIsEdited(true);
-      setPageText(chosenBookTextInputRef.current.value);
+      props.setIsEditMode(false);
+      props.setIsEdited(true);
+
+      setNewText(chosenBookTextInputRef.current.value);
+
+      // Sent http put request
           }
 
     return(
@@ -37,25 +48,26 @@ const BookPage = (props) => {
       
       
           <div className="book-page-container-left">
-          {pageData && <img src={require("../../images/"+pageData.background).default}/> }
+          {background && <img src={require("../../images/"+background).default}/> }
           </div>
 
           <div className="book-page-container-right">
-              {!isEditMode && !isEdited && pageData && <p>{pageData.text}</p>}
+              {!props.isEditMode && !props.isEdited && text && <p>{text}</p>}
 
-              {isEditMode && !isEdited && <textarea id="textarea" dir = "rtl" name="textarea" rows="20" cols="100" required ref={chosenBookTextInputRef}>
-              {pageData.text}
+              {props.isEditMode && !props.isEdited && <textarea id="textarea" dir = "rtl" name="textarea" rows="20" cols="100" required ref={chosenBookTextInputRef}>
+              {text}
               </textarea>}
 
-              {isEdited && <p>{pageText}</p>}
-              {pageData && pageData.turningPointExist && <TurningPoint data={pageData.turningPoint} onTurningPointChosen={props.onTurningPointChosen}/>}
+              {props.isEdited && <p>{newText}</p>}
+
+              {turningPointExist && <TurningPoint data={turningPoint} onTurningPointChosen={props.onTurningPointChosen}/>}
               <br/>
-             {!isEditMode && <button onClick={handleEdit}>ערוך</button>}
-             {isEditMode && <button onClick={handleSave}>שמור</button>}
+             {!props.isEditMode && <button onClick={handleEdit}>ערוך</button>}
+             {props.isEditMode && <button onClick={handleSave}>שמור</button>}
         </div>
 
       </div>
-    {pageData && pageData.pageNum && <label style={{paddingLeft:"50%"}}>{pageData.pageNum}</label>}
+    {pageNum && <label style={{paddingLeft:"50%"}}>{pageNum}</label>}
     </div>
    
   );

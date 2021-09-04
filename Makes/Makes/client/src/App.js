@@ -84,13 +84,12 @@ import AdminPage from "./components/AdminPage/AdminPage";
             }).then((data) => { 
               setBookPages(data.pages);
               localStorage.setItem("bookId", data.id);
-            })
-            .catch((err)=>{
+
+            }).catch((err)=>{
                 alert(err.message);
                 setPage("createBookPage");
                 
-            })
-            ;
+            });
 
         setPage("readBookPage");
       };
@@ -158,6 +157,10 @@ import AdminPage from "./components/AdminPage/AdminPage";
           })
       };
 
+      const updateBookHandler = (pages) =>{
+        setBookPages(pages);
+      }
+
     
     return (
         <React.Fragment>
@@ -176,7 +179,9 @@ import AdminPage from "./components/AdminPage/AdminPage";
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
              bookName={bookName===""?localStorage.getItem("bookName"):bookName}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}
-             onGalleryClicked={myGalleryHandler}/>} 
+             onGalleryClicked={myGalleryHandler}
+             onUpdateBook= {updateBookHandler}
+             />} 
 
             {page === 'galleryPage' && <GalleryPage items={galleryBookCovers} 
             onBackToMainMenuButtonClicked={backButtonClickedHandler} 

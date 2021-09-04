@@ -10,7 +10,6 @@ const ReadBookPageContent = (props) => {
     const [currPage, setCurrPage] = useState(null);
 
     const [isEditMode, setIsEditMode] = useState(false);
-    const [isEdited, setIsEdited] = useState(false);
 
     useEffect(
         () => {
@@ -38,7 +37,6 @@ const ReadBookPageContent = (props) => {
             }
         }
         setIsEditMode(false);
-        setIsEdited(false);
     }
 
     const prevPageHandler = (event) =>{
@@ -48,7 +46,6 @@ const ReadBookPageContent = (props) => {
             );
         }
         setIsEditMode(false);
-        setIsEdited(false);
     }
 
     return (
@@ -63,8 +60,7 @@ const ReadBookPageContent = (props) => {
                 onTurningPointChosen={chosenTurningPointHandler}
                 setIsEditMode={setIsEditMode}
                 isEditMode={isEditMode}
-                setIsEdited={setIsEdited}
-                isEdited={isEdited}/> 
+                onUpdateBook = {props.onUpdateBook}/>
                 }
             {currPage && currPage.nextPageId[0] && <button className="continue-button next-button" onClick={nextPageHandler}>הבא</button>}
             {currPage && currPage.prevPageId && <button className="continue-button" onClick={prevPageHandler}>הקודם</button>}

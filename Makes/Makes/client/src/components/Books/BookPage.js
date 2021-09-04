@@ -33,14 +33,10 @@ const BookPage = (props) => {
 
     const handleSave = () =>{
       props.setIsEditMode(false);
-      props.setIsEdited(true);
 
       setNewText(chosenBookTextInputRef.current.value);
       
-
-      // Sent http put request:
       let url = "http://localhost:8080/customBooks/editBook/" + localStorage.getItem("bookId");
-
         fetch(url,
         {
             method: 'PUT',
@@ -68,7 +64,7 @@ const BookPage = (props) => {
                 });
             }
         }).then((data) => { 
-          // setBookPages(data.pages);
+          props.onUpdateBook(data.pages);
         })
         .catch((err)=>{
             alert(err.message);
@@ -86,13 +82,11 @@ const BookPage = (props) => {
           </div>
 
           <div className="book-page-container-right">
-              {!props.isEditMode && !props.isEdited && text && <p>{text}</p>}
+              {!props.isEditMode  && text && <p>{text}</p>}
 
-              {props.isEditMode && !props.isEdited && <textarea id="textarea" dir = "rtl" name="textarea" rows="20" cols="100" required ref={chosenBookTextInputRef}>
+              {props.isEditMode  && <textarea id="textarea" dir = "rtl" name="textarea" rows="20" cols="100" required ref={chosenBookTextInputRef}>
               {text}
               </textarea>}
-
-              {props.isEdited && <p>{newText}</p>}
 
               {turningPointExist && <TurningPoint data={turningPoint} onTurningPointChosen={props.onTurningPointChosen}/>}
               <br/>

@@ -43,4 +43,9 @@ public class CustomBookService {
         return mongoTemplate.find(query,CustomBook.class);
     }
 
+    public void saveBook(CustomBook book)
+    {
+        customBookRepository.save(book);
+    }
+
 }

@@ -9,13 +9,11 @@ const ReadBookPageContent = (props) => {
 
     const [currPage, setCurrPage] = useState(null);
 
+    const [isEditMode, setIsEditMode] = useState(false);
+
     useEffect(
         () => {
-
             setCurrPage(props.bookPages[0]);
-            console.log("cuur page:");
-            console.log(currPage);
-
         },[props]
     )
    
@@ -24,6 +22,7 @@ const ReadBookPageContent = (props) => {
     }
 
     const nextPageHandler = (event) =>{
+
         if(currPage.nextPageId[0] != null){
             if(currPage.turningPointExist && turningPointValue==='right'){
                 setCurrPage(props.bookPages[props.bookPages.findIndex(
@@ -37,7 +36,7 @@ const ReadBookPageContent = (props) => {
                     );
             }
         }
-       
+        setIsEditMode(false);
     }
 
     const prevPageHandler = (event) =>{
@@ -46,11 +45,23 @@ const ReadBookPageContent = (props) => {
                 (page) => page.id === currPage.prevPageId)]
             );
         }
+        setIsEditMode(false);
     }
 
     return (
         <React.Fragment>
-             <BookPage data={currPage} onTurningPointChosen={chosenTurningPointHandler}/> 
+             {currPage && <BookPage 
+             text={currPage.text}
+              pageNum={currPage.pageNum}
+              pageId={currPage.id}
+              background={currPage.background}
+              turningPointExist={currPage.turningPointExist}
+              turningPoint={currPage.turningPoint}
+                onTurningPointChosen={chosenTurningPointHandler}
+                setIsEditMode={setIsEditMode}
+                isEditMode={isEditMode}
+                onUpdateBook = {props.onUpdateBook}/>
+                }
             {currPage && currPage.nextPageId[0] && <button className="continue-button next-button" onClick={nextPageHandler}>הבא</button>}
             {currPage && currPage.prevPageId && <button className="continue-button" onClick={prevPageHandler}>הקודם</button>}
         </React.Fragment>

@@ -12,7 +12,9 @@ const ReadBookPage = (props) => {
                 <label style={{paddingRight: "30px"}}>{props.bookName}</label>
             </Header>
             <div style={{height: "100px"}}></div>
-            <ReadBookPageContent bookPages={props.bookPages}/>
+            <ReadBookPageContent 
+            bookPages={props.bookPages}
+            onUpdateBook= {props.onUpdateBook}/>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>
                 <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>

@@ -23,6 +23,8 @@ const ReadBookPageContent = (props) => {
     }
 
     const nextPageHandler = (event) =>{
+        console.log("book id in readbookcont:");
+      console.log(props.bookId);
 
         if(currPage.nextPageId[0] != null){
             if(currPage.turningPointExist && turningPointValue==='right'){
@@ -53,8 +55,10 @@ const ReadBookPageContent = (props) => {
 
     return (
         <React.Fragment>
-             {currPage && <BookPage text={currPage.text}
+             {currPage && <BookPage 
+             text={currPage.text}
               pageNum={currPage.pageNum}
+              pageId={currPage.id}
               background={currPage.background}
               turningPointExist={currPage.turningPointExist}
               turningPoint={currPage.turningPoint}

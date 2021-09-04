@@ -43,6 +43,8 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 }
             }).then((data) => { 
               setBookPages(data.pages);
+
+              localStorage.setItem("bookId", data.id);
             });
 
       setPage("readBookPage");
@@ -81,6 +83,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 }
             }).then((data) => { 
               setBookPages(data.pages);
+              localStorage.setItem("bookId", data.id);
             })
             .catch((err)=>{
                 alert(err.message);

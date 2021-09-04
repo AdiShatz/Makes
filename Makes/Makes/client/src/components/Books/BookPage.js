@@ -7,20 +7,19 @@ const BookPage = (props) => {
     
     const [text, setText] = useState(null);
     const [pageNum, setPageNum] = useState(null);
+    const [pageId, setPageId] = useState(null);
     const [background, setBackground] = useState(null);
     const [turningPointExist, setTurningPointExist] = useState(null);
     const [turningPoint, setTurningPoint] = useState(null);
 
     const [newText, setNewText] = useState(null);
-    // const [isEditMode, setIsEditMode] = useState(false);
-    // const [isEdited, setIsEdited] = useState(false);
-
     const chosenBookTextInputRef = useRef(null);
 
 
     useEffect(
         () => {
             setText(props.text);
+            setPageId(props.pageId);
             setPageNum(props.pageNum)
             setTurningPointExist(props.turningPointExist)
             setTurningPoint(props.turningPoint)
@@ -37,8 +36,46 @@ const BookPage = (props) => {
       props.setIsEdited(true);
 
       setNewText(chosenBookTextInputRef.current.value);
+      
 
-      // Sent http put request
+      // Sent http put request:
+      let url = "http://localhost:8080/customBooks/editBook/" + localStorage.getItem("bookId");
+
+      console.log("url:");
+      console.log(url);
+
+        fetch(url,
+        {
+            method: 'PUT',
+            body: JSON.stringify({
+                text: chosenBookTextInputRef.current.value,
+                pageId: pageId,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+         })
+        .then(response => {
+            if(response.ok){
+              console.log("200 OK");
+                return response.json();
+            }
+            else{
+                return response.json().then((data)=>
+                {
+                    let errorMessage ="אירעה שגיאה בפנייה לשרת";
+                     if(data && data.error && data.error.message){ 
+                     errorMessage = data.error.message; 
+                     }
+                     throw new Error(errorMessage);
+                });
+            }
+        }).then((data) => { 
+          // setBookPages(data.pages);
+        })
+        .catch((err)=>{
+            alert(err.message);
+        });
           }
 
     return(

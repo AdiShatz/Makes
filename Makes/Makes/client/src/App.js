@@ -124,8 +124,6 @@ import AdminPage from "./components/AdminPage/AdminPage";
                     });
                 }
             }).then((data) => { 
-              console.log("gallery data");
-              console.log(data);
               setGalleryBookCovers(data);
         });
 

@@ -41,9 +41,6 @@ const BookPage = (props) => {
       // Sent http put request:
       let url = "http://localhost:8080/customBooks/editBook/" + localStorage.getItem("bookId");
 
-      console.log("url:");
-      console.log(url);
-
         fetch(url,
         {
             method: 'PUT',

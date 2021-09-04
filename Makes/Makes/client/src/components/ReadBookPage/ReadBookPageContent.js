@@ -23,8 +23,6 @@ const ReadBookPageContent = (props) => {
     }
 
     const nextPageHandler = (event) =>{
-        console.log("book id in readbookcont:");
-      console.log(props.bookId);
 
         if(currPage.nextPageId[0] != null){
             if(currPage.turningPointExist && turningPointValue==='right'){

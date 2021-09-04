@@ -6,10 +6,12 @@ import com.makes.makes.service.BookCoverService;
 import com.makes.makes.service.BookTemplateService;
 import com.makes.makes.service.CustomBookService;
 import net.minidev.json.JSONObject;
+import org.bson.BSONObject;
+import org.bson.BsonBinary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-
+import java.lang.Object;
 import org.json.*;
 
 import java.util.*;
@@ -66,22 +68,16 @@ public class CustomBookController {
     }
 
     @PutMapping("/editBook/{bookId}")
-    public void editBook(@PathVariable String bookId,@RequestBody JSONObject data )
+    public CustomBook editBook(@PathVariable String bookId,@RequestBody JSONObject data)
     {
-        String text = data.getAsString("text");
-        UUID pageId = (UUID)data.get("pageId");
+       String text = data.getAsString("text");
+       UUID pageId = UUID.fromString(data.getAsString("pageId"));
         CustomBook userBook = customBookService.findUserBook(bookId);
         userBook.editPageById(pageId,text);
         customBookService.saveBook(userBook);
+        return userBook;
     }
 
-
-//    @PutMapping("/editBook/{bookId}")
-//    public void editBook(@PathVariable String bookId/*??*/ ,@RequestBody CustomBook editedBook)
-//    {
-//        editedBook.setId(bookId);//???
-//        customBookService.saveBook(editedBook);
-//    }
 
     @GetMapping("/readUserBook/{bookId}")
     public CustomBook readUserBook(@PathVariable String bookId )

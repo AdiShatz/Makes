@@ -77,7 +77,7 @@ public class CustomBook {
     {
         for (Page page:pages)
         {
-            if (page.getId().equals(pageId.toString()))
+            if (page.getId().equals(pageId))
             {
                 page.setText(text);
                 break;

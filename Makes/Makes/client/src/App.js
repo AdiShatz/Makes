@@ -10,6 +10,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
 
     const [page, setPage] = useState("mainPage");
     const [bookPages, setBookPages] = useState([]);
+    const [startingBookPageId, setStartingBookPageId] = useState(null);
     const [galleryBookCovers, setGalleryBookCovers] = useState([]);
     const [bookName, setBookName] = useState();
 
@@ -43,7 +44,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 }
             }).then((data) => { 
               setBookPages(data.pages);
-
+              setStartingBookPageId(data.pages[0].id);
               localStorage.setItem("bookId", data.id);
             });
 
@@ -83,12 +84,12 @@ import AdminPage from "./components/AdminPage/AdminPage";
                 }
             }).then((data) => { 
               setBookPages(data.pages);
+              setStartingBookPageId(data.pages[0].id);
               localStorage.setItem("bookId", data.id);
 
             }).catch((err)=>{
                 alert(err.message);
                 setPage("createBookPage");
-                
             });
 
         setPage("readBookPage");
@@ -157,8 +158,9 @@ import AdminPage from "./components/AdminPage/AdminPage";
           })
       };
 
-      const updateBookHandler = (pages) =>{
+      const updateBookHandler = (pages, startingBookPageId) =>{
         setBookPages(pages);
+        setStartingBookPageId(startingBookPageId);
       }
 
     
@@ -177,6 +179,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
             onCreateBook={createBookClickedHandler}/>} 
 
             {page === 'readBookPage' && <ReadBookPage bookPages={bookPages}
+            startingBookPageId = {startingBookPageId}
              bookName={bookName===""?localStorage.getItem("bookName"):bookName}
              onBackToMainMenuButtonClicked={backButtonClickedHandler}
              onGalleryClicked={myGalleryHandler}

@@ -64,7 +64,7 @@ const BookPage = (props) => {
                 });
             }
         }).then((data) => { 
-          props.onUpdateBook(data.pages);
+          props.onUpdateBook(data.pages, pageId);
         })
         .catch((err)=>{
             alert(err.message);

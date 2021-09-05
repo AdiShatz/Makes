@@ -13,8 +13,9 @@ const ReadBookPage = (props) => {
             </Header>
             <div style={{height: "100px"}}></div>
             <ReadBookPageContent 
-            bookPages={props.bookPages}
-            onUpdateBook= {props.onUpdateBook}/>
+            bookPages = {props.bookPages}
+            startingBookPageId = {props.startingBookPageId}
+            onUpdateBook = {props.onUpdateBook}/>
             <Footer>
                 <Button onClick={props.onBackToMainMenuButtonClicked}>דף הבית</Button>
                 <Button type="button" onClick={props.onGalleryClicked}>הגלריה שלי</Button>

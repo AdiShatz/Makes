@@ -8,12 +8,14 @@ let turningPointValue = 'left';
 const ReadBookPageContent = (props) => {
 
     const [currPage, setCurrPage] = useState(null);
-
     const [isEditMode, setIsEditMode] = useState(false);
 
     useEffect(
         () => {
-            setCurrPage(props.bookPages[0]);
+            // setCurrPage(props.bookPages[0]);
+            setCurrPage(props.bookPages[props.bookPages.findIndex(
+                (page) => page.id === props.startingBookPageId)]
+        );
         },[props]
     )
    

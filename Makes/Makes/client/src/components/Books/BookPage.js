@@ -90,8 +90,8 @@ const BookPage = (props) => {
 
               {turningPointExist && <TurningPoint data={turningPoint} onTurningPointChosen={props.onTurningPointChosen}/>}
               <br/>
-             {!props.isEditMode && <button onClick={handleEdit}>ערוך</button>}
-             {props.isEditMode && <button onClick={handleSave}>שמור</button>}
+             {!props.isEditMode && <button className="edit-save-buttons" onClick={handleEdit}>ערוך</button>}
+             {props.isEditMode && <button  className="edit-save-buttons" onClick={handleSave}>שמור</button>}
         </div>
 
       </div>

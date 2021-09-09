@@ -1,0 +1,149 @@
+----------BookCover-----------
+{
+    _id: ObjectId('613a75b76992f84dfbaaa3ac'),
+    templateName: 'זהבה ושלושת הדובים',
+    coverPhoto: 'zehava/page9.JPG',
+    owner: 'Admin',
+    _class: 'com.makes.makes.model.BookCover'
+}
+------------BookTemplate--------
+{
+    _id: ObjectId('613a75b86992f84dfbaaa3ad'),
+    name: 'זהבה ושלושת הדובים',
+    pages: [
+        {
+            _id: BinData(3, 'NEXU6LJC9MSR060Og8jwmg=='),
+            pageNum: 1,
+            text: 'פעם הייתה ילדה קטנה בשם <שם> שיצאה לטייל ביער.\nבאמצע היער <שם> נתקלה בבקתה קטנה, היא דפקה בדלת וכשאיש לא ענה היא החליטה להיכנס פנימה.\n',
+            background: 'zehava/page1.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'Wkm4/GhgjT94k2ETkh8zlA=='),
+                null
+            ]
+        },
+        {
+            _id: BinData(3, 'Wkm4/GhgjT94k2ETkh8zlA=='),
+            pageNum: 2,
+            text: 'ליד השולחן במטבח היו שלוש מנות <אוכל>. <שם> הייתה רעבה. היא טעמה את ה<אוכל> מהמנה הראשונה.',
+            background: 'zehava/page2.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'Gk5bN3Ba7Axnlu5cEqK7jQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'NEXU6LJC9MSR060Og8jwmg==')
+        },
+        {
+            _id: BinData(3, 'Gk5bN3Ba7Axnlu5cEqK7jQ=='),
+            pageNum: 3,
+            text: '"ה<אוכל> הזו חמה מדי!" קראה.\n<שם> טעמה את ה<אוכל> מהמנה השנייה.\n"ה<אוכל> הזו קרה מדי," אמרה.\nטעמה את מנת ה<אוכל> האחרונה.\n"אההה, ה<אוכל> הזו מצויינת" אמרה בשמחה ואכלה את הכל.\n',
+            background: 'zehava/page3.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'bE1EmDHb7xtpYXwjpay+gg=='),
+                null
+            ],
+            prevPageId: BinData(3, 'Wkm4/GhgjT94k2ETkh8zlA==')
+        },
+        {
+            _id: BinData(3, 'bE1EmDHb7xtpYXwjpay+gg=='),
+            pageNum: 4,
+            text: 'לאחר שאכלה את ארוחות הבוקר של שלושת הדובים, <שם> הייתה קצת עייפה, היא נכנסה לסלון ושם ראתה שלושה כיסאות. <שם> ישבה בכיסא הראשון לנוח מעט.\n"הכיסא הזה גדול מדי!" קראה.\nלכן ישבה בכיסא השני.\n"גם הכיסא הזה גדול מדי!" יבבה.\nניסתה את הכיסא האחרון והקטן ביותר.\n"אההה, הכיסא הזה בדיוק בשבילי" היא נאנחה. אבל בדיוק כשהיא התיישבה בכיסא לנוח, הוא נשבר לרסיסים!\n',
+            background: 'zehava/page4.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'xE2noWXPXlluDHhcCb77nQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'Gk5bN3Ba7Axnlu5cEqK7jQ==')
+        },
+        {
+            _id: BinData(3, 'xE2noWXPXlluDHhcCb77nQ=='),
+            pageNum: 5,
+            text: '<שם> הייתה עייפה מאוד בשלב זה ולכן עלתה למעלה לחדר השינה. היא נשכבה במיטה הראשונה אבל היא הייתה קשה מדי, שכבה במיטה השנייה, אבל היא הייתה רכה מדי. לבסוף נשכבה במיטה השלישית שהייתה נוחה מאוד ולכן נרדמה מהר מאוד.',
+            background: 'zehava/page5.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'sEUQT0hJLtpgZ9RnV4OHqA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'bE1EmDHb7xtpYXwjpay+gg==')
+        },
+        {
+            _id: BinData(3, 'sEUQT0hJLtpgZ9RnV4OHqA=='),
+            pageNum: 6,
+            text: 'בזמן שהיא ישנה שלושת הדובים חזרו הביתה.\n"מישהו אכל מה<אוכל> שלי," נהם דוב אבא.\n"מישהו אכל מה<אוכל> שלי," אמרה דובה אמא.\n"מישהו אכל את ה<אוכל> שלי והוא אכל הכל!" קרא הדוב הקטן.\n',
+            background: 'zehava/page6.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'lUmImsfOuXWDie/TaeWamA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'xE2noWXPXlluDHhcCb77nQ==')
+        },
+        {
+            _id: BinData(3, 'lUmImsfOuXWDie/TaeWamA=='),
+            pageNum: 7,
+            text: '"מישהו ישב על הכיסא שלי," נהם דוב אבא.\n"מישהו ישב בכיסא שלי," אמרה דובה אמא.\n"מישהו ישב בכיסא שלי ושבר אותו לרסיסים," צעק הדוב הקטן.\n',
+            background: 'zehava/page7.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'z0LNfLSRD696aSfEBas8ow=='),
+                null
+            ],
+            prevPageId: BinData(3, 'sEUQT0hJLtpgZ9RnV4OHqA==')
+        },
+        {
+            _id: BinData(3, 'z0LNfLSRD696aSfEBas8ow=='),
+            pageNum: 8,
+            text: 'כשהם עלו לחדר השינה, דוב אבא נהם,\n"מישהו ישן במיטה שלי."\n"גם מישהו ישן במיטה שלי" אמרה דובה אמא.\n',
+            background: 'zehava/page8.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'SkyvBR9+6gjiUF7zWdiJqQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'lUmImsfOuXWDie/TaeWamA==')
+        },
+        {
+            _id: BinData(3, 'SkyvBR9+6gjiUF7zWdiJqQ=='),
+            pageNum: 9,
+            text: '"מישהו ישן במיטה שלי והיא עדיין שם!" קרא הדוב הקטן.\nבדיוק אז התעוררה <שם>. היא ראתה את שלושת הדובים וצרחה, "הצילו!" וקפצה מייד החוצה, <שם> רצה במורד המדרגות, פתחה את הדלת וברחה אל היער. היא מעולם לא חזרה לביתם של שלושת הדובים.\n',
+            background: 'zehava/page9.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                null,
+                null
+            ],
+            prevPageId: BinData(3, 'z0LNfLSRD696aSfEBas8ow==')
+        }
+    ],
+    questions: [
+        {
+            _id: '89aa1f00-7a9f-4e20-bfdf-82b1d4883d86',
+            answerType: 'input',
+            label: 'מה שם הילדה?',
+            labelInText: 'שם'
+        },
+        {
+            _id: '72d45bcb-c151-4fe1-93c6-f9c965db11e7',
+            answerType: 'combo',
+            label: 'מה תאכל הילדה?',
+            answerOptions: [
+                'דייסה',
+                'פשטידה',
+                'קדירה',
+                'עוגה'
+            ],
+            labelInText: 'אוכל'
+        }
+    ],
+    owner: 'Admin',
+    bookCoverId: '613a75b76992f84dfbaaa3ac',
+    defaultLabelsInText: {
+        'שם': 'זהבה',
+        'אוכל': 'דייסה'
+    },
+    _class: 'com.makes.makes.model.BookTemplate'
+}

@@ -1,0 +1,140 @@
+------------BookCover-----------
+{
+    _id: ObjectId('613a82b8333bd43d1d812cbe'),
+    templateName: 'בת הים הקטנה',
+    coverPhoto: 'little mermaid/main.JPG',
+    owner: 'Admin',
+    _class: 'com.makes.makes.model.BookCover'
+}
+
+-----------BookTemplate-----------
+{
+    _id: ObjectId('613a82b8333bd43d1d812cbf'),
+    name: 'בת הים הקטנה',
+    pages: [
+        {
+            _id: BinData(3, '+kZQlC9NC6agxugdXrvQgw=='),
+            pageNum: 1,
+            text: 'למלך הים היו 6 בנות, בת הים הקטנה  \nהייתה הצעירה והיפה ביותר. \nשעות אחרי שעות אהבה להקשיב לסיפורי סבתה. \n',
+            background: 'little mermaid/page1.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'zkI1r5dm6sa7rykZBPaxhg=='),
+                null
+            ]
+        },
+        {
+            _id: BinData(3, 'zkI1r5dm6sa7rykZBPaxhg=='),
+            pageNum: 2,
+            text: 'הנסיכה הקטנה רצתה כל כך \nלעלות לפני המים וסבתה אמרה לה \nשרק בהגעה לגיל 15 תורשה לעלות לפני המים. \n',
+            background: 'little mermaid/page2.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'iktuFhvwpGqz08VTlAL3tg=='),
+                null
+            ],
+            prevPageId: BinData(3, '+kZQlC9NC6agxugdXrvQgw==')
+        },
+        {
+            _id: BinData(3, 'iktuFhvwpGqz08VTlAL3tg=='),
+            pageNum: 3,
+            text: 'כאשר היא הגיעה לגיל 15 \nעלתה לפני המים וראתה ספינת \nמפרשים יפה.\n',
+            background: 'little mermaid/page3.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'N0fJviwUWciXZ/AhTJsAhw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'zkI1r5dm6sa7rykZBPaxhg==')
+        },
+        {
+            _id: BinData(3, 'N0fJviwUWciXZ/AhTJsAhw=='),
+            pageNum: 4,
+            text: 'המלחים שרו, רקדו וחגגו על סיפון האונייה. \nוכשבת הים התקרבה ראתה הרבה גברים אבל רק אחד מצא חן בעיניה. \n',
+            background: 'little mermaid/page4.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'r0mX+Z2zNtnpGRg9YAyTvw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'iktuFhvwpGqz08VTlAL3tg==')
+        },
+        {
+            _id: BinData(3, 'r0mX+Z2zNtnpGRg9YAyTvw=='),
+            pageNum: 5,
+            text: 'לפתע פרצה סערה. \nהספינה התנדנדה והנסיך שהיא  אהבה \nנפל למים ובת הים הקטנה הצילה אותו.\n',
+            background: 'little mermaid/page5.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'iExrMzShl1oU0k8Chu09rA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'N0fJviwUWciXZ/AhTJsAhw==')
+        },
+        {
+            _id: BinData(3, 'iExrMzShl1oU0k8Chu09rA=='),
+            pageNum: 6,
+            text: 'בת הים הקטנה הצליחה להביא\nאת הנסיך לחוף והמתינה עד שמישהו יבוא.\n      לאחר מכן שבה וצללה למעמקי הים. \n',
+            background: 'little mermaid/page6.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'EU42Y+0EnwCEHa3drd5qjA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'r0mX+Z2zNtnpGRg9YAyTvw==')
+        },
+        {
+            _id: BinData(3, 'EU42Y+0EnwCEHa3drd5qjA=='),
+            pageNum: 7,
+            text: 'עברו ימים והמלך עשה נשף בחצרו. \nבת הים שרה בגלל שהיה לה קול מהמם. \nאבל עדיין חשבה על הנסיך  \n',
+            background: 'little mermaid/page7.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'sUYO2dJPKcY9AHfcor98qA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'iExrMzShl1oU0k8Chu09rA==')
+        },
+        {
+            _id: BinData(3, 'sUYO2dJPKcY9AHfcor98qA=='),
+            pageNum: 8,
+            text: 'היא החליטה לגרום לנסיך להתאהב בה,\nוהיא הלכה למכשפת הים \nוביקשה ממנה שתהפוך אותה לבת אדם.\n',
+            background: 'little mermaid/page8.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'Yk4MGGWsn5iWEfWZR19qhQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'EU42Y+0EnwCEHa3drd5qjA==')
+        },
+        {
+            _id: BinData(3, 'Yk4MGGWsn5iWEfWZR19qhQ=='),
+            pageNum: 9,
+            text: 'המכשפה הפכה אותה לבת אדם\nוביקשה בתמורה את קולה היפה .\nבת הים הסכימה לתנאי של המכשפה .\nהיא שחתה במהירות לחוף\nופגשה בנסיך יפה התואר.\n',
+            background: 'little mermaid/page9.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, '7ktcvvFdyBcyU6KRW9xbng=='),
+                null
+            ],
+            prevPageId: BinData(3, 'sUYO2dJPKcY9AHfcor98qA==')
+        },
+        {
+            _id: BinData(3, '7ktcvvFdyBcyU6KRW9xbng=='),
+            pageNum: 10,
+            text: 'הנסיך נזכר שהיא זאת שהצילה אותו\nוהחליט לקחת אותה לארמונו.\nהנסיך התאהב בבת הים וביקש את ידה.\nלמרבה המזל שב קולה היפה של בת הים הקטנה והם חיו באושר ועושר עד עצם היום הזה.\n',
+            background: 'little mermaid/page10.jpg',
+            turningPointExist: false,
+            nextPageId: [
+                null,
+                null
+            ],
+            prevPageId: BinData(3, 'Yk4MGGWsn5iWEfWZR19qhQ==')
+        }
+    ],
+    questions: [],
+    owner: 'Admin',
+    bookCoverId: '613a82b8333bd43d1d812cbe',
+    defaultLabelsInText: {},
+    _class: 'com.makes.makes.model.BookTemplate'
+}

@@ -1,0 +1,295 @@
+----------BookCover==========
+{
+    _id: ObjectId('613dade7f9256a4553cd369d'),
+    templateName: 'שלושה חזירונים',
+    coverPhoto: 'three little piggies/main.JPG',
+    owner: 'Admin',
+    _class: 'com.makes.makes.model.BookCover'
+}
+----------BookTemplate------------
+{
+    _id: ObjectId('613dade7f9256a4553cd369e'),
+    name: 'שלושה חזירונים',
+    pages: [
+        {
+            _id: BinData(3, '4kfeo8fyF6seiKidYfgbmQ=='),
+            pageNum: 1,
+            text: 'רחוק מכאן, בארץ החיות המדברות, חיו שלושה חזירונים יתומים, ברוני, פינקי ומאקס.',
+            background: 'three little piggies/page1.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'bE+FyZsuw3arZLcWqWq+og=='),
+                null
+            ]
+        },
+        {
+            _id: BinData(3, 'bE+FyZsuw3arZLcWqWq+og=='),
+            pageNum: 2,
+            text: 'הצעיר ביותר היה ברוני, חזירון בצבע בוץ, שהיה טיפשון והתגלגל בשלוליות כל הימים.\nבבית היתומים תמיד נזפו בו, כי שיחק במקום לעזור לאחרים\n',
+            background: 'three little piggies/page2.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'TENgsNYahcaZfT/K1ipksQ=='),
+                null
+            ],
+            prevPageId: BinData(3, '4kfeo8fyF6seiKidYfgbmQ==')
+        },
+        {
+            _id: BinData(3, 'TENgsNYahcaZfT/K1ipksQ=='),
+            pageNum: 3,
+            text: 'האמצעית הייתה חזירונת פינקי,\nוורודה ושמנמונת, שאהבה רק\nלאכול. בבית היתומים תמיד נזפו בה כי אכלה יותר מדי ולא התחלקה עם אחרים.\n',
+            background: 'three little piggies/page3.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'aEtBghc0RfcqwtWVSgXMqw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'bE+FyZsuw3arZLcWqWq+og==')
+        },
+        {
+            _id: BinData(3, 'aEtBghc0RfcqwtWVSgXMqw=='),
+            pageNum: 4,
+            text: 'הבכור היה מאקס, חזיר שקט ונבון\nמה שהוטל עליו, _ שתמיד ביצע בזמן את מה שהוטל עליו, ואף עזר לחזירים אחרים אחרים כשרק יכול היה. \nבבית היתומים שיבחו אותו תמיד, כי היה חכם וטוב לב.\n',
+            background: 'three little piggies/page4.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'lkpkgY1jPkb8JVUWoeYUjQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'TENgsNYahcaZfT/K1ipksQ==')
+        },
+        {
+            _id: BinData(3, 'lkpkgY1jPkb8JVUWoeYUjQ=='),
+            pageNum: 5,
+            text: 'יום אחד, אם בית היתומים הודיעה לברוני, פינקי ומקס שהם כבר גדולים מידי כדי לחיות בבית היתומים.',
+            background: 'three little piggies/page5.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, '4UCQnMGCO5irO/7B3p/Bqw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'aEtBghc0RfcqwtWVSgXMqw==')
+        },
+        {
+            _id: BinData(3, '4UCQnMGCO5irO/7B3p/Bqw=='),
+            pageNum: 6,
+            text: '"יש לי תוכנית" אמר מאקס "הבה\nונבנה בית לשלושתנו" והוא הוציא\nיכולי _ ה   תוכניות והסביר איך הם יכולים בעבודה קשה לבנות מלבנים בית, שיהיה קריר בקיץ, חמים בחורף וגם ישמור עליהם מהזאב הרשע.\n',
+            background: 'three little piggies/page6.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 's0wCBULLlY0t28YaV5zvnw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'lkpkgY1jPkb8JVUWoeYUjQ==')
+        },
+        {
+            _id: BinData(3, 's0wCBULLlY0t28YaV5zvnw=='),
+            pageNum: 7,
+            text: '"זו עבודה רבה" נהר ברוני.\n"אני לא אוהבת בית משותף יללה פינקי "מוטב שכל אחד יבנה בית\nלעצמו."\n',
+            background: 'three little piggies/page7.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'qEe4+1H04IITQMh/m905vA=='),
+                null
+            ],
+            prevPageId: BinData(3, '4UCQnMGCO5irO/7B3p/Bqw==')
+        },
+        {
+            _id: BinData(3, 'qEe4+1H04IITQMh/m905vA=='),
+            pageNum: 8,
+            text: 'מאקס נע בעצב בראשו כשאחיו\nואחותו הלכו לבנות בתים לעצמם. הוא גלגל את התוכניות שלו ויצא\nלחפש מקום מתאים לבניית בית לבנים לעצמו. \n',
+            background: 'three little piggies/page8.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'okiOQx8tm33DfvzdsDKYsQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 's0wCBULLlY0t28YaV5zvnw==')
+        },
+        {
+            _id: BinData(3, 'okiOQx8tm33DfvzdsDKYsQ=='),
+            pageNum: 9,
+            text: 'ברוני היה הראשון שהתחיל לבנות.\n"הדבר הקל ביותר יהיה לבנות בית\nמבוץ וקש חשב, ותוך זמן קצר בנה לו בית כזה. "מספיק עבדתי"\nהחליט כשגמר "עכשיו אשחק!"\n',
+            background: 'three little piggies/page9.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'IkRDPu+DZSGIRpiONIXmqg=='),
+                null
+            ],
+            prevPageId: BinData(3, 'qEe4+1H04IITQMh/m905vA==')
+        },
+        {
+            _id: BinData(3, 'IkRDPu+DZSGIRpiONIXmqg=='),
+            pageNum: 10,
+            text: 'אחריו בנתה את ביתה פינקי. "אבנה\nאת ביתי ממקלות עץ" החליטה, כי\nידעה שתוכל לסיים את עבודת הבניה עוד לפני ארוחת צהריים, "עבדתי מספיק" אמרה כשגמרה "עכשיו אוכלים!"\n',
+            background: 'three little piggies/page10.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, '3UllyInnEdJXsAA5Lj2wtQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'okiOQx8tm33DfvzdsDKYsQ==')
+        },
+        {
+            _id: BinData(3, '3UllyInnEdJXsAA5Lj2wtQ=='),
+            pageNum: 11,
+            text: 'מאקס חיפש זמן רב מקום מתאים לבניית הבית שלו. הוא מדד\nבדייקנות ובנה לפי התוכנית. כשסיים, הבית שלו היה חם בחורף וקריר בקיץ, ובעיקר הגן בפני הזאב הרשע.\n',
+            background: 'three little piggies/page12.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'w0MjwfqNN++l20+4smbZkA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'IkRDPu+DZSGIRpiONIXmqg==')
+        },
+        {
+            _id: BinData(3, 'w0MjwfqNN++l20+4smbZkA=='),
+            pageNum: 12,
+            text: 'מישהו דפק בדלת ביתו של ברוני.\n"חזיר טיפש, חזיר טיפש, תן לי להיכנס!" קרא הזאב הרשע.\nלא!" צעק ברוני ונעל היטב את הדלת.\n"אז אנשוף ואפיח ואעיף את הבית שלך" צחק הזאב הרשע. \n',
+            background: 'three little piggies/page12.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'xE7oQDYHniu3XjddtGLjjA=='),
+                null
+            ],
+            prevPageId: BinData(3, '3UllyInnEdJXsAA5Lj2wtQ==')
+        },
+        {
+            _id: BinData(3, 'xE7oQDYHniu3XjddtGLjjA=='),
+            pageNum: 13,
+            text: 'וכך היה. בנשיפה אחת העיף הזאב הרשע את קירות הקש, ורק רגע\nלפני שהתנפל על ברוני, זה ברח,\nמהר כמה שרק יכול היה, לביתה של\nפינקי.\n',
+            background: 'three little piggies/page13.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'LUOoCALevox0/vFZWi4+kw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'w0MjwfqNN++l20+4smbZkA==')
+        },
+        {
+            _id: BinData(3, 'LUOoCALevox0/vFZWi4+kw=='),
+            pageNum: 14,
+            text: 'פינקי הסכימה שיכנס רק בתנאי\nאחד "שלא תעז לגעת באוכל שלי!"\nאמרה. ברוני הסכים אבל אז הם שמעו דפיקה בדלת.\n',
+            background: 'three little piggies/page14.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'oEbTjhUj59r4L1YQ4VwZig=='),
+                null
+            ],
+            prevPageId: BinData(3, 'xE7oQDYHniu3XjddtGLjjA==')
+        },
+        {
+            _id: BinData(3, 'oEbTjhUj59r4L1YQ4VwZig=='),
+            pageNum: 15,
+            text: '"חזירה חמדנית, חזירה חמדנית,\nתני לי להיכנס!" קרא הזאב הרשע. "בשום אופן לא!" צעקה פינקי ונעלה \nהיטב את הדלת.\n"אז אנשוף ואפיח ואעיף את הבית שלך" חייך הזאב הרשע.\n',
+            background: 'three little piggies/page15.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'WUpupaRYwT3i1r+0XaB9hQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'LUOoCALevox0/vFZWi4+kw==')
+        },
+        {
+            _id: BinData(3, 'WUpupaRYwT3i1r+0XaB9hQ=='),
+            pageNum: 16,
+            text: 'ואכן, לא לקח זמן רב והוא פתח\nבנשיפה חור בקיר, גדול מספיק כדי\nשיוכל להיכנס. ורק רגע לפני שהזאב\nהרשע הצליח לתפוש אותם, ברחו\nשני החזירים מהר אל ביתו של מאקס.\n',
+            background: 'three little piggies/page16.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'TEBWBLw1MqIJkmRZeAqhrw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'oEbTjhUj59r4L1YQ4VwZig==')
+        },
+        {
+            _id: BinData(3, 'TEBWBLw1MqIJkmRZeAqhrw=='),
+            pageNum: 17,
+            text: 'מאקס נתן לאחיו ולאחותו להיכנס.\nברוני התחיל מיד להתגלגל על\nהרצפה וללכלך אותה ופינקי\nהתחילה לחפש אוכל. אבל מאקס\nעמד וחיכה לדפיקה בדלת.\n',
+            background: 'three little piggies/page17.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'M00/2Sc3NxLoXNlurjd6nA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'WUpupaRYwT3i1r+0XaB9hQ==')
+        },
+        {
+            _id: BinData(3, 'M00/2Sc3NxLoXNlurjd6nA=='),
+            pageNum: 18,
+            text: 'וזו אכן באה. " שלושה חזירים, שלושה חזירים, תנו לי להיכנס" קרא הזאב הרשע.\n"תכף ומיד" ענה לו מאקס. ברוני\nופינקי נבהלו. האם מאקס ייתן לזאב הרשע לטרוף אותם כי הם מלוכלכים וחמדנים?\n',
+            background: 'three little piggies/page18.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'GkKw8VryOcETLxQ9zTcRmQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'TEBWBLw1MqIJkmRZeAqhrw==')
+        },
+        {
+            _id: BinData(3, 'GkKw8VryOcETLxQ9zTcRmQ=='),
+            pageNum: 19,
+            text: '"פתח מיד, כי אחרת אעיף את כל ביתך"צעק הזאב הרשע כשהוא   \nממתין לפני הדלת.\n"הדלת נתקעה" אמר מאקס "אם\nתרצה לאכול אותנו תאלץ להיכנס דרך\nהארובה."\nהזאב הרשע ליקק את שפתיו\nוהתחיל לטפס על הגג.\n',
+            background: 'three little piggies/page19.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'I0UZlINcP3ztq9xLM7GFmQ=='),
+                null
+            ],
+            prevPageId: BinData(3, 'M00/2Sc3NxLoXNlurjd6nA==')
+        },
+        {
+            _id: BinData(3, 'I0UZlINcP3ztq9xLM7GFmQ=='),
+            pageNum: 20,
+            text: '"שמעו-נא" אמר מאקס "עכשיו עליכם\nלעזור לי, אחרת הוא יאכל את כולנו."\nברוני ופינקי התחילו להשמע לו.\nפינקי ברוני מילא קומקום במים,\nהדליקה אש באח ומאקס שם את\nהקומקום מעל האש.\n',
+            background: 'three little piggies/page20.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'VkKh24Ya1JRfiNdkfhINsw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'GkKw8VryOcETLxQ9zTcRmQ==')
+        },
+        {
+            _id: BinData(3, 'VkKh24Ya1JRfiNdkfhINsw=='),
+            pageNum: 21,
+            text: 'כשהזאב הרשע הגיע עד הארובה\nהוא חייך. אבל כשירד בתוך הארובה\nוהרגיש באדים החמים היוצאים\nמהקומקום צרח "אאא..!" הוא עלה\nמהר חזרה בארובה, ברח ולא ראו\nאותו יותר בסביבה.\n',
+            background: 'three little piggies/page21.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'SE3tvQlzLWOaS0HFy3tPgw=='),
+                null
+            ],
+            prevPageId: BinData(3, 'I0UZlINcP3ztq9xLM7GFmQ==')
+        },
+        {
+            _id: BinData(3, 'SE3tvQlzLWOaS0HFy3tPgw=='),
+            pageNum: 22,
+            text: 'אחרי שהזאב הסתלק, מאקס נפרד\nמהאחים שלו. "ברצון הייתי מזמין אתכם לארוחה אבל אז הייתם צריכים לעזור לי להכין אותה ולהתחלק בה יפה.. וגם לנקות אחרי כן.. ו.."\n',
+            background: 'three little piggies/page22.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                BinData(3, 'xk8cMRcKIaY+wm8eDjNjmA=='),
+                null
+            ],
+            prevPageId: BinData(3, 'VkKh24Ya1JRfiNdkfhINsw==')
+        },
+        {
+            _id: BinData(3, 'xk8cMRcKIaY+wm8eDjNjmA=='),
+            pageNum: 23,
+            text: '"מסכימים!" קראו ברוני ופינקי. ומאותו היום שלושת החזירים חיו ביחד, נקיים, מתחלקים ביניהם ובטוחים בבית שלהם העשוי לבנים.',
+            background: 'three little piggies/page23.JPG',
+            turningPointExist: false,
+            nextPageId: [
+                null,
+                null
+            ],
+            prevPageId: BinData(3, 'SE3tvQlzLWOaS0HFy3tPgw==')
+        }
+    ],
+    questions: [],
+    owner: 'Admin',
+    bookCoverId: '613dade7f9256a4553cd369d',
+    defaultLabelsInText: {},
+    _class: 'com.makes.makes.model.BookTemplate'
+}

@@ -18,8 +18,25 @@ const BooksList = (props) => {
         <div className='books-list'>
           {bookCovers.length===0 && 
           <div>
-            <h2>!הגלרייה ריקה</h2>
-          <p>אופס.. ניראה שעדיין לא שמרת סיפור בגלרייה,
+            <h1>!הגלרייה ריקה</h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          <p className="par">אופס.. ניראה שעדיין לא שמרת סיפור בגלרייה,
            חזור לדף הראשי, וצור סיפור מותאם אישית </p>
           </div>}
           {bookCovers && bookCovers.map((book) => (

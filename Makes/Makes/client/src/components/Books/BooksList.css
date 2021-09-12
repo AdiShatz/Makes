@@ -10,3 +10,8 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+  .par{
+    text-align: right;
+    font-size: 21px;
+  }

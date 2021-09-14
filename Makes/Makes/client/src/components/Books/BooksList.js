@@ -20,22 +20,6 @@ const BooksList = (props) => {
           <div>
             <h1>!הגלרייה ריקה</h1>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
           <p className="par">אופס.. ניראה שעדיין לא שמרת סיפור בגלרייה,
            חזור לדף הראשי, וצור סיפור מותאם אישית </p>
           </div>}
